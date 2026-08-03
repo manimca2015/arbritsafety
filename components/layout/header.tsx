@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, Phone } from "lucide-react";
 import {
   NavigationMenu,
@@ -17,6 +18,8 @@ import { Button } from "@/components/ui/button";
 import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
 
 export function Header() {
+  const pathname = usePathname();
+  const isHomepage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -41,13 +44,14 @@ export function Header() {
     return () => window.removeEventListener("resize", setHeaderHeight);
   }, []);
 
-  const linkColor = scrolled ? "text-navy" : "text-white";
+  const isTransparent = isHomepage && !scrolled;
+  const linkColor = isTransparent ? "text-white" : "text-navy";
 
   return (
     <header
       ref={headerRef}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-surface/90 shadow-sm backdrop-blur" : "bg-transparent"
+        isTransparent ? "bg-transparent" : "bg-surface/90 shadow-sm backdrop-blur"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
@@ -147,7 +151,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className={`lg:hidden ${scrolled ? "" : "text-white hover:bg-white/10 hover:text-white"}`}
+              className={`lg:hidden ${isTransparent ? "text-white hover:bg-white/10 hover:text-white" : ""}`}
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
