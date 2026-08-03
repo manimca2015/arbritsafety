@@ -251,6 +251,27 @@ export const testimonials: Testimonial[] = [
       "Arbrit Training & Safety Consultancy provides top-notch training with expert instructors and excellent coordination from start to finish.",
     rating: 5,
   },
+  {
+    name: "Fatima Al Suwaidi",
+    role: "HSE Officer",
+    quote:
+      "The scaffolding course was well structured and practical. Trainers explained every step clearly and answered all our questions patiently.",
+    rating: 5,
+  },
+  {
+    name: "Ravi Kumar",
+    role: "Site Supervisor",
+    quote:
+      "Booked a group of our site team for the confined space training. Scheduling was flexible and the trainers adapted the pace to the group well.",
+    rating: 4,
+  },
+  {
+    name: "Omar Sheikh",
+    role: "Project Manager",
+    quote:
+      "Arranged corporate training for our project staff across multiple courses. Communication was smooth and certificates arrived on time.",
+    rating: 5,
+  },
 ];
 
 export const blogPosts: BlogPost[] = [
