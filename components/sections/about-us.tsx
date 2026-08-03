@@ -6,7 +6,7 @@ const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
 
 export function AboutUs() {
   return (
-    <section className="w-full">
+    <section className="w-full bg-navy">
       <div className="grid lg:grid-cols-2 lg:items-center">
         <div className="flex flex-col justify-center bg-navy px-6 py-12 sm:px-12 md:py-16 lg:px-16">
           <div className="mx-auto max-w-xl lg:mx-0">
