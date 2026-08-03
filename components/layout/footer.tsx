@@ -96,7 +96,7 @@ export function Footer() {
                 aria-label="Email address"
                 required
               />
-              <Button type="submit" className="bg-orange text-white hover:bg-orange/90">
+              <Button type="submit" className="bg-white text-navy hover:bg-white/90">
                 Join
               </Button>
             </form>
