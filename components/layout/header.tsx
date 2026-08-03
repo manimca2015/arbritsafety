@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { navLinks, coursesMegaMenu, allCoursesLink, contactInfo } from "@/lib/data";
+import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -65,12 +65,6 @@ export function Header() {
               </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <div className="w-[min(920px,90vw)] p-6">
-                  <Link
-                    href={allCoursesLink.href}
-                    className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-orange hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                  >
-                    {allCoursesLink.label} →
-                  </Link>
                   <div className="grid max-h-[70vh] grid-cols-2 gap-x-6 gap-y-5 overflow-y-auto pr-2 lg:grid-cols-4">
                     {coursesMegaMenu.map((group, groupIndex) => (
                       <div key={groupIndex}>
@@ -141,12 +135,6 @@ export function Header() {
                 {navLinks[0]?.label}
               </Link>
               <div>
-                <Link
-                  href={allCoursesLink.href}
-                  className="mb-2 inline-block text-sm font-semibold text-orange hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                >
-                  {allCoursesLink.label} →
-                </Link>
                 {coursesMegaMenu.map((group, groupIndex) => (
                   <div key={groupIndex} className="mt-3">
                     {group.title && (

@@ -82,8 +82,6 @@ export const navLinks: NavLink[] = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-export const allCoursesLink: NavLink = { label: "All Courses", href: "/courses" };
-
 export const coursesMegaMenu: MegaMenuGroup[] = [
   {
     title: "",
