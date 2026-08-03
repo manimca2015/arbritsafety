@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
+
 export function AboutUs() {
   return (
     <section className="bg-muted py-20 md:py-28">
@@ -22,6 +24,16 @@ export function AboutUs() {
             knowledge and skills, reduce risks, create healthier and safer workplaces for
             everyone, and improve long-term business performance.
           </p>
+          <div className="mt-6 flex flex-wrap gap-2">
+            {credentials.map((credential) => (
+              <span
+                key={credential}
+                className="rounded-full border border-navy/10 bg-white px-4 py-1.5 text-xs font-semibold text-navy shadow-sm"
+              >
+                {credential}
+              </span>
+            ))}
+          </div>
           <Button asChild size="lg" className="mt-8 bg-orange text-white hover:bg-orange/90">
             <Link href="/about">About Us</Link>
           </Button>
