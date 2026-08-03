@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { footerQuickLinks, contactInfo, socialLinks } from "@/lib/data";
@@ -97,7 +97,7 @@ export function Footer() {
                 required
               />
               <Button type="submit" className="bg-white text-navy hover:bg-white/90">
-                Join
+                Join <Send className="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </form>
           </div>

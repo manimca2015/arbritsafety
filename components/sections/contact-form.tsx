@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { BookOpen, Mail, MapPin, MessageSquare, Phone, Tag, User } from "lucide-react";
+import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -136,7 +136,7 @@ export function ContactForm() {
         </div>
       </div>
       <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
-        Send Message
+        Send Message <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
       {submitted && (
         <p role="status" className="text-sm font-medium text-navy">
