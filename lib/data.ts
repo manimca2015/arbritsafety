@@ -6,10 +6,9 @@ import {
   ShieldCheck,
   Layers,
   Flame,
-  LifeBuoy,
-  Fuel,
-  HardHat,
   HeartPulse,
+  Award,
+  BadgeCheck,
   Globe,
   Camera,
   Briefcase,
@@ -187,12 +186,9 @@ export const courseCategories: CourseCategory[] = [
   { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, href: "/courses/lead-auditor" },
   { slug: "highfield", title: "Highfield", icon: GraduationCap, href: "/courses/highfield" },
   { slug: "iosh", title: "IOSH", icon: ShieldCheck, href: "/courses/iosh" },
-  { slug: "sti", title: "STI Scaffold Training", icon: Layers, href: "/courses/sti" },
-  { slug: "fire-fighting", title: "Fire Fighting", icon: Flame, href: "/courses/fire-fighting" },
-  { slug: "rescue-training", title: "Rescue Training", icon: LifeBuoy, href: "/courses/rescue-training" },
-  { slug: "oil-and-gas", title: "Oil & Gas Safety", icon: Fuel, href: "/courses/oil-and-gas" },
-  { slug: "construction-safety", title: "Construction Safety", icon: HardHat, href: "/courses/construction-safety" },
-  { slug: "first-aid", title: "First Aid", icon: HeartPulse, href: "/courses/first-aid" },
+  { slug: "sti", title: "STI", icon: Layers, href: "/courses/sti" },
+  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, href: "/courses/leea-diploma" },
+  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, href: "/courses/leea-course" },
 ];
 
 export const featuredCourses: Course[] = [

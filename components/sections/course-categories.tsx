@@ -6,11 +6,7 @@ export function CourseCategories() {
   return (
     <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading
-          eyebrow="Course Categories"
-          title="Find the Right Training Path"
-          description="From lifting and access to fire safety and management systems, explore our full range of accredited HSE courses."
-        />
+        <SectionHeading eyebrow="Course" title="International Course" />
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {courseCategories.map((category) => {
             const Icon = category.icon;
