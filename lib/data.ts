@@ -20,6 +20,9 @@ import {
   Video,
   X,
   MessageCircle,
+  Phone,
+  Info,
+  BookOpen,
 } from "lucide-react";
 
 export type NavLink = {
@@ -35,6 +38,7 @@ export type HeroSlide = {
   ctaHref: string;
   secondaryCtaLabel: string;
   secondaryCtaHref: string;
+  secondaryCtaIcon: LucideIcon;
 };
 
 export type MegaMenuGroup = {
@@ -125,6 +129,7 @@ export const heroSlides: HeroSlide[] = [
     ctaHref: "/courses",
     secondaryCtaLabel: "Contact Us",
     secondaryCtaHref: "/contact",
+    secondaryCtaIcon: Phone,
   },
   {
     image: "/hero/slide-2-training-classroom.jpg",
@@ -135,6 +140,7 @@ export const heroSlides: HeroSlide[] = [
     ctaHref: "/courses",
     secondaryCtaLabel: "About Us",
     secondaryCtaHref: "/about",
+    secondaryCtaIcon: Info,
   },
   {
     image: "/hero/slide-3-lifting-operations.jpg",
@@ -145,6 +151,7 @@ export const heroSlides: HeroSlide[] = [
     ctaHref: "#contact",
     secondaryCtaLabel: "View Courses",
     secondaryCtaHref: "/courses",
+    secondaryCtaIcon: BookOpen,
   },
 ];
 

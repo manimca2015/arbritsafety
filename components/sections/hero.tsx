@@ -30,6 +30,7 @@ export function Hero() {
   }, [paused, shouldReduceMotion]);
 
   const slide = heroSlides[index];
+  const SecondaryIcon = slide.secondaryCtaIcon;
 
   return (
     <section
@@ -107,7 +108,10 @@ export function Hero() {
                     variant="outline"
                     className="border-white/40 bg-transparent text-white hover:bg-white/10"
                   >
-                    <Link href={slide.secondaryCtaHref}>{slide.secondaryCtaLabel}</Link>
+                    <Link href={slide.secondaryCtaHref}>
+                      <SecondaryIcon className="mr-2 h-4 w-4" aria-hidden="true" />
+                      {slide.secondaryCtaLabel}
+                    </Link>
                   </Button>
                 </div>
               </motion.div>
