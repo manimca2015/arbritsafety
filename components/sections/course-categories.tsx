@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { courseCategories } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -7,7 +8,7 @@ export function CourseCategories() {
     <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Course" title="International Course" />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {courseCategories.map((category) => {
             const Icon = category.icon;
             return (
@@ -23,6 +24,16 @@ export function CourseCategories() {
               </Link>
             );
           })}
+
+          <Link
+            href="/courses"
+            className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-navy/10 bg-orange p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+          >
+            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
+              <ArrowRight className="h-6 w-6" aria-hidden="true" />
+            </span>
+            <span className="text-sm font-semibold text-white">See More</span>
+          </Link>
         </div>
       </div>
     </section>
