@@ -113,7 +113,7 @@ export function Hero() {
                     key={location}
                     className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur"
                   >
-                    <MapPin className="h-3.5 w-3.5 text-orange" aria-hidden="true" />
+                    <MapPin className="h-3.5 w-3.5 text-white" aria-hidden="true" />
                     {location}
                   </span>
                 ))}
