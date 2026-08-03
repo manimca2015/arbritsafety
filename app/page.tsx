@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
 import { TrustedBy } from "@/components/sections/trusted-by";
+import { AccreditationCarousel } from "@/components/sections/accreditation-carousel";
 import { CourseCategories } from "@/components/sections/course-categories";
 import { FeaturedCourses } from "@/components/sections/featured-courses";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
@@ -44,6 +45,7 @@ export default function Home() {
       />
       <Hero />
       <TrustedBy />
+      <AccreditationCarousel />
       <CourseCategories />
       <FeaturedCourses />
       <WhyChooseUs />
