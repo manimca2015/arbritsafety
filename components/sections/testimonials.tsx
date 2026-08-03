@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { testimonials } from "@/lib/data";
@@ -9,22 +9,51 @@ import { Button } from "@/components/ui/button";
 
 export function Testimonials() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const [paused, setPaused] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  const scroll = (direction: 1 | -1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    el.scrollBy({
-      left: direction * el.clientWidth,
-      behavior: shouldReduceMotion ? "auto" : "smooth",
-    });
+  const cardStep = (el: HTMLDivElement) => {
+    const card = el.children[0] as HTMLElement | undefined;
+    return card ? card.offsetWidth + 24 : el.clientWidth;
   };
+
+  const advance = (el: HTMLDivElement, direction: 1 | -1) => {
+    const behavior = shouldReduceMotion ? "auto" : "smooth";
+    const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
+    const atStart = el.scrollLeft <= 1;
+
+    if (direction === 1 && atEnd) {
+      el.scrollTo({ left: 0, behavior });
+    } else if (direction === -1 && atStart) {
+      el.scrollTo({ left: el.scrollWidth, behavior });
+    } else {
+      el.scrollBy({ left: direction * cardStep(el), behavior });
+    }
+  };
+
+  useEffect(() => {
+    if (paused || shouldReduceMotion) return;
+
+    const timer = setInterval(() => {
+      const el = trackRef.current;
+      if (el) advance(el, 1);
+    }, 4000);
+
+    return () => clearInterval(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paused, shouldReduceMotion]);
 
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Testimonials" title="What Our Students Say" />
-        <div className="relative mt-12">
+        <div
+          className="relative mt-12"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+        >
           <div
             ref={trackRef}
             className="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -52,7 +81,10 @@ export function Testimonials() {
               variant="outline"
               size="icon"
               className="border-navy/20"
-              onClick={() => scroll(-1)}
+              onClick={() => {
+                const el = trackRef.current;
+                if (el) advance(el, -1);
+              }}
               aria-label="Scroll testimonials left"
             >
               <ChevronLeft className="h-4 w-4" />
@@ -61,7 +93,10 @@ export function Testimonials() {
               variant="outline"
               size="icon"
               className="border-navy/20"
-              onClick={() => scroll(1)}
+              onClick={() => {
+                const el = trackRef.current;
+                if (el) advance(el, 1);
+              }}
               aria-label="Scroll testimonials right"
             >
               <ChevronRight className="h-4 w-4" />
