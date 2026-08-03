@@ -35,7 +35,7 @@ export function AboutUs() {
                 </span>
               ))}
             </div>
-            <Button asChild size="lg" className="mt-8 bg-orange text-white hover:bg-orange/90">
+            <Button asChild size="lg" className="mt-8 bg-white text-navy hover:bg-white/90">
               <Link href="/about">About Us</Link>
             </Button>
           </div>
