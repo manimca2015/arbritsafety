@@ -95,11 +95,21 @@ export function Hero() {
                   {slide.heading}
                 </h1>
                 <p className="mt-5 max-w-xl text-lg text-white/85">{slide.subtext}</p>
-                <Button asChild size="lg" className="mt-8 bg-orange text-white hover:bg-orange/90">
-                  <Link href={slide.ctaHref}>
-                    {slide.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                  </Link>
-                </Button>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <Button asChild size="lg" className="bg-orange text-white hover:bg-orange/90">
+                    <Link href={slide.ctaHref}>
+                      {slide.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="border-white/40 bg-transparent text-white hover:bg-white/10"
+                  >
+                    <Link href={slide.secondaryCtaHref}>{slide.secondaryCtaLabel}</Link>
+                  </Button>
+                </div>
               </motion.div>
             </AnimatePresence>
 

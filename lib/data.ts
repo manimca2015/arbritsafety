@@ -33,6 +33,8 @@ export type HeroSlide = {
   subtext: string;
   ctaLabel: string;
   ctaHref: string;
+  secondaryCtaLabel: string;
+  secondaryCtaHref: string;
 };
 
 export type MegaMenuGroup = {
@@ -121,6 +123,8 @@ export const heroSlides: HeroSlide[] = [
       "Accredited HSE, lifting, scaffolding, and fire safety courses in Dubai, Abu Dhabi and KSA.",
     ctaLabel: "Enroll Now",
     ctaHref: "/courses",
+    secondaryCtaLabel: "Contact Us",
+    secondaryCtaHref: "/contact",
   },
   {
     image: "/hero/slide-2-training-classroom.jpg",
@@ -129,6 +133,8 @@ export const heroSlides: HeroSlide[] = [
       "Multilingual courses (English/Hindi/Urdu/Arabic) delivered by certified, experienced instructors.",
     ctaLabel: "Explore Courses",
     ctaHref: "/courses",
+    secondaryCtaLabel: "About Us",
+    secondaryCtaHref: "/about",
   },
   {
     image: "/hero/slide-3-lifting-operations.jpg",
@@ -137,6 +143,8 @@ export const heroSlides: HeroSlide[] = [
       "Delivering the LEEA Foundation Certificate and LAC Diploma across the UAE & KSA.",
     ctaLabel: "Talk to an Advisor",
     ctaHref: "#contact",
+    secondaryCtaLabel: "View Courses",
+    secondaryCtaHref: "/courses",
   },
 ];
 
