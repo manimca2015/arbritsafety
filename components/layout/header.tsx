@@ -71,15 +71,17 @@ export function Header() {
                   >
                     {allCoursesLink.label} →
                   </Link>
-                  <div className="grid max-h-[60vh] grid-cols-2 gap-x-6 gap-y-5 overflow-y-auto pr-2 lg:grid-cols-4">
-                    {coursesMegaMenu.map((group) => (
-                      <div key={group.title}>
-                        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-navy/60">
-                          {group.title}
-                        </p>
+                  <div className="grid max-h-[70vh] grid-cols-2 gap-x-6 gap-y-5 overflow-y-auto pr-2 lg:grid-cols-4">
+                    {coursesMegaMenu.map((group, groupIndex) => (
+                      <div key={groupIndex}>
+                        {group.title && (
+                          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-navy/60">
+                            {group.title}
+                          </p>
+                        )}
                         <ul className="space-y-2">
-                          {group.links.map((link) => (
-                            <li key={link.href}>
+                          {group.links.map((link, linkIndex) => (
+                            <li key={`${groupIndex}-${linkIndex}`}>
                               <NavigationMenuLink asChild>
                                 <Link
                                   href={link.href}
@@ -145,15 +147,17 @@ export function Header() {
                 >
                   {allCoursesLink.label} →
                 </Link>
-                {coursesMegaMenu.map((group) => (
-                  <div key={group.title} className="mt-3">
-                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
-                      {group.title}
-                    </p>
+                {coursesMegaMenu.map((group, groupIndex) => (
+                  <div key={groupIndex} className="mt-3">
+                    {group.title && (
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
+                        {group.title}
+                      </p>
+                    )}
                     <div className="flex flex-col gap-2">
-                      {group.links.map((link) => (
+                      {group.links.map((link, linkIndex) => (
                         <Link
-                          key={link.href}
+                          key={`${groupIndex}-${linkIndex}`}
                           href={link.href}
                           className="text-sm text-navy/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                         >
