@@ -9,7 +9,7 @@ export function FeaturedCourses() {
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Course" title="General Safety Courses" />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredCourses.map((course) => {
             const Icon = course.icon;
             return (
@@ -45,6 +45,22 @@ export function FeaturedCourses() {
               </div>
             );
           })}
+
+          <Link
+            href="/courses"
+            className="group relative flex h-full min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-navy/10 shadow-sm transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            <div
+              aria-hidden="true"
+              className="absolute inset-0 bg-gradient-to-br from-navy via-navy-deep to-orange/70 transition group-hover:scale-105"
+            />
+            <div className="relative flex flex-col items-center gap-3 p-6 text-center">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
+                <ArrowRight className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <span className="font-heading text-lg font-bold text-white">See More Courses</span>
+            </div>
+          </Link>
         </div>
         <div className="mt-10 text-center">
           <Button asChild size="lg" variant="outline" className="border-navy text-navy">
