@@ -56,15 +56,17 @@ export function AboutUs() {
           </div>
         </div>
 
-        <div className="relative aspect-video w-full overflow-hidden">
-          <iframe
-            className="absolute inset-0 h-full w-full"
-            src="https://www.youtube.com/embed/yIJkf2ja3Gw"
-            title="Arbrit Safety Training & Consultancy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-            loading="lazy"
-          />
+        <div className="px-6 py-12 sm:px-12 md:py-16 lg:px-10">
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/yIJkf2ja3Gw"
+              title="Arbrit Safety Training & Consultancy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
     </section>
