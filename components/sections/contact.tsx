@@ -120,11 +120,17 @@ export function Contact() {
               </p>
               <p className="pl-8 text-sm text-navy/50">{contactInfo.ksaEntity}</p>
             </div>
-            <div
-              aria-hidden="true"
-              className="flex min-h-[220px] flex-1 items-center justify-center rounded-3xl bg-gradient-to-br from-navy to-navy-deep"
-            >
-              <MapPin className="h-10 w-10 text-orange" />
+            <div className="min-h-[220px] flex-1 overflow-hidden rounded-3xl">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.005021211739!2d55.369079374853165!3d25.27041652873225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4359aaf3fcb3%3A0xd79a9fbb46a30a3d!2sArbrit%20Safety%20Training%20and%20Consultancy!5e0!3m2!1sen!2sin!4v1785752871035!5m2!1sen!2sin"
+                width="600"
+                height="450"
+                className="h-full min-h-[220px] w-full border-0"
+                title="Arbrit Safety Training and Consultancy location"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+              />
             </div>
           </div>
         </div>
