@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, Phone } from "lucide-react";
@@ -18,18 +18,36 @@ import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    const setHeaderHeight = () => {
+      if (headerRef.current) {
+        document.documentElement.style.setProperty(
+          "--site-header-height",
+          `${headerRef.current.offsetHeight}px`
+        );
+      }
+    };
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
+    return () => window.removeEventListener("resize", setHeaderHeight);
+  }, []);
+
+  const linkColor = scrolled ? "text-navy" : "text-white";
+
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all ${
-        scrolled ? "bg-surface/90 backdrop-blur shadow-sm" : "bg-surface"
+      ref={headerRef}
+      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+        scrolled ? "bg-surface/90 shadow-sm backdrop-blur" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
@@ -40,7 +58,7 @@ export function Header() {
             width={235}
             height={76}
             preload
-            className="h-9 w-auto"
+            className="h-9 w-auto rounded-md"
           />
         </Link>
 
@@ -51,7 +69,7 @@ export function Header() {
                 <NavigationMenuLink asChild>
                   <Link
                     href={navLinks[0].href}
-                    className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                    className={`px-3 py-2 text-sm font-medium transition-colors hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${linkColor}`}
                   >
                     {navLinks[0].label}
                   </Link>
@@ -60,7 +78,9 @@ export function Header() {
             )}
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-navy">
+              <NavigationMenuTrigger
+                className={`bg-transparent text-sm font-medium transition-colors ${linkColor}`}
+              >
                 Courses
               </NavigationMenuTrigger>
               <NavigationMenuContent>
@@ -99,7 +119,7 @@ export function Header() {
                 <NavigationMenuLink asChild>
                   <Link
                     href={link.href}
-                    className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                    className={`px-3 py-2 text-sm font-medium transition-colors hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${linkColor}`}
                   >
                     {link.label}
                   </Link>
@@ -112,7 +132,7 @@ export function Header() {
         <div className="hidden items-center gap-4 lg:flex">
           <a
             href={`tel:${contactInfo.phones[0].number.replace(/\s+/g, "")}`}
-            className="flex items-center gap-2 text-sm font-medium text-navy"
+            className={`flex items-center gap-2 text-sm font-medium transition-colors ${linkColor}`}
           >
             <Phone className="h-4 w-4 text-orange" aria-hidden="true" />
             {contactInfo.phones[0].number}
@@ -124,7 +144,12 @@ export function Header() {
 
         <Sheet>
           <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="lg:hidden" aria-label="Open menu">
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`lg:hidden ${scrolled ? "" : "text-white hover:bg-white/10 hover:text-white"}`}
+              aria-label="Open menu"
+            >
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>

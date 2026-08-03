@@ -1,71 +1,123 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { accreditations, stats } from "@/lib/data";
+import { heroSlides } from "@/lib/data";
 
 export function Hero() {
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
-  return (
-    <section className="relative overflow-hidden bg-muted">
-      <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-20 md:py-28 lg:grid-cols-2">
-        <motion.div
-          initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.6 }}
-        >
-          <span className="inline-flex items-center gap-2 rounded-full bg-orange/10 px-4 py-1.5 text-sm font-semibold text-orange">
-            <Sparkles className="h-4 w-4" aria-hidden="true" />
-            First LEEA Licensed Training Partner in UAE & KSA
-          </span>
-          <h1 className="mt-6 font-heading text-4xl font-bold leading-tight text-navy sm:text-5xl">
-            Health &amp; Safety Training That Protects Your People and Your Business
-          </h1>
-          <p className="mt-5 max-w-xl text-lg text-navy/70">
-            Accredited HSE, lifting, scaffolding, and fire safety courses in Dubai, Abu Dhabi and
-            KSA — delivered by the region&apos;s first LEEA Licensed Training Partner.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-orange text-white hover:bg-orange/90">
-              <Link href="/courses">
-                Enroll Now <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-navy text-navy">
-              <Link href="#contact">Talk to an Advisor</Link>
-            </Button>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            {accreditations.map((a) => (
-              <span key={a.name} className="flex items-center gap-2 text-sm font-semibold text-navy/70">
-                <ShieldCheck className="h-4 w-4 text-orange" aria-hidden="true" />
-                {a.name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
+  const goTo = (next: number) => {
+    setIndex((next + heroSlides.length) % heroSlides.length);
+  };
 
+  useEffect(() => {
+    if (paused || shouldReduceMotion) return;
+
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % heroSlides.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [paused, shouldReduceMotion]);
+
+  const slide = heroSlides[index];
+
+  return (
+    <section
+      className="relative h-[90vh] min-h-[560px] w-full overflow-hidden"
+      style={{ marginTop: "calc(-1 * var(--site-header-height, 80px))" }}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+    >
+      <AnimatePresence>
         <motion.div
-          initial={{ opacity: 0, scale: shouldReduceMotion ? 1 : 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.6, delay: shouldReduceMotion ? 0 : 0.15 }}
-          className="relative"
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
         >
-          <div
-            aria-hidden="true"
-            className="aspect-[4/3] rounded-3xl bg-gradient-to-br from-navy via-navy-deep to-orange/60 shadow-xl"
+          <Image
+            src={slide.image}
+            alt=""
+            fill
+            preload={index === 0}
+            sizes="100vw"
+            className="object-cover"
           />
-          <div className="absolute -bottom-6 -left-6 rounded-2xl bg-white p-4 shadow-lg">
-            <p className="font-heading text-2xl font-bold text-navy">
-              {stats[0].value}
-              {stats[0].suffix}
-            </p>
-            <p className="text-xs text-navy/60">{stats[0].label}</p>
-          </div>
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-navy/85 via-navy/40 to-navy/10"
+            aria-hidden="true"
+          />
         </motion.div>
+      </AnimatePresence>
+
+      <div className="relative z-10 flex h-full items-center">
+        <div
+          className="mx-auto w-full max-w-7xl px-6"
+          style={{ paddingTop: "var(--site-header-height, 80px)" }}
+        >
+          <div className="max-w-2xl">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: shouldReduceMotion ? 0 : -24 }}
+                transition={{ duration: shouldReduceMotion ? 0 : 0.5 }}
+              >
+                <h1 className="font-heading text-4xl font-bold leading-tight text-white sm:text-5xl">
+                  {slide.heading}
+                </h1>
+                <p className="mt-5 max-w-xl text-lg text-white/85">{slide.subtext}</p>
+                <Button asChild size="lg" className="mt-8 bg-orange text-white hover:bg-orange/90">
+                  <Link href={slide.ctaHref}>{slide.ctaLabel}</Link>
+                </Button>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => goTo(index - 1)}
+        aria-label="Previous slide"
+        className="absolute left-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-6"
+      >
+        <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+      </button>
+      <button
+        type="button"
+        onClick={() => goTo(index + 1)}
+        aria-label="Next slide"
+        className="absolute right-4 top-1/2 z-20 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur transition hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-6"
+      >
+        <ChevronRight className="h-5 w-5" aria-hidden="true" />
+      </button>
+
+      <div className="absolute bottom-6 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+        {heroSlides.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={() => goTo(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`h-2 rounded-full transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${
+              i === index ? "w-6 bg-white" : "w-2 bg-white/40 hover:bg-white/60"
+            }`}
+          />
+        ))}
       </div>
     </section>
   );
