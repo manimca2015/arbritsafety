@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
+import { navLinks, coursesMegaMenu, allCoursesLink, contactInfo } from "@/lib/data";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,62 +46,70 @@ export function Header() {
 
         <NavigationMenu className="hidden lg:flex" aria-label="Main">
           <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuLink asChild>
-                <Link
-                  href="/"
-                  className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                >
-                  Home
-                </Link>
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+            {navLinks[0] && (
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href={navLinks[0].href}
+                    className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  >
+                    {navLinks[0].label}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )}
 
             <NavigationMenuItem>
               <NavigationMenuTrigger className="bg-transparent text-sm font-medium text-navy">
                 Courses
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <div className="grid w-[560px] grid-cols-3 gap-6 p-6">
-                  {coursesMegaMenu.map((group) => (
-                    <div key={group.title}>
-                      <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-navy/60">
-                        {group.title}
-                      </p>
-                      <ul className="space-y-2">
-                        {group.links.map((link) => (
-                          <li key={link.href}>
-                            <NavigationMenuLink asChild>
-                              <Link
-                                href={link.href}
-                                className="text-sm text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                              >
-                                {link.label}
-                              </Link>
-                            </NavigationMenuLink>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                <div className="w-[min(920px,90vw)] p-6">
+                  <Link
+                    href={allCoursesLink.href}
+                    className="mb-4 inline-flex items-center gap-2 text-sm font-semibold text-orange hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  >
+                    {allCoursesLink.label} →
+                  </Link>
+                  <div className="grid max-h-[60vh] grid-cols-2 gap-x-6 gap-y-5 overflow-y-auto pr-2 lg:grid-cols-4">
+                    {coursesMegaMenu.map((group) => (
+                      <div key={group.title}>
+                        <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-navy/60">
+                          {group.title}
+                        </p>
+                        <ul className="space-y-2">
+                          {group.links.map((link) => (
+                            <li key={link.href}>
+                              <NavigationMenuLink asChild>
+                                <Link
+                                  href={link.href}
+                                  className="text-sm text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                                >
+                                  {link.label}
+                                </Link>
+                              </NavigationMenuLink>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
 
-            {navLinks
-              .filter((link) => link.label !== "Home")
-              .map((link) => (
-                <NavigationMenuItem key={link.href}>
-                  <NavigationMenuLink asChild>
-                    <Link
-                      href={link.href}
-                      className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                    >
-                      {link.label}
-                    </Link>
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              ))}
+            {navLinks.slice(1).map((link) => (
+              <NavigationMenuItem key={link.href}>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href={link.href}
+                    className="px-3 py-2 text-sm font-medium text-navy hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  >
+                    {link.label}
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            ))}
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -111,7 +119,7 @@ export function Header() {
             {contactInfo.phone}
           </a>
           <Button asChild className="bg-orange text-white hover:bg-orange/90">
-            <Link href="/courses">Enroll Now</Link>
+            <Link href="/courses">Join Course</Link>
           </Button>
         </div>
 
@@ -123,8 +131,40 @@ export function Header() {
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[360px]">
             <SheetTitle className="font-heading text-navy">Menu</SheetTitle>
-            <nav className="mt-6 flex flex-col gap-4 px-4" aria-label="Mobile">
-              {navLinks.map((link) => (
+            <nav className="mt-6 flex flex-1 flex-col gap-4 overflow-y-auto px-4" aria-label="Mobile">
+              <Link
+                href={navLinks[0]?.href ?? "/about"}
+                className="text-base font-medium text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+              >
+                {navLinks[0]?.label}
+              </Link>
+              <div>
+                <Link
+                  href={allCoursesLink.href}
+                  className="mb-2 inline-block text-sm font-semibold text-orange hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                >
+                  {allCoursesLink.label} →
+                </Link>
+                {coursesMegaMenu.map((group) => (
+                  <div key={group.title} className="mt-3">
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
+                      {group.title}
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      {group.links.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="text-sm text-navy/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                        >
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {navLinks.slice(1).map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
@@ -133,24 +173,8 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              <div>
-                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">Courses</p>
-                <div className="flex flex-col gap-2">
-                  {coursesMegaMenu
-                    .flatMap((g) => g.links)
-                    .map((link) => (
-                      <Link
-                        key={link.href}
-                        href={link.href}
-                        className="text-sm text-navy/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                      >
-                        {link.label}
-                      </Link>
-                    ))}
-                </div>
-              </div>
               <Button asChild className="mt-4 bg-orange text-white hover:bg-orange/90">
-                <Link href="/courses">Enroll Now</Link>
+                <Link href="/courses">Join Course</Link>
               </Button>
             </nav>
           </SheetContent>

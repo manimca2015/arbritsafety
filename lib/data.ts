@@ -75,7 +75,6 @@ export type FooterLinkGroup = {
 };
 
 export const navLinks: NavLink[] = [
-  { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
   { label: "Consultancy", href: "/consultancy" },
   { label: "Career", href: "/career" },
@@ -83,32 +82,109 @@ export const navLinks: NavLink[] = [
   { label: "Contact Us", href: "/contact" },
 ];
 
+export const allCoursesLink: NavLink = { label: "All Courses", href: "/courses" };
+
 export const coursesMegaMenu: MegaMenuGroup[] = [
   {
-    title: "International Courses",
+    title: "Lead & Access",
     links: [
-      { label: "Rope Access", href: "/courses/rope-access" },
       { label: "Lead Auditor", href: "/courses/lead-auditor" },
-      { label: "Highfield", href: "/courses/highfield" },
-      { label: "IOSH", href: "/courses/iosh" },
-      { label: "STI Scaffold Training", href: "/courses/sti" },
+      { label: "Rope Access Training", href: "/courses/rope-access" },
     ],
   },
   {
-    title: "General Safety Courses",
+    title: "Scaffolding (STI)",
     links: [
+      { label: "STI – Scaffold Inspector", href: "/courses/sti-scaffold-inspector" },
+      { label: "STI – Scaffold Erector", href: "/courses/sti-scaffold-erector" },
+      { label: "STI – Scaffold Competent Person", href: "/courses/sti-scaffold-competent-person" },
+      { label: "Scaffolding Competent Person – STI", href: "/courses/scaffolding-competent-person-sti" },
+      { label: "Scaffolding Erector – STI", href: "/courses/scaffolding-erector-sti" },
+      { label: "Scaffolding Inspector – STI", href: "/courses/scaffolding-inspector-sti" },
+      { label: "Scaffolding Competent Person", href: "/courses/scaffolding-competent-person" },
+      { label: "Basic Scaffolding Erection & Dismantling", href: "/courses/basic-scaffolding-erection-dismantling" },
+      { label: "Basic Scaffolding Inspection", href: "/courses/basic-scaffolding-inspection" },
+      { label: "Scaffolding Supervisor Training", href: "/courses/scaffolding-supervisor-training" },
+    ],
+  },
+  {
+    title: "Equipment Operators",
+    links: [
+      { label: "Construction Hoist Operator", href: "/courses/construction-hoist-operator" },
+      { label: "Concrete Gun Operator", href: "/courses/concrete-gun-operator" },
+      { label: "Power Hand Tools Operator", href: "/courses/power-hand-tools-operator" },
+      { label: "Block Cutting Machine Operator", href: "/courses/block-cutting-machine-operator" },
+      { label: "Scissor Lift Operator", href: "/courses/scissor-lift-operator" },
+      { label: "Roller Operator", href: "/courses/roller-operator" },
+      { label: "Manlift Operator", href: "/courses/manlift-operator" },
+      { label: "Cradle Operator", href: "/courses/cradle-operator" },
+      { label: "Dumper Operator", href: "/courses/dumper-operator" },
+      { label: "Excavator Operator", href: "/courses/excavator-operator" },
+      { label: "Shovel Operator", href: "/courses/shovel-operator" },
+      { label: "Forklift Operator", href: "/courses/forklift-operator" },
+      { label: "Mobile Crane Operator", href: "/courses/mobile-crane-operator" },
+      { label: "Lift Operator", href: "/courses/lift-operator" },
+      { label: "Flagman", href: "/courses/flagman" },
+    ],
+  },
+  {
+    title: "Confined Space & Rescue",
+    links: [
+      { label: "Confined Space Entry & Rescue", href: "/courses/confined-space-entry-rescue" },
+      { label: "Confined Space Entry", href: "/courses/confined-space-entry" },
+      { label: "Confined Space Exit & Rescue", href: "/courses/confined-space-exit-rescue" },
+      { label: "Confined Space", href: "/courses/confined-space" },
+      { label: "Tower Crane Rescue", href: "/courses/tower-crane-rescue" },
+      { label: "Tunnel Rescue", href: "/courses/tunnel-rescue" },
+    ],
+  },
+  {
+    title: "Fire Safety",
+    links: [
+      { label: "Fire Warden Level 1", href: "/courses/fire-warden-level-1" },
       { label: "Fire Fighting", href: "/courses/fire-fighting" },
-      { label: "Rescue Training", href: "/courses/rescue-training" },
-      { label: "Oil & Gas Safety", href: "/courses/oil-and-gas" },
-      { label: "Construction Safety", href: "/courses/construction-safety" },
-      { label: "First Aid", href: "/courses/first-aid" },
+      { label: "Fire Marshal", href: "/courses/fire-marshal" },
+      { label: "Fire Safety", href: "/courses/fire-safety" },
     ],
   },
   {
-    title: "Corporate",
+    title: "First Aid",
     links: [
-      { label: "Corporate Training", href: "/corporate-training" },
-      { label: "HSE Officer Supply", href: "/corporate-training#hse-officers" },
+      { label: "Basic First Aid CPR & AED", href: "/courses/first-aid" },
+      { label: "Pediatric First Aid", href: "/courses/pediatric-first-aid" },
+      { label: "Basic First Aid", href: "/courses/basic-first-aid" },
+    ],
+  },
+  {
+    title: "IOSH & Management",
+    links: [
+      { label: "IOSH Managing Safely", href: "/courses/iosh-managing-safely" },
+      { label: "IOSH Supervising Safely", href: "/courses/iosh-supervising-safely" },
+      { label: "IOSH Working Safely", href: "/courses/iosh-working-safely" },
+      { label: "Train the Trainer", href: "/courses/train-the-trainer" },
+    ],
+  },
+  {
+    title: "General & HSE Awareness",
+    links: [
+      { label: "Risk Assessment", href: "/courses/risk-assessment" },
+      { label: "Food Safety", href: "/courses/food-safety" },
+      { label: "COSHH", href: "/courses/coshh" },
+      { label: "Defensive Driving", href: "/courses/defensive-driving" },
+      { label: "HAZOP", href: "/courses/hazop" },
+      { label: "H2S", href: "/courses/h2s" },
+      { label: "PTW", href: "/courses/ptw" },
+      { label: "TRA", href: "/courses/tra" },
+      { label: "Electrical Safety", href: "/courses/electrical-safety" },
+      { label: "Hand Tools", href: "/courses/hand-tools" },
+      { label: "Basic Oil Spill", href: "/courses/basic-oil-spill" },
+      { label: "Basic Lifeline", href: "/courses/basic-lifeline" },
+      { label: "Lifting Supervisor Refresher Training", href: "/courses/lifting-supervisor-refresher-training" },
+      { label: "Basic Electrical Safety Awareness", href: "/courses/basic-electrical-safety-awareness" },
+      { label: "Gas Analyst Training & Certification", href: "/courses/gas-analyst-training-certification" },
+      { label: "General Safety Awareness", href: "/courses/general-safety-awareness" },
+      { label: "Environmental Awareness", href: "/courses/environmental-awareness" },
+      { label: "Dangerous Goods Safety Awareness", href: "/courses/dangerous-goods-safety-awareness" },
     ],
   },
 ];
