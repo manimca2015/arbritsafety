@@ -110,9 +110,12 @@ export function Header() {
         </NavigationMenu>
 
         <div className="hidden items-center gap-4 lg:flex">
-          <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-2 text-sm font-medium text-navy">
+          <a
+            href={`tel:${contactInfo.phones[0].number.replace(/\s+/g, "")}`}
+            className="flex items-center gap-2 text-sm font-medium text-navy"
+          >
             <Phone className="h-4 w-4 text-orange" aria-hidden="true" />
-            {contactInfo.phone}
+            {contactInfo.phones[0].number}
           </a>
           <Button asChild className="bg-orange text-white hover:bg-orange/90">
             <Link href="/courses">Join Course</Link>

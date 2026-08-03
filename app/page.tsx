@@ -10,6 +10,7 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { LatestBlogs } from "@/components/sections/latest-blogs";
 import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
+import { contactInfo, socialLinks } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Home",
@@ -24,6 +25,14 @@ const jsonLd = {
   description:
     "Accredited health & safety, lifting, scaffolding and fire safety training in Dubai, Abu Dhabi and KSA.",
   areaServed: ["Dubai", "Abu Dhabi", "Saudi Arabia"],
+  email: contactInfo.email,
+  telephone: contactInfo.phones[0].number,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: contactInfo.address,
+    addressCountry: "AE",
+  },
+  sameAs: socialLinks.map((link) => link.href),
 };
 
 export default function Home() {

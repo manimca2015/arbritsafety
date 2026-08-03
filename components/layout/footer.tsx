@@ -1,17 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Globe, Camera, Briefcase, Mail, MapPin, Phone, Video } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { footerCourseColumns, navLinks, contactInfo } from "@/lib/data";
-
-const socialLinks = [
-  { icon: Globe, label: "Facebook" },
-  { icon: Camera, label: "Instagram" },
-  { icon: Briefcase, label: "LinkedIn" },
-  { icon: Video, label: "YouTube" },
-];
+import { footerCourseColumns, navLinks, contactInfo, socialLinks } from "@/lib/data";
 
 export function Footer() {
   return (
@@ -26,21 +19,33 @@ export function Footer() {
               training.
             </p>
             <div className="mt-5 space-y-2 text-sm text-white/80">
+              {contactInfo.phones.map((phone) => (
+                <p key={phone.label} className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
+                  <a href={`tel:${phone.number.replace(/\s+/g, "")}`} className="hover:text-orange">
+                    {phone.number}
+                  </a>
+                  <span className="text-white/50">— {phone.label}</span>
+                </p>
+              ))}
               <p className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-orange" aria-hidden="true" /> {contactInfo.phone}
+                <Mail className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-orange">
+                  {contactInfo.email}
+                </a>
               </p>
               <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-orange" aria-hidden="true" /> {contactInfo.email}
+                <MapPin className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" /> {contactInfo.address}
               </p>
-              <p className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-orange" aria-hidden="true" /> {contactInfo.address}
-              </p>
+              <p className="pl-6 text-white/60">{contactInfo.ksaEntity}</p>
             </div>
             <div className="mt-5 flex gap-3">
-              {socialLinks.map(({ icon: Icon, label }) => (
+              {socialLinks.map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                 >

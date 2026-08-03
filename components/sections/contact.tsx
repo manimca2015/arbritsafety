@@ -100,15 +100,25 @@ export function Contact() {
 
           <div className="flex flex-col gap-6">
             <div className="space-y-4 rounded-3xl bg-white p-8 shadow-sm">
+              {contactInfo.phones.map((phone) => (
+                <p key={phone.label} className="flex items-center gap-3 text-sm text-navy/80">
+                  <Phone className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                  <a href={`tel:${phone.number.replace(/\s+/g, "")}`} className="hover:text-orange">
+                    {phone.number}
+                  </a>
+                  <span className="text-navy/50">— {phone.label}</span>
+                </p>
+              ))}
               <p className="flex items-center gap-3 text-sm text-navy/80">
-                <Phone className="h-5 w-5 text-orange" aria-hidden="true" /> {contactInfo.phone}
+                <Mail className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-orange">
+                  {contactInfo.email}
+                </a>
               </p>
               <p className="flex items-center gap-3 text-sm text-navy/80">
-                <Mail className="h-5 w-5 text-orange" aria-hidden="true" /> {contactInfo.email}
+                <MapPin className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" /> {contactInfo.address}
               </p>
-              <p className="flex items-center gap-3 text-sm text-navy/80">
-                <MapPin className="h-5 w-5 text-orange" aria-hidden="true" /> {contactInfo.address}
-              </p>
+              <p className="pl-8 text-sm text-navy/50">{contactInfo.ksaEntity}</p>
             </div>
             <div
               aria-hidden="true"

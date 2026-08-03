@@ -10,6 +10,12 @@ import {
   Fuel,
   HardHat,
   HeartPulse,
+  Globe,
+  Camera,
+  Briefcase,
+  Video,
+  X,
+  MessageCircle,
 } from "lucide-react";
 
 export type NavLink = {
@@ -72,6 +78,17 @@ export type Faq = {
 export type FooterLinkGroup = {
   title: string;
   links: NavLink[];
+};
+
+export type PhoneNumber = {
+  label: string;
+  number: string;
+};
+
+export type SocialLink = {
+  label: string;
+  href: string;
+  icon: LucideIcon;
 };
 
 export const navLinks: NavLink[] = [
@@ -337,14 +354,25 @@ export const footerCourseColumns: FooterLinkGroup[] = [
   },
 ];
 
-// TODO(user): verify and replace with confirmed business contact details before
-// launch. The reference screenshot was too low-resolution to reliably transcribe
-// phone/email/address digits, so these are placeholders, not verified facts.
 export const contactInfo = {
-  phone: "+971 4 000 0000",
+  phones: [
+    { label: "Dubai", number: "+971 58 669 5300" },
+    { label: "Abu Dhabi", number: "+971 50 242 5436" },
+    { label: "KSA", number: "+966 59 334 1476" },
+  ] as PhoneNumber[],
   email: "info@arbritsafety.com",
-  address: "Dubai, United Arab Emirates",
+  address: "F-12, 1st Floor, Union Coop Al Twar, Al Nahda St, Dubai",
+  ksaEntity: "Arbrit Safety Training - Saudi Arabia",
 };
+
+export const socialLinks: SocialLink[] = [
+  { label: "Facebook", href: "https://www.facebook.com/arbritsafetytrainingdubai", icon: Globe },
+  { label: "Instagram", href: "https://www.instagram.com/arbritdubai", icon: Camera },
+  { label: "Twitter", href: "https://twitter.com/ArbritD", icon: X },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/20386197", icon: Briefcase },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCXFmosNtIuUbPff5nzL5Ydw", icon: Video },
+  { label: "WhatsApp", href: "https://wa.me/971586695300", icon: MessageCircle },
+];
 
 export const courseSelectOptions = [
   "Rope Access",
