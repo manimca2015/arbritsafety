@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative h-[90vh] min-h-[560px] w-full overflow-hidden"
+      className="relative h-screen min-h-[680px] w-full overflow-hidden"
       style={{ marginTop: "calc(-1 * var(--site-header-height, 80px))" }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
