@@ -99,6 +99,12 @@ export type SocialLink = {
   icon: LucideIcon;
 };
 
+export type Office = {
+  label: string;
+  phones: string[];
+  address: string;
+};
+
 export const navLinks: NavLink[] = [
   { label: "About Us", href: "/about" },
   { label: "Consultancy", href: "/consultancy" },
@@ -392,6 +398,24 @@ export const contactInfo = {
   address: "F-12, 1st Floor, Union Coop Al Twar, Al Nahda St, Dubai",
   ksaEntity: "Arbrit Safety Training - Saudi Arabia",
 };
+
+export const offices: Office[] = [
+  {
+    label: "Dubai",
+    phones: ["+971 4 881 8742", "+971 58 669 5300"],
+    address: "F-12, 1st Floor, Union Coop Al Twar, Al Nahda St, Dubai",
+  },
+  {
+    label: "Abu Dhabi",
+    phones: ["+971 2 621 1715", "+971 50 242 5436"],
+    address: "202, Al Silaymiyah St, Al Danah 4, Abu Dhabi 2215",
+  },
+  {
+    label: "Kingdom of Saudi Arabia",
+    phones: ["+966 11 516 0114", "+966 59 334 1476"],
+    address: "Zayd ibn Thabt, 7406, Office No. 2, Al Malaz, Riyadh, KSA",
+  },
+];
 
 export const socialLinks: SocialLink[] = [
   { label: "Facebook", href: "https://www.facebook.com/arbritsafetytrainingdubai", icon: Globe },
