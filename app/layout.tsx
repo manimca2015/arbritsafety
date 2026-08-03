@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { TopBar } from "@/components/layout/top-bar";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CoursesDirectory } from "@/components/layout/courses-directory";
@@ -51,6 +52,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        <TopBar />
         <Header />
         <main id="main" className="flex-1">
           {children}
