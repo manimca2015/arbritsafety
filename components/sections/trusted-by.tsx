@@ -1,19 +1,11 @@
-import { accreditations } from "@/lib/data";
-
 export function TrustedBy() {
   return (
-    <section className="border-y border-navy/10 bg-white py-10">
-      <div className="mx-auto max-w-7xl px-6">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-navy/50">
-          Accredited &amp; Recognized By
+    <section className="border-y border-navy/10 bg-white py-8">
+      <div className="mx-auto max-w-7xl px-6 text-center">
+        <span className="inline-block h-1 w-16 rounded-full bg-orange" aria-hidden="true" />
+        <p className="mt-4 font-heading text-xl font-bold text-navy sm:text-2xl">
+          Health and Safety Training Courses in Dubai / Abudhabi / KSA
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
-          {accreditations.map((a) => (
-            <span key={a.name} className="font-heading text-lg font-bold text-navy/70">
-              {a.name}
-            </span>
-          ))}
-        </div>
       </div>
     </section>
   );
