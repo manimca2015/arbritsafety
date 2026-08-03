@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Building2, Mail, Phone } from "lucide-react";
-import { SectionHeading } from "@/components/ui/section-heading";
+import { PageHeader } from "@/components/layout/page-header";
 import { ContactForm } from "@/components/sections/contact-form";
 import { offices, contactInfo, socialLinks } from "@/lib/data";
 
@@ -13,13 +13,14 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
+      <PageHeader title="Contact Us" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]} />
+
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeading
-            eyebrow="Get in Touch"
-            title="Contact Us"
-            description="Reach our Dubai, Abu Dhabi, or Kingdom of Saudi Arabia office directly, or send us a message below."
-          />
+          <p className="mx-auto max-w-2xl text-center text-navy/70">
+            Reach our Dubai, Abu Dhabi, or Kingdom of Saudi Arabia office directly, or send us a
+            message below.
+          </p>
 
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {offices.map((office) => (
