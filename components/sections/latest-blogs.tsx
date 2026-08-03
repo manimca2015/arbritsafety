@@ -16,7 +16,7 @@ export function LatestBlogs() {
               key={post.href}
               className="flex flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
             >
-              <div className="relative h-44 w-full overflow-hidden rounded-t-2xl">
+              <div className="relative h-64 w-full overflow-hidden rounded-t-2xl">
                 <Image
                   src={post.image}
                   alt={post.title}
