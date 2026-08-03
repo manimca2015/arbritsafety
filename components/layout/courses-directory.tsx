@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { coursesMegaMenu } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 
@@ -15,13 +14,8 @@ export function CoursesDirectory() {
             >
               <ul className="space-y-2.5">
                 {group.links.map((link, linkIndex) => (
-                  <li key={`${groupIndex}-${linkIndex}`}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-navy/80 hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                    >
-                      {link.label}
-                    </Link>
+                  <li key={`${groupIndex}-${linkIndex}`} className="text-sm text-navy/80">
+                    {link.label}
                   </li>
                 ))}
               </ul>
