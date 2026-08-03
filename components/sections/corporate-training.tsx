@@ -3,10 +3,9 @@ import { CheckCircle2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const corporateBenefits = [
-  "On-site training delivered at your project location",
-  "Flexible scheduling around shift and project timelines",
-  "Certified instructors across lifting, scaffolding, and fire safety",
-  "Group and bulk enrollment pricing available",
+  "When employees are properly trained, they are more productive because they miss fewer hours due to illness and accidents.",
+  "Safety awareness and appreciation for safety measures that work to reduce your legal liabilities.",
+  "Active employee participation to improve workplace health and safety culture and behaviors.",
 ];
 
 export function CorporateTraining() {
@@ -18,12 +17,9 @@ export function CorporateTraining() {
             Corporate Training
           </p>
           <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-            We Also Supply HSE Officers for Short &amp; Long Term Projects
+            These courses will raise the profile of health and safety in your organization, which
+            will help:
           </h2>
-          <p className="mt-4 text-navy/70">
-            Beyond training, Arbrit provides qualified HSE officers and tailored corporate
-            training programs so your workforce stays compliant and protected.
-          </p>
           <ul className="mt-6 space-y-3">
             {corporateBenefits.map((benefit) => (
               <li key={benefit} className="flex items-start gap-3 text-sm text-navy/80">
