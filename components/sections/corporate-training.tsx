@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CheckCircle2, Users } from "lucide-react";
+import { ArrowRight, CheckCircle2, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const corporateBenefits = [
@@ -40,7 +40,9 @@ export function CorporateTraining() {
             tailored proposal.
           </p>
           <Button asChild size="lg" className="mt-6 w-full bg-orange text-white hover:bg-orange/90">
-            <Link href="#contact">Request a Quote</Link>
+            <Link href="#contact">
+              Request a Quote <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
           </Button>
         </div>
       </div>

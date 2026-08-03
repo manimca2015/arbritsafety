@@ -64,7 +64,9 @@ export function FeaturedCourses() {
         </div>
         <div className="mt-10 text-center">
           <Button asChild size="lg" variant="outline" className="border-navy text-navy">
-            <Link href="/courses">View All Courses</Link>
+            <Link href="/courses">
+              View All Courses <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
           </Button>
         </div>
       </div>

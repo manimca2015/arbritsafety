@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { heroSlides } from "@/lib/data";
 
@@ -81,7 +81,9 @@ export function Hero() {
                 </h1>
                 <p className="mt-5 max-w-xl text-lg text-white/85">{slide.subtext}</p>
                 <Button asChild size="lg" className="mt-8 bg-orange text-white hover:bg-orange/90">
-                  <Link href={slide.ctaHref}>{slide.ctaLabel}</Link>
+                  <Link href={slide.ctaHref}>
+                    {slide.ctaLabel} <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                  </Link>
                 </Button>
               </motion.div>
             </AnimatePresence>

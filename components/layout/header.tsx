@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Phone } from "lucide-react";
+import { ArrowRight, Menu, Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -142,7 +142,9 @@ export function Header() {
             {contactInfo.phones[0].number}
           </a>
           <Button asChild className="bg-orange text-white hover:bg-orange/90">
-            <Link href="/courses">Join Course</Link>
+            <Link href="/courses">
+              Join Course <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
           </Button>
         </div>
 
@@ -198,7 +200,9 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild className="mt-4 bg-orange text-white hover:bg-orange/90">
-                <Link href="/courses">Join Course</Link>
+                <Link href="/courses">
+              Join Course <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+            </Link>
               </Button>
             </nav>
           </SheetContent>
