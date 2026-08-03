@@ -44,7 +44,7 @@ export function CorporateTraining() {
             tailored proposal.
           </p>
           <Button asChild size="lg" className="mt-6 w-full bg-orange text-white hover:bg-orange/90">
-            <Link href="/contact#corporate">Request a Quote</Link>
+            <Link href="#contact">Request a Quote</Link>
           </Button>
         </div>
       </div>
