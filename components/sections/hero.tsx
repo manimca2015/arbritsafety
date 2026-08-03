@@ -4,9 +4,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { heroSlides } from "@/lib/data";
+
+const locations = ["Dubai", "Abu Dhabi", "KSA"];
 
 export function Hero() {
   const [index, setIndex] = useState(0);
@@ -100,6 +102,23 @@ export function Hero() {
                 </Button>
               </motion.div>
             </AnimatePresence>
+
+            <div className="mt-8">
+              <p className="text-sm font-semibold uppercase tracking-wide text-white/70">
+                Health and Safety Training Courses in
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {locations.map((location) => (
+                  <span
+                    key={location}
+                    className="flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur"
+                  >
+                    <MapPin className="h-3.5 w-3.5 text-orange" aria-hidden="true" />
+                    {location}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
-import { TrustedBy } from "@/components/sections/trusted-by";
 import { AboutUs } from "@/components/sections/about-us";
 import { AccreditationCarousel } from "@/components/sections/accreditation-carousel";
 import { CourseCategories } from "@/components/sections/course-categories";
@@ -45,7 +44,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Hero />
-      <TrustedBy />
       <AboutUs />
       <AccreditationCarousel />
       <CourseCategories />
