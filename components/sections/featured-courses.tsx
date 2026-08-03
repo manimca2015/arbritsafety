@@ -58,7 +58,7 @@ export function FeaturedCourses() {
               <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
                 <ArrowRight className="h-6 w-6" aria-hidden="true" />
               </span>
-              <span className="font-heading text-lg font-bold text-white">See More Courses</span>
+              <span className="font-heading text-lg font-bold text-white">View All Courses</span>
             </div>
           </Link>
         </div>

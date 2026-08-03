@@ -32,7 +32,7 @@ export function CourseCategories() {
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
               <ArrowRight className="h-6 w-6" aria-hidden="true" />
             </span>
-            <span className="text-sm font-semibold text-white">See More</span>
+            <span className="text-sm font-semibold text-white">View All Courses</span>
           </Link>
         </div>
       </div>
