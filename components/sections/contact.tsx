@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { BookOpen, Mail, MapPin, MessageSquare, Phone, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -33,32 +33,91 @@ export function Contact() {
           description="Send us your details and our team will get back to you with course and scheduling options."
         />
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
-          <form onSubmit={handleSubmit} className="space-y-4 rounded-3xl bg-white p-8 shadow-sm">
-            <div className="grid gap-4 sm:grid-cols-2">
+          <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl bg-white p-8 shadow-sm">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <Label htmlFor="contact-name">Full Name</Label>
-                <Input id="contact-name" name="name" placeholder="Full Name" required />
+                <div className="relative">
+                  <User
+                    className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                    aria-hidden="true"
+                  />
+                  <Input id="contact-name" name="name" placeholder="Full Name" required className="h-11 pl-10" />
+                </div>
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="contact-email">Email</Label>
-                <Input id="contact-email" type="email" name="email" placeholder="Email" required />
+                <div className="relative">
+                  <Mail
+                    className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                    aria-hidden="true"
+                  />
+                  <Input
+                    id="contact-email"
+                    type="email"
+                    name="email"
+                    placeholder="Email"
+                    required
+                    className="h-11 pl-10"
+                  />
+                </div>
               </div>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid gap-5 sm:grid-cols-2">
               <div className="space-y-1.5">
                 <Label htmlFor="contact-phone">Phone</Label>
-                <Input id="contact-phone" type="tel" name="phone" placeholder="Phone" required />
+                <div className="relative">
+                  <Phone
+                    className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                    aria-hidden="true"
+                  />
+                  <Input
+                    id="contact-phone"
+                    type="tel"
+                    name="phone"
+                    placeholder="Phone"
+                    required
+                    className="h-11 pl-10"
+                  />
+                </div>
               </div>
               <div className="space-y-1.5">
                 <Label htmlFor="contact-course">Course</Label>
-                <Select name="course">
-                  <SelectTrigger id="contact-course">
-                    <SelectValue placeholder="Select Course" />
+                <div className="relative">
+                  <BookOpen
+                    className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
+                    aria-hidden="true"
+                  />
+                  <Select name="course">
+                    <SelectTrigger id="contact-course" className="h-11 w-full pl-10">
+                      <SelectValue placeholder="Select Course" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {courseSelectOptions.map((course) => (
+                        <SelectItem key={course} value={course}>
+                          {course}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="contact-location">Location</Label>
+              <div className="relative">
+                <MapPin
+                  className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Select name="location">
+                  <SelectTrigger id="contact-location" className="h-11 w-full pl-10">
+                    <SelectValue placeholder="Select Location" />
                   </SelectTrigger>
                   <SelectContent>
-                    {courseSelectOptions.map((course) => (
-                      <SelectItem key={course} value={course}>
-                        {course}
+                    {locationSelectOptions.map((location) => (
+                      <SelectItem key={location} value={location}>
+                        {location}
                       </SelectItem>
                     ))}
                   </SelectContent>
@@ -66,27 +125,24 @@ export function Contact() {
               </div>
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="contact-location">Location</Label>
-              <Select name="location">
-                <SelectTrigger id="contact-location" className="w-full">
-                  <SelectValue placeholder="Select Location" />
-                </SelectTrigger>
-                <SelectContent>
-                  {locationSelectOptions.map((location) => (
-                    <SelectItem key={location} value={location}>
-                      {location}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
-            <div className="space-y-1.5">
               <Label htmlFor="contact-subject">Subject</Label>
-              <Input id="contact-subject" name="subject" placeholder="Subject" />
+              <div className="relative">
+                <Tag
+                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Input id="contact-subject" name="subject" placeholder="Subject" className="h-11 pl-10" />
+              </div>
             </div>
             <div className="space-y-1.5">
               <Label htmlFor="contact-message">Message</Label>
-              <Textarea id="contact-message" name="message" placeholder="Message" rows={4} />
+              <div className="relative">
+                <MessageSquare
+                  className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Textarea id="contact-message" name="message" placeholder="Message" rows={4} className="pl-10" />
+              </div>
             </div>
             <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
               Send Message
