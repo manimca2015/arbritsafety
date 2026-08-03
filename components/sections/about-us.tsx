@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
@@ -35,9 +36,23 @@ export function AboutUs() {
                 </span>
               ))}
             </div>
-            <Button asChild size="lg" className="mt-8 bg-white text-navy hover:bg-white/90">
-              <Link href="/about">About Us</Link>
-            </Button>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <Button asChild size="lg" className="bg-white text-navy hover:bg-white/90">
+                <Link href="/about">
+                  About Us <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/40 bg-transparent text-white hover:bg-white/10"
+              >
+                <Link href="/contact">
+                  <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> Contact Us
+                </Link>
+              </Button>
+            </div>
           </div>
         </div>
 
