@@ -62,7 +62,7 @@ export function Header() {
             width={235}
             height={76}
             preload
-            className="h-9 w-auto rounded-md"
+            className="h-14 w-auto rounded-md"
           />
         </Link>
 
