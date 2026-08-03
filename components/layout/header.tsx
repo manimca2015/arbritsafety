@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
-import { Menu, Phone, ShieldCheck } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -32,9 +33,15 @@ export function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
-        <Link href="/" className="flex items-center gap-2 font-heading text-xl font-bold text-navy">
-          <ShieldCheck className="h-7 w-7 text-orange" aria-hidden="true" />
-          Arbrit Safety
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.jpg"
+            alt="Arbrit Safety"
+            width={235}
+            height={76}
+            preload
+            className="h-9 w-auto"
+          />
         </Link>
 
         <NavigationMenu className="hidden lg:flex" aria-label="Main">
