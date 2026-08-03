@@ -62,6 +62,19 @@ export function Hero() {
         </motion.div>
       </AnimatePresence>
 
+      <div
+        className="absolute right-4 z-20 overflow-hidden rounded-2xl bg-white p-2 shadow-lg sm:right-6"
+        style={{ top: "calc(var(--site-header-height, 80px) + 1rem)" }}
+      >
+        <Image
+          src="/20-year-logo.png"
+          alt="Celebrating 20 Years of Safety"
+          width={713}
+          height={1024}
+          className="h-20 w-auto sm:h-28"
+        />
+      </div>
+
       <div className="relative z-10 flex h-full items-center">
         <div
           className="mx-auto w-full max-w-7xl px-6"
