@@ -48,8 +48,8 @@ export function Footer() {
             <div className="mt-4 space-y-2 text-sm text-white/80">
               {contactInfo.phones.map((phone) => (
                 <p key={phone.label} className="flex items-center gap-2">
-                  <Phone className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
-                  <a href={`tel:${phone.number.replace(/\s+/g, "")}`} className="hover:text-orange">
+                  <Phone className="h-4 w-4 shrink-0 text-amber-400" aria-hidden="true" />
+                  <a href={`tel:${phone.number.replace(/\s+/g, "")}`} className="hover:text-amber-400">
                     {phone.number}
                   </a>
                   <span className="text-white/50">— {phone.label}</span>
@@ -57,13 +57,13 @@ export function Footer() {
               ))}
               <p className="pl-6 text-white/60">{contactInfo.ksaEntity}</p>
               <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
-                <a href={`mailto:${contactInfo.email}`} className="hover:text-orange">
+                <Mail className="h-4 w-4 shrink-0 text-amber-400" aria-hidden="true" />
+                <a href={`mailto:${contactInfo.email}`} className="hover:text-amber-400">
                   {contactInfo.email}
                 </a>
               </p>
               <p className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" /> {contactInfo.address}
+                <MapPin className="h-4 w-4 shrink-0 text-amber-400" aria-hidden="true" /> {contactInfo.address}
               </p>
             </div>
           </div>
@@ -75,7 +75,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-white/80 hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  className="text-sm text-white/80 hover:text-amber-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
                 >
                   {link.label}
                 </Link>
