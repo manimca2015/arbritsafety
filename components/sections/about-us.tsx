@@ -7,7 +7,7 @@ const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
 export function AboutUs() {
   return (
     <section className="w-full">
-      <div className="grid lg:grid-cols-2">
+      <div className="grid lg:grid-cols-2 lg:items-center">
         <div className="flex flex-col justify-center bg-navy px-6 py-12 sm:px-12 md:py-16 lg:px-16">
           <div className="mx-auto max-w-xl lg:mx-0">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Who We Are</p>
@@ -56,7 +56,7 @@ export function AboutUs() {
           </div>
         </div>
 
-        <div className="relative min-h-[320px] lg:min-h-[440px]">
+        <div className="relative aspect-video w-full overflow-hidden">
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/yIJkf2ja3Gw"
