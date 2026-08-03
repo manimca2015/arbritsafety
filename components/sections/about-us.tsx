@@ -7,7 +7,7 @@ export function AboutUs() {
   return (
     <section className="w-full">
       <div className="grid lg:grid-cols-2">
-        <div className="flex flex-col justify-center bg-navy px-6 py-16 sm:px-12 md:py-24 lg:px-16">
+        <div className="flex flex-col justify-center bg-navy px-6 py-12 sm:px-12 md:py-16 lg:px-16">
           <div className="mx-auto max-w-xl lg:mx-0">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Who We Are</p>
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">About Us</h2>
@@ -41,7 +41,7 @@ export function AboutUs() {
           </div>
         </div>
 
-        <div className="relative min-h-[400px] lg:min-h-[600px]">
+        <div className="relative min-h-[320px] lg:min-h-[440px]">
           <iframe
             className="absolute inset-0 h-full w-full"
             src="https://www.youtube.com/embed/yIJkf2ja3Gw"
