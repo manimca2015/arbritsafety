@@ -9,6 +9,11 @@ import {
   HeartPulse,
   Award,
   BadgeCheck,
+  LifeBuoy,
+  Fuel,
+  HardHat,
+  Forklift,
+  ShieldAlert,
   Globe,
   Camera,
   Briefcase,
@@ -192,12 +197,13 @@ export const courseCategories: CourseCategory[] = [
 ];
 
 export const featuredCourses: Course[] = [
-  { slug: "rope-access", title: "Rope Access", category: "International", duration: "5 Days", level: "All Levels", icon: Anchor, href: "/courses/rope-access" },
-  { slug: "lead-auditor", title: "Lead Auditor", category: "International", duration: "5 Days", level: "Advanced", icon: ClipboardCheck, href: "/courses/lead-auditor" },
-  { slug: "iosh-managing-safely", title: "IOSH Managing Safely", category: "International", duration: "3 Days", level: "Management", icon: ShieldCheck, href: "/courses/iosh" },
-  { slug: "sti-scaffold-inspector", title: "STI Scaffold Inspector", category: "International", duration: "4 Days", level: "Intermediate", icon: Layers, href: "/courses/sti" },
   { slug: "fire-fighting", title: "Fire Fighting", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Flame, href: "/courses/fire-fighting" },
-  { slug: "first-aid", title: "Basic First Aid, CPR & AED", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, href: "/courses/first-aid" },
+  { slug: "rescue-training", title: "Rescue-Training", category: "General Safety", duration: "3 Days", level: "All Levels", icon: LifeBuoy, href: "/courses/rescue-training" },
+  { slug: "oil-and-gas", title: "Oil and Gas", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Fuel, href: "/courses/oil-and-gas" },
+  { slug: "construction-safety", title: "Construction Safety", category: "General Safety", duration: "2 Days", level: "All Levels", icon: HardHat, href: "/courses/construction-safety" },
+  { slug: "first-aid", title: "First Aid", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, href: "/courses/first-aid" },
+  { slug: "forklift-operator", title: "Forklift Operator", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Forklift, href: "/courses/forklift-operator" },
+  { slug: "safety-awareness", title: "Safety Awareness", category: "General Safety", duration: "1 Day", level: "All Levels", icon: ShieldAlert, href: "/courses/general-safety-awareness" },
 ];
 
 export const stats: Stat[] = [

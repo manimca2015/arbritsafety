@@ -8,11 +8,7 @@ export function FeaturedCourses() {
   return (
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading
-          eyebrow="Featured Courses"
-          title="Popular Accredited Courses"
-          description="A selection of our most enrolled international and general safety courses."
-        />
+        <SectionHeading eyebrow="Course" title="General Safety Courses" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredCourses.map((course) => {
             const Icon = course.icon;
@@ -25,7 +21,7 @@ export function FeaturedCourses() {
                   aria-hidden="true"
                   className="flex h-32 items-center justify-center rounded-t-2xl bg-gradient-to-br from-navy to-navy-deep"
                 >
-                  <Icon className="h-10 w-10 text-orange" aria-hidden="true" />
+                  <Icon className="h-10 w-10 text-white" aria-hidden="true" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <span className="text-xs font-semibold uppercase tracking-wide text-orange">
