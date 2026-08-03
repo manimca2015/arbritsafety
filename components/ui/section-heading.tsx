@@ -7,7 +7,7 @@ type SectionHeadingProps = {
 
 export function SectionHeading({ eyebrow, title, description, align = "center" }: SectionHeadingProps) {
   return (
-    <div className={`mx-auto max-w-2xl ${align === "center" ? "text-center" : "text-left"}`}>
+    <div className={align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl text-left"}>
       {eyebrow && (
         <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">{eyebrow}</p>
       )}
