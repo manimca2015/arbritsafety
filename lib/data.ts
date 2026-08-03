@@ -75,11 +75,6 @@ export type Faq = {
   answer: string;
 };
 
-export type FooterLinkGroup = {
-  title: string;
-  links: NavLink[];
-};
-
 export type PhoneNumber = {
   label: string;
   number: string;
@@ -315,43 +310,14 @@ export const faqs: Faq[] = [
   },
 ];
 
-export const footerCourseColumns: FooterLinkGroup[] = [
-  {
-    title: "Lifting & Access",
-    links: [
-      { label: "Lead Auditor", href: "/courses/lead-auditor" },
-      { label: "Rope Access Training", href: "/courses/rope-access" },
-      { label: "Lifting Supervisor Refresher", href: "/courses/lifting-supervisor-refresher" },
-      { label: "Crane Rigging & Signalling", href: "/courses/crane-rigging-signalling" },
-    ],
-  },
-  {
-    title: "Scaffolding",
-    links: [
-      { label: "Scaffold Erector", href: "/courses/scaffold-erector" },
-      { label: "Scaffold Supervisor", href: "/courses/scaffold-supervisor" },
-      { label: "Scaffold Inspector", href: "/courses/scaffold-inspector" },
-      { label: "Scaffolding Erection & Inspection", href: "/courses/scaffolding-erection-inspection" },
-    ],
-  },
-  {
-    title: "Management Safety",
-    links: [
-      { label: "IOSH Managing Safely", href: "/courses/iosh-managing-safely" },
-      { label: "IOSH Working Safely", href: "/courses/iosh-working-safely" },
-      { label: "Train the Trainer", href: "/courses/train-the-trainer" },
-      { label: "Working at Height", href: "/courses/working-at-height" },
-    ],
-  },
-  {
-    title: "Emergency & Fire",
-    links: [
-      { label: "Basic First Aid, CPR & AED", href: "/courses/first-aid" },
-      { label: "Fire Warden", href: "/courses/fire-warden" },
-      { label: "Fire Marshal", href: "/courses/fire-marshal" },
-      { label: "Confined Space Entry & Rescue", href: "/courses/confined-space-entry-rescue" },
-    ],
-  },
+export const footerQuickLinks: NavLink[] = [
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Courses", href: "/courses" },
+  { label: "Consultancy", href: "/consultancy" },
+  { label: "Career", href: "/career" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 export const contactInfo = {
