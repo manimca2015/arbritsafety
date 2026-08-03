@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { ArrowRight, Newspaper } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -15,11 +16,14 @@ export function LatestBlogs() {
               key={post.href}
               className="flex flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
             >
-              <div
-                aria-hidden="true"
-                className="flex h-36 items-center justify-center rounded-t-2xl bg-gradient-to-br from-navy-deep to-orange/70"
-              >
-                <Newspaper className="h-9 w-9 text-white" aria-hidden="true" />
+              <div className="relative h-44 w-full overflow-hidden rounded-t-2xl">
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  className="object-cover"
+                />
               </div>
               <div className="flex flex-1 flex-col p-6">
                 <span className="text-xs font-semibold uppercase tracking-wide text-orange">
@@ -29,10 +33,12 @@ export function LatestBlogs() {
                   {post.title}
                 </h3>
                 <p className="mt-3 flex-1 text-sm text-navy/70">{post.excerpt}</p>
-                <Button asChild variant="link" className="mt-4 justify-start px-0 text-orange">
-                  <Link href={post.href}>
-                    Read More <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
-                  </Link>
+                <Button
+                  type="button"
+                  variant="link"
+                  className="mt-4 cursor-default justify-start px-0 text-orange hover:no-underline"
+                >
+                  Read More <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
                 </Button>
               </div>
             </article>

@@ -72,6 +72,7 @@ export type BlogPost = {
   excerpt: string;
   category: string;
   href: string;
+  image: string;
 };
 
 export type Faq = {
@@ -280,23 +281,26 @@ export const blogPosts: BlogPost[] = [
   {
     title: "The Role of Accredited Train the Trainer Courses in Meeting UAE OSHAD Compliance Requirements",
     excerpt:
-      "UAE OSHAD regulations require certified trainers. Here's how an accredited Train the Trainer course keeps your organization compliant.",
+      "UAE organisations cannot build a strong safety culture by depending only on one-time external training. Site teams change. Risks change.",
     category: "Compliance",
     href: "/blog/train-the-trainer-oshad-compliance",
+    image: "/blog/train-the-trainer-course-300x300.webp",
   },
   {
     title: "Renew Your LEEA Lifting Supervisor Certification: 3-Year Validity Explained",
     excerpt:
-      "LEEA Lifting Supervisor certification is valid for three years. Here's what's involved in renewing it on time.",
+      "Lifting supervision is not a role where old knowledge can sit untouched forever. Equipment changes. Site procedures change. Client requirements",
     category: "LEEA",
     href: "/blog/renew-leea-lifting-supervisor-certification",
+    image: "/blog/LEEA-Lifting-Supervisor-Certification-300x300.webp",
   },
   {
     title: "LEEA Training Courses Dubai: From Risk Assessment to Method Statements",
     excerpt:
-      "A look at how Arbrit's LEEA training courses in Dubai take trainees from risk assessment fundamentals to method statement writing.",
+      "Why LEEA Training Courses in Dubai are important for professionals involved in lifting operations. The training helps learners understand how",
     category: "LEEA",
     href: "/blog/leea-training-courses-dubai",
+    image: "/blog/LEEA-Training-Courses-300x276.webp",
   },
 ];
 
