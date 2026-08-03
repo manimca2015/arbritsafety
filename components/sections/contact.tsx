@@ -12,6 +12,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { contactInfo, courseSelectOptions, locationSelectOptions } from "@/lib/data";
 
@@ -34,38 +35,59 @@ export function Contact() {
         <div className="mt-12 grid gap-10 lg:grid-cols-2">
           <form onSubmit={handleSubmit} className="space-y-4 rounded-3xl bg-white p-8 shadow-sm">
             <div className="grid gap-4 sm:grid-cols-2">
-              <Input name="name" placeholder="Full Name" aria-label="Full Name" required />
-              <Input type="email" name="email" placeholder="Email" aria-label="Email" required />
+              <div className="space-y-1.5">
+                <Label htmlFor="contact-name">Full Name</Label>
+                <Input id="contact-name" name="name" placeholder="Full Name" required />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="contact-email">Email</Label>
+                <Input id="contact-email" type="email" name="email" placeholder="Email" required />
+              </div>
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              <Input type="tel" name="phone" placeholder="Phone" aria-label="Phone" required />
-              <Select name="course">
-                <SelectTrigger aria-label="Select Course">
-                  <SelectValue placeholder="Select Course" />
+              <div className="space-y-1.5">
+                <Label htmlFor="contact-phone">Phone</Label>
+                <Input id="contact-phone" type="tel" name="phone" placeholder="Phone" required />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="contact-course">Course</Label>
+                <Select name="course">
+                  <SelectTrigger id="contact-course">
+                    <SelectValue placeholder="Select Course" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {courseSelectOptions.map((course) => (
+                      <SelectItem key={course} value={course}>
+                        {course}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="contact-location">Location</Label>
+              <Select name="location">
+                <SelectTrigger id="contact-location" className="w-full">
+                  <SelectValue placeholder="Select Location" />
                 </SelectTrigger>
                 <SelectContent>
-                  {courseSelectOptions.map((course) => (
-                    <SelectItem key={course} value={course}>
-                      {course}
+                  {locationSelectOptions.map((location) => (
+                    <SelectItem key={location} value={location}>
+                      {location}
                     </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
             </div>
-            <Select name="location">
-              <SelectTrigger className="w-full" aria-label="Select Location">
-                <SelectValue placeholder="Select Location" />
-              </SelectTrigger>
-              <SelectContent>
-                {locationSelectOptions.map((location) => (
-                  <SelectItem key={location} value={location}>
-                    {location}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-            <Input name="subject" placeholder="Subject" aria-label="Subject" />
-            <Textarea name="message" placeholder="Message" aria-label="Message" rows={4} />
+            <div className="space-y-1.5">
+              <Label htmlFor="contact-subject">Subject</Label>
+              <Input id="contact-subject" name="subject" placeholder="Subject" />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="contact-message">Message</Label>
+              <Textarea id="contact-message" name="message" placeholder="Message" rows={4} />
+            </div>
             <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
               Send Message
             </Button>

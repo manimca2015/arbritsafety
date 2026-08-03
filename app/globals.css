@@ -135,6 +135,7 @@
   --orange: #ff6a1a;
   --surface: #ffffff;
   --muted: #f5f7fa;
+  --ring: var(--orange);
 }
 
 @theme inline {

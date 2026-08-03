@@ -6,7 +6,12 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { footerCourseColumns, navLinks, contactInfo } from "@/lib/data";
 
-const socialIcons = [Globe, Camera, Briefcase, Video];
+const socialLinks = [
+  { icon: Globe, label: "Facebook" },
+  { icon: Camera, label: "Instagram" },
+  { icon: Briefcase, label: "LinkedIn" },
+  { icon: Video, label: "YouTube" },
+];
 
 export function Footer() {
   return (
@@ -32,12 +37,12 @@ export function Footer() {
               </p>
             </div>
             <div className="mt-5 flex gap-3">
-              {socialIcons.map((Icon, i) => (
+              {socialLinks.map(({ icon: Icon, label }) => (
                 <a
-                  key={i}
+                  key={label}
                   href="#"
-                  aria-label="Social link"
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-orange"
+                  aria-label={label}
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 hover:bg-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                 >
                   <Icon className="h-4 w-4" aria-hidden="true" />
                 </a>
@@ -51,7 +56,10 @@ export function Footer() {
               <ul className="mt-4 space-y-2">
                 {col.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="text-sm text-white/80 hover:text-orange">
+                    <Link
+                      href={link.href}
+                      className="text-sm text-white/80 hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                    >
                       {link.label}
                     </Link>
                   </li>
@@ -62,9 +70,13 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-8 md:flex-row md:items-center md:justify-between">
-          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70">
+          <nav className="flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/70" aria-label="Footer">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} className="hover:text-orange">
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+              >
                 {link.label}
               </Link>
             ))}

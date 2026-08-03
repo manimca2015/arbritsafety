@@ -18,7 +18,7 @@ export function CourseCategories() {
               <Link
                 key={category.slug}
                 href={category.href}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-navy/10 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col items-center gap-3 rounded-2xl border border-navy/10 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/10 text-orange transition group-hover:bg-orange group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />

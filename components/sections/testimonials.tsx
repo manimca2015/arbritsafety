@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { testimonials } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
@@ -9,13 +9,17 @@ import { Button } from "@/components/ui/button";
 
 export function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (paused) return;
+
     const timer = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [index, paused]);
 
   const goTo = (next: number) => {
     setIndex((next + testimonials.length) % testimonials.length);
@@ -27,19 +31,27 @@ export function Testimonials() {
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-6">
         <SectionHeading eyebrow="Testimonials" title="What Our Students Say" />
-        <div className="relative mt-12 rounded-3xl border border-navy/10 bg-muted p-10 text-center">
+        <div
+          className="relative mt-12 rounded-3xl border border-navy/10 bg-muted p-10 text-center"
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+          onFocus={() => setPaused(true)}
+          onBlur={() => setPaused(false)}
+          aria-live="polite"
+        >
           <AnimatePresence mode="wait">
             <motion.div
               key={current.name}
-              initial={{ opacity: 0, x: 24 }}
+              initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 24 }}
               animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -24 }}
-              transition={{ duration: 0.4 }}
+              exit={{ opacity: 0, x: shouldReduceMotion ? 0 : -24 }}
+              transition={{ duration: shouldReduceMotion ? 0 : 0.4 }}
             >
               <div className="flex justify-center gap-1">
                 {Array.from({ length: current.rating }).map((_, i) => (
                   <Star key={i} className="h-5 w-5 fill-orange text-orange" aria-hidden="true" />
                 ))}
+                <span className="sr-only">{current.rating} out of 5 stars</span>
               </div>
               <p className="mt-5 text-lg text-navy/80">&ldquo;{current.quote}&rdquo;</p>
               <p className="mt-6 font-heading font-semibold text-navy">{current.name}</p>
