@@ -103,9 +103,17 @@ export function Footer() {
           </div>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-8 text-xs text-white/50">
-          © {new Date().getFullYear()} Arbrit Safety Training &amp; Consultancy LLC. All rights reserved.
-        </p>
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Arbrit Safety Training &amp; Consultancy LLC. All rights reserved.</p>
+          <nav className="flex gap-4" aria-label="Legal">
+            <Link href="/terms-and-conditions" className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              Terms and Conditions
+            </Link>
+            <Link href="/privacy-policy" className="hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+              Privacy Policy
+            </Link>
+          </nav>
+        </div>
       </div>
     </footer>
   );
