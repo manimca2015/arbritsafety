@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { CoursesDirectory } from "@/components/layout/courses-directory";
+import { HseOfficersCta } from "@/components/sections/hse-officers-cta";
 import { BackToTop } from "@/components/ui/back-to-top";
 
 const inter = Inter({
@@ -54,6 +55,7 @@ export default function RootLayout({
         <main id="main" className="flex-1">
           {children}
         </main>
+        <HseOfficersCta />
         <CoursesDirectory />
         <Footer />
         <BackToTop />

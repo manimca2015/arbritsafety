@@ -12,7 +12,6 @@ import { Testimonials } from "@/components/sections/testimonials";
 import { LatestBlogs } from "@/components/sections/latest-blogs";
 import { Faq } from "@/components/sections/faq";
 import { Contact } from "@/components/sections/contact";
-import { HseOfficersCta } from "@/components/sections/hse-officers-cta";
 import { contactInfo, socialLinks } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -58,7 +57,6 @@ export default function Home() {
       <LatestBlogs />
       <Faq />
       <Contact />
-      <HseOfficersCta />
     </>
   );
 }
