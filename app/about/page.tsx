@@ -43,6 +43,14 @@ export default function AboutPage() {
             everyone, to implement new processes and technology and to consistently improve
             quality education.
           </p>
+          <div className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+            <video controls preload="metadata" className="h-full w-full">
+              <source
+                src="https://arbritsafety.ae/wp-content/uploads/2024/04/Arbrit-Safety.mp4"
+                type="video/mp4"
+              />
+            </video>
+          </div>
         </div>
       </section>
 
