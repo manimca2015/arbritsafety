@@ -94,6 +94,16 @@ export type Faq = {
   answer: string;
 };
 
+export type Trainer = {
+  slug: string;
+  name: string;
+  credentials: string;
+  image: string;
+  shortBio: string;
+  quote: string;
+  bio: string[];
+};
+
 export type PhoneNumber = {
   label: string;
   number: string;
@@ -481,4 +491,48 @@ export const careerJobOpenings = [
   "Junior HSE Trainers",
   "Sales Coordinator",
   "Appointed person for lifting operations",
+];
+
+export const trainers: Trainer[] = [
+  {
+    slug: "brijith-shaji",
+    name: "Brijith Shaji",
+    credentials: "B.Tech (Fire & Safety), GradIOSH",
+    image: "/trainer/Brijith-shaji.jpg",
+    shortBio:
+      "Brijith Shaji is an Internationally and Dubai Municipality certified Trainer authorized to conduct the NEBOSH, IOSH, HighField, Medic First aid and Scaffold Training Institute courses.",
+    quote: "Push yourself to your limits. Thats how you truly grow.",
+    bio: [
+      "Brijith Shaji is an Internationally and Dubai Municipality certified Trainer authorized to conduct the NEBOSH, IOSH, HighField, Medic First aid and Scaffold Training Institute courses. Students and managers have described Brijith as both personable and dynamic who captivates participants using a combination of approaches—group exercises, short videos, accident case studies, images of hazards, and group discussion.",
+      "With almost 14 years in managing safety for small and large businesses, heavy and light manufacturing to construction, Brijith brings his experience into the classroom and creates an engaging learning experience for all.He has key roles that have included operationally planning for disasters, carrying out Safety Audits and implementing Remediation, Mitigation or Removal requirements.",
+      "He is a focused and hardworking person who enjoys imparting information to all ages and sectors of the community, communicating the importance of Safety. He work above and beyond the employers requirements at all times. As a trainer, his core capabilities include conducting safety / risk analysis at the work place and devising solutions to avoid safety hazards.",
+    ],
+  },
+  {
+    slug: "ishtiaq-hasham-khan",
+    name: "Engr. Ishtiaq Hasham Khan",
+    credentials: "Grad IOSH, STI",
+    image: "/trainer/Ishtiaq-Hasham.jpg",
+    shortBio:
+      "A self-motivated and hard working qualified Health and Safety Trainer / Consultant with over 8 years experience in all aspects of Health and Safety over a diverse range of industries.",
+    quote: "The aim of education is to advance knowledge and share truth",
+    bio: [
+      "A self-motivated and hard working qualified Health and Safety Trainer / Consultant with over 8 years experience in all aspects of Health and Safety over a diverse range of industries. Accredited trainer to deliver IOSH and STI training courses.",
+      "Training courses are delivered in an interesting way, using a variety of resources to engage the Learners, enabling them to understand and take on board, the subject matter with confidence.",
+      "Able to use own initiative as well as work as part of a team. Proven training / leadership skills,including managing and motivating staff to achieve company health and safety objectives. A very effective trainer / communicator at all levels within an organisation.",
+    ],
+  },
+  {
+    slug: "anshadh-rahim",
+    name: "Anshadh Rahim",
+    credentials: "HSE Trainer",
+    image: "/trainer/anshadh-rahim.jpeg",
+    shortBio:
+      "HSE Trainer with shown skill in content development, creating learning programmes and initiatives.",
+    quote: "The aim of education is to advance knowledge and share truth",
+    bio: [
+      "HSE Trainer with shown skill in content development, creating learning programmes and initiatives. Trainer has proven his ability to make the sessions engaging and delivering professionally, Having all the basic safety accreditations to deliver the services to the best of its practice",
+      "Able to use own initiative as well as work as part of a team. Proven training / leadership skills,including managing and motivating staff to achieve company health and safety objectives. A very effective trainer / communicator at all levels within an organisation.",
+    ],
+  },
 ];
