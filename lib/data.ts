@@ -281,7 +281,7 @@ export const courseCategories: CourseCategory[] = [
   { slug: "iosh", title: "IOSH", icon: ShieldCheck, href: "/courses/iosh" },
   { slug: "sti", title: "STI", icon: Layers, href: "/courses/sti" },
   { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, href: "/courses/leea-diploma" },
-  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, href: "/courses/leea-course" },
+  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, href: "/courses/leea-course-dubai" },
 ];
 
 export const featuredCourses: Course[] = [
@@ -724,7 +724,7 @@ export const historyGallery = [
 
 export const courseDetails: CourseDetail[] = [
   {
-    slug: "leea-appointed-person-lifting-operations",
+    slug: "leea-course-dubai",
     title: "LEEA Approved Appointed Person For Lifting Operations",
     duration: "5 Days Comprehensive",
     image: "/course/LEEA-Appointed-Lifting-Person.jpg",
