@@ -96,6 +96,20 @@ export type BlogPost = {
   content?: BlogSection[];
 };
 
+export type CourseDetail = {
+  slug: string;
+  title: string;
+  duration: string;
+  image: string;
+  aim: string;
+  topics: string[];
+  durationHeading: string;
+  targetDelegates: string;
+  certificationIntro: string;
+  certificationLinkUrl: string;
+  certificationHighlight: string;
+};
+
 export type Faq = {
   question: string;
   answer: string;
@@ -706,6 +720,44 @@ export const historyGallery = [
   { src: "/about/managing-safely-big-300x228.jpg", alt: "Managing Safely training" },
   { src: "/about/women-luncheon-big-300x226.jpg", alt: "Women's luncheon" },
   { src: "/about/women-luncheon-uae-big-300x225.jpg", alt: "Women's luncheon UAE" },
+];
+
+export const courseDetails: CourseDetail[] = [
+  {
+    slug: "leea-appointed-person-lifting-operations",
+    title: "LEEA Approved Appointed Person For Lifting Operations",
+    duration: "5 Days Comprehensive",
+    image: "/course/LEEA-Appointed-Lifting-Person.jpg",
+    aim: "The aim of this course is to provide candidates with underpinning knowledge in order for them to understand the role and responsibility of the Appointed Person. Following completion of the course candidates will be able to identify and implement safety systems of work for lifting operations including writing risk assessments and method statements. As per UAE Construction Standards, appointed person is mandatory in all major lifting activities.",
+    topics: [
+      "Legislation",
+      "LOLER, PUWER, HASAWA",
+      "Codes of practice BS7121 part 1, 2 & 3",
+      "Roles and responsibilities of personnel involved with lifting operations",
+      "Crane appreciation – crane types, capabilities and limitations",
+      "Duty charts",
+      "Crane terminology",
+      "Documentation and certification for lifting equipment",
+      "and lifting equipment and lifting accessories",
+      "Crane stability/ground conditions, crane mat calculations",
+      "Rated Capacity Indicators (RCIs) and Safe Working Loads (SWL)",
+      "Types of accessories and use",
+      "Slinging techniques",
+      "Down rating of accessories using Uniformal and Trignomerical Methods",
+      "Sling Angles",
+      "Communications",
+      "Planning a lifting operation",
+      "Writing a risk assessment (end test)",
+      "Writing a method statement (end test)",
+    ],
+    durationHeading: "5 days",
+    targetDelegates:
+      "This course is aimed at anyone who is required plan safe systems of work using lifting equipment. It is recommended that prior to attending this course individuals should have some experience of working with lifting equipment, especially mobile cranes.",
+    certificationIntro:
+      "Every participant must complete the written assessment in order to be eligible for earning the Certificate of Achievement from LEEA-UK. These certificates can be verified from LEEA website",
+    certificationLinkUrl: "https://leeaint.com/verfiy-certificate",
+    certificationHighlight: "The Certificate of Achievement is valid for a period of 3 years",
+  },
 ];
 
 export const trainers: Trainer[] = [
