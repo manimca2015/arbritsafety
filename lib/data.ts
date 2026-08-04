@@ -96,18 +96,25 @@ export type BlogPost = {
   content?: BlogSection[];
 };
 
+export type ClientLogo = {
+  src: string;
+  alt: string;
+};
+
 export type CourseDetail = {
   slug: string;
   title: string;
-  duration: string;
+  duration?: string;
   image: string;
-  aim: string;
-  topics: string[];
-  durationHeading: string;
-  targetDelegates: string;
-  certificationIntro: string;
-  certificationLinkUrl: string;
-  certificationHighlight: string;
+  aim?: string;
+  topics?: string[];
+  durationHeading?: string;
+  targetDelegates?: string;
+  certificationIntro?: string;
+  certificationLinkUrl?: string;
+  certificationHighlight?: string;
+  courseInfoParagraphs?: string[];
+  clientLogos?: ClientLogo[];
 };
 
 export type Faq = {
@@ -757,6 +764,25 @@ export const courseDetails: CourseDetail[] = [
       "Every participant must complete the written assessment in order to be eligible for earning the Certificate of Achievement from LEEA-UK. These certificates can be verified from LEEA website",
     certificationLinkUrl: "https://leeaint.com/verfiy-certificate",
     certificationHighlight: "The Certificate of Achievement is valid for a period of 3 years",
+  },
+  {
+    slug: "rope-access",
+    title: "Rope Access",
+    image: "/course/rope-access-_1_-1024x683.webp",
+    courseInfoParagraphs: [
+      "Rope access system is a safe method of working at height where ropes and associated equipment are used to gain access to and from the work position, and to be supported there. The advantage of using rope access methods mainly lies in the safety and speed with which workers can get to or from difficult locations in order to carry out their work, often with minimal impact on other operations, surrounding areas and the environment. Another major benefit is the reduction of the combination of the total man-hours and perceived level of risk for a particular task (man-at-risk hours) when compared with other means of access and their associated risks and costs.",
+      "The primary objective when using rope access methods is to carry out the work efficiently, with minimal accidents, incidents or dangerous occurrences. In order to ensure a safe system of work is maintained at all times, whilst avoiding damage to property or harm to the environment, careful planning and documented risk assessments are undertaken for each operation.",
+    ],
+    clientLogos: [
+      { src: "/course/Clients/acciona-dubai.png", alt: "Acciona" },
+      { src: "/course/Clients/al-ali-dubai.png", alt: "Al Ali" },
+      { src: "/course/Clients/alec-dubai.png", alt: "ALEC" },
+      { src: "/course/Clients/Ecc-dubai.png", alt: "ECC" },
+      { src: "/course/Clients/etsalat-dubai.png", alt: "Etisalat" },
+      { src: "/course/Clients/kier-dubai.png", alt: "Kier" },
+      { src: "/course/Clients/red-sea-dubai.png", alt: "Red Sea" },
+      { src: "/course/Clients/Wj-dubai.png", alt: "WJ" },
+    ],
   },
 ];
 

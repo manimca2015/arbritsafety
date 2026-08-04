@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Clock, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
+import { CourseClientsCarousel } from "@/components/sections/course-clients-carousel";
 import { courseDetails, featuredCourses } from "@/lib/data";
 
 export function generateStaticParams() {
@@ -50,47 +51,82 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
             <Image src={course.image} alt={course.title} fill sizes="768px" className="object-cover" />
           </div>
-          <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
-            <Clock className="h-4 w-4" aria-hidden="true" />
-            {course.duration}
-          </div>
+          {course.duration && (
+            <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
+              <Clock className="h-4 w-4" aria-hidden="true" />
+              {course.duration}
+            </div>
+          )}
 
-          <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Aim and Content</h2>
-          <p className="mt-4 text-navy/70">{course.aim}</p>
+          {course.aim && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Aim and Content</h2>
+              <p className="mt-4 text-navy/70">{course.aim}</p>
+            </>
+          )}
 
-          <h2 className="mt-10 font-heading text-2xl font-bold text-navy">
-            Topics covered during this course include:
-          </h2>
-          <ul className="mt-5 space-y-3">
-            {course.topics.map((topic, i) => (
-              <li key={i} className="flex items-start gap-3 text-sm text-navy/80">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
-                {topic}
-              </li>
-            ))}
-          </ul>
+          {course.courseInfoParagraphs && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Info</h2>
+              {course.courseInfoParagraphs.map((paragraph, i) => (
+                <p key={i} className="mt-4 text-navy/70">
+                  {paragraph}
+                </p>
+              ))}
+            </>
+          )}
 
-          <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Duration</h2>
-          <p className="mt-4 text-navy/70">{course.durationHeading}</p>
+          {course.topics && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">
+                Topics covered during this course include:
+              </h2>
+              <ul className="mt-5 space-y-3">
+                {course.topics.map((topic, i) => (
+                  <li key={i} className="flex items-start gap-3 text-sm text-navy/80">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                    {topic}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
 
-          <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Target Delegates</h2>
-          <p className="mt-4 text-navy/70">{course.targetDelegates}</p>
+          {course.durationHeading && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Duration</h2>
+              <p className="mt-4 text-navy/70">{course.durationHeading}</p>
+            </>
+          )}
 
-          <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Certification</h2>
-          <p className="mt-4 text-navy/70">
-            {course.certificationIntro}{" "}
-            <a
-              href={course.certificationLinkUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-orange underline"
-            >
-              {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-            </a>
-          </p>
-          <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-navy">
-            {course.certificationHighlight}
-          </p>
+          {course.targetDelegates && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Target Delegates</h2>
+              <p className="mt-4 text-navy/70">{course.targetDelegates}</p>
+            </>
+          )}
+
+          {course.certificationIntro && course.certificationLinkUrl && (
+            <>
+              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Certification</h2>
+              <p className="mt-4 text-navy/70">
+                {course.certificationIntro}{" "}
+                <a
+                  href={course.certificationLinkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-orange underline"
+                >
+                  {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                </a>
+              </p>
+            </>
+          )}
+          {course.certificationHighlight && (
+            <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-navy">
+              {course.certificationHighlight}
+            </p>
+          )}
 
           <div className="mt-10">
             <JoinCourseDialog courseTitle={course.title} />
@@ -117,11 +153,24 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
         </div>
       </section>
 
+      {course.clientLogos && (
+        <section className="overflow-hidden bg-white py-16 md:py-20">
+          <div className="mx-auto max-w-7xl px-6">
+            <h2 className="text-center font-heading text-3xl font-bold text-navy sm:text-4xl">Our Clients</h2>
+          </div>
+          <div className="mt-10">
+            <CourseClientsCarousel logos={course.clientLogos} />
+          </div>
+        </section>
+      )}
+
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
           <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">Other Courses</h2>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredCourses.map((c) => {
+            {featuredCourses
+              .filter((c) => c.slug !== course.slug)
+              .map((c) => {
               const Icon = c.icon;
               return (
                 <div
