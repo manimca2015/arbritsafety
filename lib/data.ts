@@ -509,6 +509,59 @@ export const blogPosts: BlogPost[] = [
     category: "LEEA",
     href: "/blog/leea-training-courses-dubai",
     image: "/blog/LEEA-Training-Courses-300x276.webp",
+    content: [
+      {
+        paragraphs: [
+          "A lifting operation can look simple from the outside. A crane arrives, the load is attached, the team gives signals, and the lift happens. Very neat, until you remember that every lift involves load weight, ground conditions, equipment capacity, lifting accessories, communication, weather, access, exclusion zones, and people standing far too close to things they should respect more.",
+          "That is why LEEA Training Courses in Dubai are important for professionals involved in lifting operations. The training helps learners understand how lifting safety moves from planning documents to actual site control.",
+        ],
+      },
+      {
+        heading: "Why Risk Assessment Comes First",
+        paragraphs: [
+          "A lifting risk assessment identifies what could go wrong before the lift starts. It considers the load, location, equipment, team, environment, access, nearby structures, and possible failure points.",
+          "For UAE projects, this is especially important because lifting work often happens in busy construction sites, oil and gas facilities, logistics yards, ports, warehouses, industrial plants, and infrastructure projects. The risk assessment is not paperwork for decoration. It is the starting point for deciding whether the lift can be done safely.",
+          "LEEA’s Foundation Certificate is designed to build understanding of lifting equipment, safe lifting practices, legislation, standards, inspection, maintenance, rating, and lifting equipment applications.",
+        ],
+      },
+      {
+        heading: "What a Method Statement Should Do",
+        paragraphs: [
+          "A method statement explains how the lifting activity will be carried out. It should connect directly to the risk assessment and give the team a clear sequence of work.",
+          "A good lifting method statement should cover the lift objective, equipment selection, lifting accessories, team roles, communication method, exclusion zone, ground condition controls, emergency arrangements, and step-by-step lifting sequence.",
+          "If the risk assessment identifies the hazards but the method statement does not control them, the documents are not working together. They are just two files sitting politely in a folder, contributing nothing to civilisation.",
+        ],
+      },
+      {
+        heading: "How LEEA Training Builds Practical Competence",
+        paragraphs: [
+          "Good LEEA Training in Dubai should help professionals understand both the technical and behavioural sides of lifting safety. It is not enough to know the names of accessories or crane parts. Participants need to understand responsibility, planning, communication, inspection awareness, and control measures.",
+          "Arbrit Safety’s LEEA Appointed Person training covers roles and responsibilities, crane appreciation, duty charts, ground conditions, crane mat calculations, safe working loads, lifting accessories, slinging techniques, communication, lift planning, risk assessments, and method statements.",
+          "These topics matter because lifting failures rarely come from one issue. They often come from several small gaps combining at the worst possible time.",
+        ],
+      },
+      {
+        heading: "Who Needs This Training?",
+        paragraphs: [
+          "LEEA Training Courses in Dubai are useful for appointed persons, lifting supervisors, riggers, engineers, HSE officers, site supervisors, lifting coordinators, inspectors, technicians, and project teams involved in lifting operations.",
+          "For beginners, the LEEA Foundation Certificate can support basic understanding. For more advanced roles, Appointed Person and diploma-level routes build stronger technical capability.",
+        ],
+      },
+      {
+        heading: "Documentation Is Only Useful When Teams Understand It",
+        paragraphs: [
+          "Many projects already have risk assessments and method statements. The problem is whether the people using them actually understand them.",
+          "Training helps teams read the documents properly, identify weak points, challenge unsafe assumptions, and apply controls on site. This is where competence starts to show. A trained lifting team does not simply sign a toolbox talk sheet and walk away. They understand what needs to happen and why.",
+        ],
+      },
+      {
+        heading: "Build Safer Lifting Operations with Arbrit Safety",
+        paragraphs: [
+          "Arbrit Safety is the first LEEA Licensed Training Partner in the UAE and KSA for the LEEA Foundation Certificate, and its UAE LEEA pathway includes Foundation Certificate and Lifting Accessories Diploma routes with classroom training, practical exercises, and competency-based assessments.",
+          "For organisations and professionals looking for LEEA Training Courses in Dubai or LEEA Training in Dubai, Arbrit Safety supports practical lifting competence from risk assessment to method statements, helping teams plan better, supervise better, and reduce avoidable lifting risks on UAE projects.",
+        ],
+      },
+    ],
   },
 ];
 
