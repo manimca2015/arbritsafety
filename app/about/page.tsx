@@ -46,7 +46,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="h-56 overflow-hidden rounded-2xl shadow-lg sm:h-64 lg:h-72">
+          <div className="h-[600px] overflow-hidden rounded-2xl shadow-lg">
             <video controls preload="metadata" className="h-full w-full object-cover">
               <source
                 src="https://arbritsafety.ae/wp-content/uploads/2024/04/Arbrit-Safety.mp4"
