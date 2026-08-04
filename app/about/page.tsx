@@ -74,23 +74,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-            {historyGallery.map((photo, i) => (
-              <div
-                key={i}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-sm"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
-
           <div className="mx-auto mt-14 max-w-4xl">
             <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
               HSE Training Research
@@ -107,6 +90,23 @@ export default function AboutPage() {
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+            {historyGallery.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-sm"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition duration-300 group-hover:scale-110"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
