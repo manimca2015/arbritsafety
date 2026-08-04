@@ -81,12 +81,19 @@ export type Testimonial = {
   rating: number;
 };
 
+export type BlogSection = {
+  heading?: string;
+  paragraphs: string[];
+  bulletList?: string[];
+};
+
 export type BlogPost = {
   title: string;
   excerpt: string;
   category: string;
   href: string;
   image: string;
+  content?: BlogSection[];
 };
 
 export type Faq = {
@@ -351,6 +358,73 @@ export const blogPosts: BlogPost[] = [
     category: "Compliance",
     href: "/blog/train-the-trainer-oshad-compliance",
     image: "/blog/train-the-trainer-course-300x300.webp",
+    content: [
+      {
+        paragraphs: [
+          "UAE organisations cannot build a strong safety culture by depending only on one-time external training. Site teams change. Risks change. Procedures change. New employees join. Contractors enter the workplace. Supervisors need reminders. Someone, somewhere, will still ignore the obvious warning sign because human civilisation remains a bold experiment.",
+          "This is why accredited train the trainer courses in dubai matter. They help organisations build competent internal trainers who can deliver safety information clearly, consistently, and in a way that employees can actually use.",
+        ],
+      },
+      {
+        heading: "OSHAD, ADOSH-SF, and Training Competence",
+        paragraphs: [
+          "Many companies still use the term OSHAD when referring to Abu Dhabi’s occupational safety and health framework. The current documents use ADOSH-SF under Abu Dhabi Public Health Center, with the 2024 Training, Awareness and Competency guideline updating the acronym from OSHAD-SF to ADOSH-SF and changing references from OSHAD to ADPHC.",
+          "The framework places clear responsibility on entities to identify and provide required training for employees and stakeholders, confirm understanding of OSH technical and procedural requirements, deliver specific OSH training, ensure competence, and maintain training and competency records.",
+          "That means training cannot be random. It needs structure, records, role relevance, and competent delivery.",
+        ],
+      },
+      {
+        heading: "Why Train the Trainer Supports Compliance",
+        paragraphs: [
+          "Train the Trainer programmes help organisations develop people who can deliver workplace training properly. This is especially useful for induction, toolbox talks, task-specific awareness, refresher sessions, internal safety briefings, and contractor orientation.",
+          "The ADOSH-SF guideline defines training as an organised activity aimed at improving performance or helping someone reach the required knowledge or skill level. It also defines competency as having adequate training, qualifications, and experience to carry out a task safely and efficiently.",
+          "This matters because competence is not created by handing someone a slide deck and hoping for the best. A trainer needs to understand planning, delivery, communication, questioning, assessment, and learner engagement.",
+        ],
+      },
+      {
+        heading: "What Accredited Train the Trainer Courses Teach",
+        paragraphs: [
+          "A good Train the Trainer course should help participants move from “I know this topic” to “I can teach this topic clearly.”",
+        ],
+        bulletList: [
+          "Trainer roles and responsibilities",
+          "Session planning and preparation",
+          "Delivery methods",
+          "Questioning techniques",
+          "Time management",
+          "Inclusive learning environments",
+          "Assessment methods",
+          "Feedback and improvement",
+        ],
+      },
+      {
+        paragraphs: [
+          "Arbrit Safety’s Highfield Level 3 Train the Trainer course is designed as a first step for new trainers, focusing on effective workplace training delivery, planning, preparation, delivery methods, questioning techniques, and time management.",
+        ],
+      },
+      {
+        heading: "Why Internal Trainers Matter in High-Risk Workplaces",
+        paragraphs: [
+          "High-risk workplaces need repeated safety communication. Construction sites, industrial facilities, logistics operations, maintenance teams, oil and gas projects, and infrastructure works all depend on daily safety awareness.",
+          "Internal trainers can support this by delivering consistent sessions across teams and shifts. They can reinforce local procedures, explain site-specific hazards, and make training more relevant to the actual work being done.",
+          "External training is still important for accredited certifications and specialist topics. But internal trainers help keep safety alive between formal courses. Otherwise, safety becomes a certificate folder, and certificate folders are famously bad at stopping incidents.",
+        ],
+      },
+      {
+        heading: "Training Records and Refreshers",
+        paragraphs: [
+          "OSH compliance also depends on documentation. Organisations need to show who was trained, when training was delivered, what was covered, and whether the employee understood the content.",
+          "The ADOSH-SF guideline also addresses refresher training, explaining that it may be required due to legislation updates, previous accidents, technical updates, or changes to systems, with training plans holding information on refresh intervals.",
+          "Train the Trainer helps organisations manage this more effectively because trained internal personnel can support recurring sessions, refresher briefings, and targeted updates.",
+        ],
+      },
+      {
+        heading: "Build Internal Training Capability with Arbrit Safety",
+        paragraphs: [
+          "Arbrit Safety offers train the trainer courses in dubai through its Highfield Level 3 Train the Trainer programme, suitable for internal and external trainers who want to improve workplace training skills. For organisations working under OSHAD or ADOSH-SF expectations, Arbrit Safety helps build practical internal training capability, supporting better safety communication, stronger competency records, and more consistent workplace safety performance across UAE teams.",
+        ],
+      },
+    ],
   },
   {
     title: "Renew Your LEEA Lifting Supervisor Certification: 3-Year Validity Explained",

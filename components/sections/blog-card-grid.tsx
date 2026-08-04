@@ -1,12 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 
-export function BlogCardGrid() {
+export function BlogCardGrid({ excludeHref }: { excludeHref?: string }) {
+  const posts = excludeHref ? blogPosts.filter((post) => post.href !== excludeHref) : blogPosts;
+
   return (
     <div className="grid gap-6 lg:grid-cols-3">
-      {blogPosts.map((post) => (
+      {posts.map((post) => (
         <article
           key={post.href}
           className="flex flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
@@ -28,12 +31,10 @@ export function BlogCardGrid() {
               {post.title}
             </h3>
             <p className="mt-3 flex-1 text-sm text-navy/70">{post.excerpt}</p>
-            <Button
-              type="button"
-              variant="link"
-              className="mt-4 cursor-default justify-start px-0 text-orange hover:no-underline"
-            >
-              Read More <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
+            <Button asChild variant="link" className="mt-4 justify-start px-0 text-orange">
+              <Link href={post.href}>
+                Read More <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
+              </Link>
             </Button>
           </div>
         </article>
