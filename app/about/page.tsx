@@ -25,25 +25,28 @@ export default function AboutPage() {
       <PageHeader title="About Us" breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
 
       <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-            Health and Safety - Mission &amp; Purpose
-          </h2>
-          <p className="mt-5 text-navy/70">
-            There are no crossroads when it comes to health and safety training, and therefore our
-            task is to provide quality, valuable training nationally in order to provide an
-            increasing number of people with proper training and safe work.
-          </p>
-          <p className="mt-4 text-navy/70">
-            Arbrit now has offices in locations in different countries, including UAE, UK, Qatar
-            and India.HSE course in UAE is offered in and out of the training center in major
-            business centres, and clients across all types of industries are provided with
-            consulting services. We believe that our rapid growth was supported by our efforts to
-            achieve quality of health and safety course training, to contribute to the strength of
-            everyone, to implement new processes and technology and to consistently improve
-            quality education.
-          </p>
-          <div className="mt-10 overflow-hidden rounded-2xl shadow-lg">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
+          <div>
+            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+              Health and Safety - Mission &amp; Purpose
+            </h2>
+            <p className="mt-5 text-navy/70">
+              There are no crossroads when it comes to health and safety training, and therefore
+              our task is to provide quality, valuable training nationally in order to provide an
+              increasing number of people with proper training and safe work.
+            </p>
+            <p className="mt-4 text-navy/70">
+              Arbrit now has offices in locations in different countries, including UAE, UK, Qatar
+              and India.HSE course in UAE is offered in and out of the training center in major
+              business centres, and clients across all types of industries are provided with
+              consulting services. We believe that our rapid growth was supported by our efforts
+              to achieve quality of health and safety course training, to contribute to the
+              strength of everyone, to implement new processes and technology and to consistently
+              improve quality education.
+            </p>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl shadow-lg">
             <video controls preload="metadata" className="h-full w-full">
               <source
                 src="https://arbritsafety.ae/wp-content/uploads/2024/04/Arbrit-Safety.mp4"
