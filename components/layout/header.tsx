@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { ArrowRight, Menu, Phone } from "lucide-react";
 import {
   NavigationMenu,
@@ -19,6 +19,7 @@ import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
 
 export function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const isHomepage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -83,6 +84,7 @@ export function Header() {
 
             <NavigationMenuItem>
               <NavigationMenuTrigger
+                onClick={() => router.push("/courses")}
                 className={`bg-transparent text-sm font-medium transition-colors ${linkColor}`}
               >
                 Courses
@@ -169,6 +171,12 @@ export function Header() {
                 {navLinks[0]?.label}
               </Link>
               <div>
+                <Link
+                  href="/courses"
+                  className="text-base font-medium text-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                >
+                  Courses
+                </Link>
                 {coursesMegaMenu.map((group, groupIndex) => (
                   <div key={groupIndex} className="mt-3">
                     {group.title && (
