@@ -21,21 +21,25 @@ export function PageHeader({
       <Image src={image} alt="" fill sizes="100vw" className="object-cover" />
       <div className="absolute inset-0 bg-navy/80" aria-hidden="true" />
       <div className="relative z-10 mx-auto max-w-7xl px-6 text-center">
-        <h1 className="font-heading text-3xl font-bold text-white sm:text-4xl">{title}</h1>
+        <h1 className="break-words font-heading text-3xl font-bold text-white sm:text-4xl">
+          {title}
+        </h1>
         <nav
           aria-label="Breadcrumb"
-          className="mt-4 flex items-center justify-center gap-2 text-sm text-white/80"
+          className="mt-4 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-white/80"
         >
           {breadcrumbs.map((crumb, i) => (
-            <span key={crumb.label} className="flex items-center gap-2">
-              {i > 0 && <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />}
+            <span key={crumb.label} className="flex min-w-0 items-center gap-2">
+              {i > 0 && <ChevronRight className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
               {crumb.href ? (
                 <Link href={crumb.href} className="flex items-center gap-1 hover:text-white">
-                  {i === 0 && <Home className="h-3.5 w-3.5" aria-hidden="true" />}
+                  {i === 0 && <Home className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />}
                   {crumb.label}
                 </Link>
               ) : (
-                <span className="font-semibold text-white">{crumb.label}</span>
+                <span className="max-w-[70vw] truncate font-semibold text-white sm:max-w-md">
+                  {crumb.label}
+                </span>
               )}
             </span>
           ))}

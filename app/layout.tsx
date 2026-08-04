@@ -43,7 +43,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${plusJakarta.variable} h-full antialiased`}
+      className={`${inter.variable} ${plusJakarta.variable} h-full overflow-x-hidden antialiased`}
     >
       <body className="flex min-h-full flex-col overflow-x-hidden bg-surface text-navy font-sans">
         <a
