@@ -433,6 +433,74 @@ export const blogPosts: BlogPost[] = [
     category: "LEEA",
     href: "/blog/renew-leea-lifting-supervisor-certification",
     image: "/blog/LEEA-Lifting-Supervisor-Certification-300x300.webp",
+    content: [
+      {
+        paragraphs: [
+          "Lifting supervision is not a role where old knowledge can sit untouched forever. Equipment changes. Site procedures change. Client requirements change. Project risk profiles change. And, because the universe enjoys paperwork, certification validity also needs attention.",
+          "For professionals working in UAE lifting operations, renewing LEEA Lifting Supervisor certification helps show that competence is current. It also supports employer records, project compliance, prequalification requirements, and confidence during audits.",
+          "Arbrit Safety’s LEEA lifting operations certification information states that participants must complete written assessment to earn the Certificate of Achievement from LEEA-UK, with certificates verifiable through the LEEA website and valid for 3 years.",
+        ],
+      },
+      {
+        heading: "Why 3-Year Validity Matters",
+        paragraphs: [
+          "A 3-year validity period helps keep lifting professionals updated. Lifting work carries serious risk, so refresher training is not just an admin task. It helps confirm that supervisors still understand safe systems of work, lifting plans, equipment documentation, site control, communication, and risk management.",
+          "A lot can change in three years. A supervisor may move from small lifts to complex crane operations. A site may introduce new equipment. A company may change its procedures. A client may demand updated competency records.",
+          "Renewal helps prevent the classic human habit of assuming “I did this course once” equals “I am current forever.” Cute. Dangerous, but cute.",
+        ],
+      },
+      {
+        heading: "What to Review Before Renewal",
+        paragraphs: [
+          "Before renewing, professionals should review their recent lifting experience, project exposure, incident history, and any gaps in current knowledge.",
+          "Important areas include:",
+        ],
+        bulletList: [
+          "Lift planning and supervision",
+          "Risk assessment review",
+          "Method statement understanding",
+          "Communication and signalling",
+          "Equipment certification checks",
+          "Lifting accessories inspection awareness",
+          "Ground condition control",
+          "Exclusion zone management",
+          "Emergency response during lifting operations",
+        ],
+      },
+      {
+        paragraphs: [
+          "The aim is to refresh practical competence, not just replace an expired certificate with a newer PDF.",
+        ],
+      },
+      {
+        heading: "How LEEA Diploma Pathways Support Growth",
+        paragraphs: [
+          "A Lifting Supervisor certificate supports site supervision, but professionals who want deeper technical development may also explore a LEEA diploma route. Diploma-level training is useful for people involved in inspection, testing, examination, maintenance, and repair of lifting equipment and accessories.",
+          "LEEA’s Lifting Accessories Diploma is designed for professionals involved in the testing, inspection, examination, and repair or maintenance of lifting accessories, with instructor-led training listed as 5 days.",
+          "For UAE professionals, this pathway can support career growth from supervision into more technical lifting equipment roles, compliance responsibilities, or inspection-related work.",
+        ],
+      },
+      {
+        heading: "When Should You Start the Renewal Process?",
+        paragraphs: [
+          "Do not wait until the certificate has already expired. Start checking renewal needs at least a few months before the validity date ends, especially if your employer, client, or project requires active certification.",
+          "Expired certification can create problems during mobilisation, site access, tender documentation, client audits, or internal competency reviews. Nothing says “professional planning” like realising your certificate expired right before a project starts. Stunning theatre.",
+        ],
+      },
+      {
+        heading: "Who Should Consider LEEA Diploma Courses?",
+        paragraphs: [
+          "LEEA diploma courses in dubai are more suitable for professionals who want deeper technical knowledge of lifting equipment and accessories. This can include engineers, inspectors, technicians, lifting coordinators, QA/QC teams, HSE professionals, and experienced lifting personnel.",
+          "Arbrit Safety’s LEEA Diploma page lists the LEEA Foundation Certificate and LEEA Lifting Accessories Diploma, with the Foundation Certificate at 3 days and the Lifting Accessories Diploma at 5 days.",
+        ],
+      },
+      {
+        heading: "Keep Your Lifting Competence Current with Arbrit Safety",
+        paragraphs: [
+          "Arbrit Safety supports LEEA-related training in the UAE through recognised lifting pathways, including LEEA Foundation Certificate, Lifting Accessories Diploma, Appointed Person, Crane Lift Supervisor, and related lifting programmes. For professionals renewing Lifting Supervisor certification or exploring LEEA Diploma courses, Arbrit Safety provides a practical route to maintain current competence, strengthen documentation, and build a safer long-term lifting career.",
+        ],
+      },
+    ],
   },
   {
     title: "LEEA Training Courses Dubai: From Risk Assessment to Method Statements",
