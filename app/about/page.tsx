@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { Button } from "@/components/ui/button";
-import { trainers } from "@/lib/data";
+import { trainers, historyGallery } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -58,35 +58,56 @@ export default function AboutPage() {
       </section>
 
       <section className="bg-muted py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-            Bold History that Fuels the Future
-          </h2>
-          <p className="mt-5 text-navy/70">
-            Arbrit Safety Training and Consultancy has been rapidly expanding since the company
-            started in 2006 and is now one of the leading HSE courses in UAE. We vow to always
-            remain true to the key principles of the mission declaration, despite the progress.
-          </p>
-          <p className="mt-4 text-navy/70">
-            Exceptionally oriented, with internationally accepted professional standards and best,
-            practices, to provide maximum safety, learning and development.
-          </p>
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+              Bold History that Fuels the Future
+            </h2>
+            <p className="mt-5 text-navy/70">
+              Arbrit Safety Training and Consultancy has been rapidly expanding since the company
+              started in 2006 and is now one of the leading HSE courses in UAE. We vow to always
+              remain true to the key principles of the mission declaration, despite the progress.
+            </p>
+            <p className="mt-4 text-navy/70">
+              Exceptionally oriented, with internationally accepted professional standards and
+              best, practices, to provide maximum safety, learning and development.
+            </p>
+          </div>
 
-          <h2 className="mt-14 font-heading text-3xl font-bold text-navy sm:text-4xl">
-            HSE Training Research
-          </h2>
-          <p className="mt-5 text-navy/70">
-            Arbrit courses are intended for the contractor staff to be trained on a range of basic
-            skills to an international standard.
-          </p>
-          <ul className="mt-6 space-y-3">
-            {researchPoints.map((point) => (
-              <li key={point} className="flex items-start gap-3 text-sm text-navy/80">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
-                {point}
-              </li>
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
+            {historyGallery.map((photo, i) => (
+              <div
+                key={i}
+                className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-sm"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+                  className="object-cover transition duration-300 group-hover:scale-110"
+                />
+              </div>
             ))}
-          </ul>
+          </div>
+
+          <div className="mx-auto mt-14 max-w-4xl">
+            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+              HSE Training Research
+            </h2>
+            <p className="mt-5 text-navy/70">
+              Arbrit courses are intended for the contractor staff to be trained on a range of
+              basic skills to an international standard.
+            </p>
+            <ul className="mt-6 space-y-3">
+              {researchPoints.map((point) => (
+                <li key={point} className="flex items-start gap-3 text-sm text-navy/80">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 

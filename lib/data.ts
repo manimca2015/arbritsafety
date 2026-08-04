@@ -688,6 +688,26 @@ export const careerJobOpenings = [
   "Appointed person for lifting operations",
 ];
 
+export const historyGallery = [
+  { src: "/about/Arbirt-safety-2-300x225.jpg", alt: "Arbrit Safety team" },
+  { src: "/about/Arbirt-safety-3-300x200.jpg", alt: "Arbrit Safety team" },
+  { src: "/about/Arbirt-safety-4-300x200.jpg", alt: "Arbrit Safety team" },
+  { src: "/about/Arbirt-safety-5-300x200.jpg", alt: "Arbrit Safety team" },
+  { src: "/about/Arbirt-safety-6-300x200.jpg", alt: "Arbrit Safety team" },
+  { src: "/about/blood-donation-2-big-300x225.jpg", alt: "Blood donation drive" },
+  { src: "/about/blood-donation-3-big-300x225.jpg", alt: "Blood donation drive" },
+  { src: "/about/blood-donation-award-big-300x225.jpg", alt: "Blood donation award" },
+  { src: "/about/confined-space-big-scaled-300x182.jpg", alt: "Confined space safety" },
+  { src: "/about/confined-space-training-big-scaled-300x186.jpg", alt: "Confined space training" },
+  { src: "/about/fire-fighting-training-big-300x189.jpg", alt: "Fire fighting training" },
+  { src: "/about/gitex-conference-big-1-scaled-300x225.jpg", alt: "GITEX conference" },
+  { src: "/about/iosh-event-big-scaled-300x225.jpg", alt: "IOSH event" },
+  { src: "/about/Leea-big-300x225.png", alt: "LEEA event" },
+  { src: "/about/managing-safely-big-300x228.jpg", alt: "Managing Safely training" },
+  { src: "/about/women-luncheon-big-300x226.jpg", alt: "Women's luncheon" },
+  { src: "/about/women-luncheon-uae-big-300x225.jpg", alt: "Women's luncheon UAE" },
+];
+
 export const trainers: Trainer[] = [
   {
     slug: "brijith-shaji",
