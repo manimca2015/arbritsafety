@@ -1,4 +1,4 @@
-import { Building2, Mail, Phone } from "lucide-react";
+import { Building2, Mail, MapPin, Phone } from "lucide-react";
 import { offices, contactInfo, socialLinks } from "@/lib/data";
 
 export function OfficesContactBlock() {
@@ -23,7 +23,10 @@ export function OfficesContactBlock() {
                 </a>
               ))}
             </div>
-            <p className="mt-3 text-sm text-navy/60">{office.address}</p>
+            <p className="mt-3 flex items-start gap-2 text-sm text-navy/60">
+              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
+              {office.address}
+            </p>
           </div>
         ))}
       </div>
