@@ -453,3 +453,32 @@ export const courseSelectOptions = [
 ];
 
 export const locationSelectOptions = ["Dubai", "Abu Dhabi", "Saudi Arabia", "Other"];
+
+export const careerCourseOptions = [
+  "IOSH",
+  "LEEA-Lifting Operations",
+  "Safety Awareness",
+  "First Aid",
+  "OTHM – Level 6",
+  "MEWP Training",
+  "STI",
+  "Construction Safety",
+  "Lead Auditor",
+  "Highfield",
+  "Oil and Gas",
+  "Rescue Training",
+  "Rope Access Training",
+  "General Safety",
+  "Fire Fighting",
+  "HSE Manpower Consultancy",
+];
+
+export const careerLocationOptions = ["Dubai", "Abu Dhabi"];
+
+export const careerJobOpenings = [
+  "HSE Manager",
+  "HSE Engineers",
+  "Junior HSE Trainers",
+  "Sales Coordinator",
+  "Appointed person for lifting operations",
+];
