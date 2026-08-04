@@ -1,10 +1,17 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, MessageSquare, Phone, Send, User } from "lucide-react";
+import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
 import {
   Dialog,
@@ -14,6 +21,7 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { careerCourseOptions, careerLocationOptions } from "@/lib/data";
 
 export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
   const [submitted, setSubmitted] = useState(false);
@@ -36,48 +44,104 @@ export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
           <DialogDescription>{courseTitle}</DialogDescription>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-4">
-          <div className="space-y-1.5">
-            <Label htmlFor="join-name">Name</Label>
-            <div className="relative">
-              <User
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
-                aria-hidden="true"
-              />
-              <Input id="join-name" name="name" placeholder="Name" required className="h-11 pl-10" />
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <Label htmlFor="join-name">Name</Label>
+              <div className="relative">
+                <User
+                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Input id="join-name" name="name" placeholder="Name" required className="h-11 pl-10" />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="join-email">Email</Label>
+              <div className="relative">
+                <Mail
+                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Input
+                  id="join-email"
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  className="h-11 pl-10"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-1.5">
+              <Label htmlFor="join-phone">Phone</Label>
+              <div className="relative">
+                <Phone
+                  className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Input
+                  id="join-phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone"
+                  required
+                  className="h-11 pl-10"
+                />
+              </div>
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="join-course">Select Course</Label>
+              <div className="relative">
+                <BookOpen
+                  className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
+                  aria-hidden="true"
+                />
+                <Select name="course">
+                  <SelectTrigger id="join-course" className="h-11 w-full pl-10">
+                    <SelectValue placeholder="Select Course" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {careerCourseOptions.map((course) => (
+                      <SelectItem key={course} value={course}>
+                        {course}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
             </div>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="join-email">Email</Label>
+            <Label htmlFor="join-location">Select Location</Label>
             <div className="relative">
-              <Mail
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
+              <MapPin
+                className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
                 aria-hidden="true"
               />
-              <Input
-                id="join-email"
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="h-11 pl-10"
-              />
+              <Select name="location">
+                <SelectTrigger id="join-location" className="h-11 w-full pl-10">
+                  <SelectValue placeholder="Select Location" />
+                </SelectTrigger>
+                <SelectContent>
+                  {careerLocationOptions.map((location) => (
+                    <SelectItem key={location} value={location}>
+                      {location}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
             </div>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="join-phone">Phone</Label>
+            <Label htmlFor="join-subject">Subject</Label>
             <div className="relative">
-              <Phone
+              <Tag
                 className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
                 aria-hidden="true"
               />
-              <Input
-                id="join-phone"
-                type="tel"
-                name="phone"
-                placeholder="Phone"
-                required
-                className="h-11 pl-10"
-              />
+              <Input id="join-subject" name="subject" placeholder="Subject" className="h-11 pl-10" />
             </div>
           </div>
           <div className="space-y-1.5">
