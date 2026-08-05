@@ -6,8 +6,11 @@ export function OfficesContactBlock() {
     <>
       <div className="grid gap-6 md:grid-cols-3">
         {offices.map((office) => (
-          <div key={office.label} className="rounded-3xl border border-navy/10 bg-white p-6 shadow-sm">
-            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange/10 text-orange">
+          <div
+            key={office.label}
+            className="group rounded-3xl border border-navy/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-orange/30 hover:shadow-lg"
+          >
+            <span className="flex h-11 w-11 items-center justify-center rounded-full bg-orange/10 text-orange transition duration-300 group-hover:bg-orange group-hover:text-white">
               <Building2 className="h-5 w-5" aria-hidden="true" />
             </span>
             <h3 className="mt-4 font-heading text-lg font-bold text-navy">{office.label}</h3>

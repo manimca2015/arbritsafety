@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { ArrowRight, Menu, Phone } from "lucide-react";
 import {
   NavigationMenu,
@@ -18,9 +18,7 @@ import { Button } from "@/components/ui/button";
 import { navLinks, coursesMegaMenu, contactInfo } from "@/lib/data";
 
 export function Header() {
-  const pathname = usePathname();
   const router = useRouter();
-  const isHomepage = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -45,7 +43,7 @@ export function Header() {
     return () => window.removeEventListener("resize", setHeaderHeight);
   }, []);
 
-  const isTransparent = isHomepage && !scrolled;
+  const isTransparent = !scrolled;
   const linkColor = isTransparent ? "text-white" : "text-navy";
 
   return (

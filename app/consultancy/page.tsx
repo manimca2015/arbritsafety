@@ -16,6 +16,8 @@ export default function ConsultancyPage() {
     <>
       <PageHeader
         title="Consultancy"
+        eyebrow="Expert HSE Guidance for Every Sector"
+        description="HSE consultancy services from Arbrit Safety Training & Consultancy across Dubai, Abu Dhabi and the Kingdom of Saudi Arabia."
         breadcrumbs={[{ label: "Home", href: "/" }, { label: "Consultancy" }]}
       />
 

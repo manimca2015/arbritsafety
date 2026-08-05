@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { courseCategories } from "@/lib/data";
@@ -10,24 +11,27 @@ export function CourseCategories() {
         <SectionHeading eyebrow="Course" title="International Course" />
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
           {courseCategories.map((category) => {
-            const Icon = category.icon;
             return (
               <Link
                 key={category.slug}
                 href={category.href}
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-navy/10 bg-white p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                className="group relative flex h-64 flex-col items-center justify-center overflow-hidden rounded-2xl text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
               >
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/10 text-orange transition group-hover:bg-orange group-hover:text-white">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <span className="text-sm font-semibold text-navy">{category.title}</span>
+                <Image
+                  src={category.image}
+                  alt={category.title}
+                  fill
+                  className="object-cover transition duration-300 group-hover:scale-105"
+                />
+                <span className="absolute inset-0 bg-navy/50 transition group-hover:bg-navy/60" />
+                <span className="relative text-base font-semibold text-white">{category.title}</span>
               </Link>
             );
           })}
 
           <Link
             href="/courses"
-            className="group flex flex-col items-center justify-center gap-3 rounded-2xl border border-navy/10 bg-orange p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+            className="group flex h-64 flex-col items-center justify-center gap-3 rounded-2xl bg-orange p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
           >
             <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
               <ArrowRight className="h-6 w-6" aria-hidden="true" />

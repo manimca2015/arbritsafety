@@ -33,6 +33,7 @@ export type NavLink = {
 export type HeroSlide = {
   image: string;
   heading: string;
+  highlight?: string;
   subtext: string;
   ctaLabel: string;
   ctaHref: string;
@@ -50,6 +51,7 @@ export type CourseCategory = {
   slug: string;
   title: string;
   icon: LucideIcon;
+  image: string;
   href: string;
 };
 
@@ -60,6 +62,7 @@ export type Course = {
   duration: string;
   level: string;
   icon: LucideIcon;
+  image: string;
   href: string;
 };
 
@@ -161,6 +164,7 @@ export const heroSlides: HeroSlide[] = [
   {
     image: "/hero/slide-1-construction-safety.jpg",
     heading: "Health & Safety Training That Protects Your People and Your Business",
+    highlight: "Your People and Your Business",
     subtext:
       "Accredited HSE, lifting, scaffolding, and fire safety courses in Dubai, Abu Dhabi and KSA.",
     ctaLabel: "Enroll Now",
@@ -172,6 +176,7 @@ export const heroSlides: HeroSlide[] = [
   {
     image: "/hero/slide-2-training-classroom.jpg",
     heading: "Accredited Training Across Dubai, Abu Dhabi & KSA",
+    highlight: "Dubai, Abu Dhabi & KSA",
     subtext:
       "Multilingual courses (English/Hindi/Urdu/Arabic) delivered by certified, experienced instructors.",
     ctaLabel: "Explore Courses",
@@ -183,6 +188,7 @@ export const heroSlides: HeroSlide[] = [
   {
     image: "/hero/slide-3-lifting-operations.jpg",
     heading: "First LEEA Licensed Training Partner in the Region",
+    highlight: "in the Region",
     subtext:
       "Delivering the LEEA Foundation Certificate and LAC Diploma across the UAE & KSA.",
     ctaLabel: "Talk to an Advisor",
@@ -197,7 +203,7 @@ export const coursesMegaMenu: MegaMenuGroup[] = [
   {
     title: "",
     links: [
-      { label: "Lead Auditor", href: "/courses/lead-auditor" },
+      { label: "Lead Auditor", href: "/courses/irca-lead-auditor" },
       { label: "Rope Access Training", href: "/courses/rope-access" },
       { label: "STI – Scaffold Inspector", href: "/courses/sti-scaffold-inspector" },
       { label: "STI – Scaffold Erector", href: "/courses/sti-scaffold-erector" },
@@ -282,23 +288,23 @@ export const coursesMegaMenu: MegaMenuGroup[] = [
 ];
 
 export const courseCategories: CourseCategory[] = [
-  { slug: "rope-access", title: "Rope Access", icon: Anchor, href: "/courses/rope-access" },
-  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, href: "/courses/lead-auditor" },
-  { slug: "highfield", title: "Highfield", icon: GraduationCap, href: "/courses/highfield" },
-  { slug: "iosh", title: "IOSH", icon: ShieldCheck, href: "/courses/iosh" },
-  { slug: "sti", title: "STI", icon: Layers, href: "/courses/sti" },
-  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, href: "/courses/leea-diploma" },
-  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, href: "/courses/leea-course-dubai" },
+  { slug: "rope-access", title: "Rope Access", icon: Anchor, image: "/international-course/rope-access.webp", href: "/courses/rope-access" },
+  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, image: "/international-course/Lead-Auditor.jpg", href: "/courses/irca-lead-auditor" },
+  { slug: "highfield", title: "Highfield", icon: GraduationCap, image: "/international-course/HIghfield.jpg", href: "/courses/highfield" },
+  { slug: "iosh", title: "IOSH", icon: ShieldCheck, image: "/international-course/IOSH.jpg", href: "/course/iosh-institution-of-occupational-safety-and-health/" },
+  { slug: "sti", title: "STI", icon: Layers, image: "/international-course/STI-Scaffold-Training-Institute.jpg", href: "/courses/sti" },
+  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, image: "/international-course/LEEA-diploma.jpg", href: "/courses/leea-diploma" },
+  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, image: "/international-course/LEEA.jpg", href: "/courses/leea-course-dubai" },
 ];
 
 export const featuredCourses: Course[] = [
-  { slug: "fire-fighting", title: "Fire Fighting", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Flame, href: "/courses/fire-fighting" },
-  { slug: "rescue-training", title: "Rescue-Training", category: "General Safety", duration: "3 Days", level: "All Levels", icon: LifeBuoy, href: "/courses/rescue-training" },
-  { slug: "oil-and-gas", title: "Oil and Gas", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Fuel, href: "/courses/oil-and-gas" },
-  { slug: "construction-safety", title: "Construction Safety", category: "General Safety", duration: "2 Days", level: "All Levels", icon: HardHat, href: "/courses/construction-safety" },
-  { slug: "first-aid", title: "First Aid", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, href: "/courses/first-aid" },
-  { slug: "forklift-operator", title: "Forklift Operator", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Forklift, href: "/courses/forklift-operator" },
-  { slug: "safety-awareness", title: "Safety Awareness", category: "General Safety", duration: "1 Day", level: "All Levels", icon: ShieldAlert, href: "/courses/general-safety-awareness" },
+  { slug: "fire-fighting", title: "Fire Fighting", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Flame, image: "/general-safety-courses/FIRE-FIGHTING.jpg", href: "/courses/fire-fighting" },
+  { slug: "rescue-training", title: "Rescue-Training", category: "General Safety", duration: "3 Days", level: "All Levels", icon: LifeBuoy, image: "/general-safety-courses/Rescue-Training.jpg", href: "/courses/rescue-training" },
+  { slug: "oil-and-gas", title: "Oil and Gas", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Fuel, image: "/general-safety-courses/Oil-and-gas.jpg", href: "/courses/oil-and-gas" },
+  { slug: "construction-safety", title: "Construction Safety", category: "General Safety", duration: "2 Days", level: "All Levels", icon: HardHat, image: "/general-safety-courses/constructions.jpg", href: "/courses/construction-safety" },
+  { slug: "first-aid", title: "First Aid", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, image: "/general-safety-courses/first-aid.jpg", href: "/courses/first-aid" },
+  { slug: "forklift-operator", title: "Forklift Operator", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Forklift, image: "/general-safety-courses/Forklift-Operator.jpg", href: "/courses/forklift-operator" },
+  { slug: "safety-awareness", title: "Safety Awareness", category: "General Safety", duration: "1 Day", level: "All Levels", icon: ShieldAlert, image: "/general-safety-courses/safety-awareness.jpg", href: "/courses/general-safety-awareness" },
 ];
 
 export const stats: Stat[] = [
@@ -772,6 +778,26 @@ export const courseDetails: CourseDetail[] = [
     courseInfoParagraphs: [
       "Rope access system is a safe method of working at height where ropes and associated equipment are used to gain access to and from the work position, and to be supported there. The advantage of using rope access methods mainly lies in the safety and speed with which workers can get to or from difficult locations in order to carry out their work, often with minimal impact on other operations, surrounding areas and the environment. Another major benefit is the reduction of the combination of the total man-hours and perceived level of risk for a particular task (man-at-risk hours) when compared with other means of access and their associated risks and costs.",
       "The primary objective when using rope access methods is to carry out the work efficiently, with minimal accidents, incidents or dangerous occurrences. In order to ensure a safe system of work is maintained at all times, whilst avoiding damage to property or harm to the environment, careful planning and documented risk assessments are undertaken for each operation.",
+    ],
+    clientLogos: [
+      { src: "/course/Clients/acciona-dubai.png", alt: "Acciona" },
+      { src: "/course/Clients/al-ali-dubai.png", alt: "Al Ali" },
+      { src: "/course/Clients/alec-dubai.png", alt: "ALEC" },
+      { src: "/course/Clients/Ecc-dubai.png", alt: "ECC" },
+      { src: "/course/Clients/etsalat-dubai.png", alt: "Etisalat" },
+      { src: "/course/Clients/kier-dubai.png", alt: "Kier" },
+      { src: "/course/Clients/red-sea-dubai.png", alt: "Red Sea" },
+      { src: "/course/Clients/Wj-dubai.png", alt: "WJ" },
+    ],
+  },
+  {
+    slug: "irca-lead-auditor",
+    title: "Lead Auditor Courses",
+    image: "/course/Lead-Auditor-1.jpg",
+    courseInfoParagraphs: [
+      "The goal of  Lead auditor training course is to provide the knowledge and skills needed to perform first, second, and third-party audits of ISO management systems against ISO 9001/45001/14001/27001, as applicable, in accordance with ISO 19011 and ISO 17021. There will be a mix of lectures, discussions, exercises, and cooperative learning. Active learning will concentrate on case studies and scenarios relating to the use of QMS 1st, 2nd, and 3rd party audits. Delegates will participate in a variety of individual and group activities throughout the course, which will be assessed through continuous delegate evaluation. Finally, at the end of the course, a summative comprehensive assessment will assess subject matter comprehension.",
+      "This course is designed for those who want to learn how to audit an organization’s ISO 9001-based management system as a third or second-party audit. Students who pass the continuous assessment and the 2-hour closed book exam will receive a Certificate of Achievement. This course meets the training requirement for certification as a CQI  registered QMS Lead Auditor/Auditor, according to CQI policy.",
+      "If you are looking for lead auditor course in Dubai, Abu Dhabi, reach out to us.",
     ],
     clientLogos: [
       { src: "/course/Clients/acciona-dubai.png", alt: "Acciona" },

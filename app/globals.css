@@ -151,3 +151,31 @@
 body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
+
+@keyframes hero-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes hero-ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+
+.swiper-slide-active .hero-ken-burns {
+  animation: hero-ken-burns 6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken-burns {
+    animation: none !important;
+  }
+}

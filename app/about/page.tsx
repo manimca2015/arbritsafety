@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
+import { SectionHeading } from "@/components/ui/section-heading";
+import { HistoryCoverflow } from "@/components/sections/history-coverflow";
 import { Button } from "@/components/ui/button";
 import { trainers, historyGallery } from "@/lib/data";
 
@@ -22,11 +24,17 @@ const researchPoints = [
 export default function AboutPage() {
   return (
     <>
-      <PageHeader title="About Us" breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]} />
+      <PageHeader
+        title="About Us"
+        eyebrow="Committed to Safer Workplaces Since 2006"
+        description="We are committed to delivering quality, practical HSE training and consultancy that build safer workplaces and stronger safety cultures across the UAE."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "About Us" }]}
+      />
 
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
           <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Who We Are</p>
             <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
               Health and Safety - Mission &amp; Purpose
             </h2>
@@ -59,30 +67,32 @@ export default function AboutPage() {
 
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-              Bold History that Fuels the Future
-            </h2>
-            <p className="mt-5 text-navy/70">
-              Arbrit Safety Training and Consultancy has been rapidly expanding since the company
-              started in 2006 and is now one of the leading HSE courses in UAE. We vow to always
-              remain true to the key principles of the mission declaration, despite the progress.
-            </p>
-            <p className="mt-4 text-navy/70">
-              Exceptionally oriented, with internationally accepted professional standards and
-              best, practices, to provide maximum safety, learning and development.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="Since 2006"
+            title="Bold History that Fuels the Future"
+            description="Arbrit Safety Training and Consultancy has been rapidly expanding since the company started in 2006 and is now one of the leading HSE courses in UAE. We vow to always remain true to the key principles of the mission declaration, despite the progress. Exceptionally oriented, with internationally accepted professional standards and best practices, to provide maximum safety, learning and development."
+          />
 
-          <div className="mx-auto mt-14 max-w-4xl">
-            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-              HSE Training Research
-            </h2>
-            <p className="mt-5 text-navy/70">
-              Arbrit courses are intended for the contractor staff to be trained on a range of
-              basic skills to an international standard.
-            </p>
-            <ul className="mt-6 space-y-3">
+          <div className="mt-14">
+            <HistoryCoverflow photos={historyGallery} />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 md:py-28">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Research</p>
+              <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+                HSE Training Research
+              </h2>
+              <p className="mt-5 text-navy/70">
+                Arbrit courses are intended for the contractor staff to be trained on a range of
+                basic skills to an international standard.
+              </p>
+            </div>
+            <ul className="space-y-4 rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
               {researchPoints.map((point) => (
                 <li key={point} className="flex items-start gap-3 text-sm text-navy/80">
                   <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
@@ -91,38 +101,19 @@ export default function AboutPage() {
               ))}
             </ul>
           </div>
-
-          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
-            {historyGallery.map((photo, i) => (
-              <div
-                key={i}
-                className="group relative aspect-[4/3] overflow-hidden rounded-xl shadow-sm"
-              >
-                <Image
-                  src={photo.src}
-                  alt={photo.alt}
-                  fill
-                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
-                  className="object-cover transition duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="text-center font-heading text-3xl font-bold text-navy sm:text-4xl">
-            Our Trainers
-          </h2>
+          <SectionHeading eyebrow="Our Team" title="Our Trainers" description="Meet the certified experts who lead our training programs." />
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             {trainers.map((trainer) => (
               <div
                 key={trainer.slug}
-                className="flex flex-col items-center rounded-3xl border border-navy/10 bg-muted p-8 text-center shadow-sm"
+                className="flex flex-col items-center rounded-3xl border border-navy/10 bg-white p-8 text-center shadow-sm"
               >
-                <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow">
+                <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-muted shadow">
                   <Image src={trainer.image} alt={trainer.name} fill className="object-cover" />
                 </div>
                 <h3 className="mt-5 font-heading text-lg font-bold text-navy">{trainer.name}</h3>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Briefcase, CheckCircle2 } from "lucide-react";
+import { Briefcase, CheckCircle2, Search, Target } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
+import { SectionHeading } from "@/components/ui/section-heading";
 import { CareerForm } from "@/components/sections/career-form";
 import { careerJobOpenings } from "@/lib/data";
 
@@ -23,38 +24,61 @@ const employerOffers = [
 export default function CareerPage() {
   return (
     <>
-      <PageHeader title="Career" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Career" }]} />
+      <PageHeader
+        title="Career"
+        eyebrow="Build Your HSE Career With Us"
+        description="Welcome to HSE Job Finder — HSE job openings and recruitment across the UAE."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Career" }]}
+      />
 
       <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-            Welcome to HSE job Finder
-          </h2>
-          <p className="mt-5 text-navy/70">
-            We provide human resource in the field of HSE through out UAE. You can find job
-            openings related to construction, manufacturing etc. We select proffessionals with
-            high ability and help the companies to manage their HSE human resource needs.
-          </p>
+        <div className="mx-auto max-w-7xl px-6">
+          <SectionHeading
+            eyebrow="Career"
+            title="Careers at Arbrit Safety"
+            description="We connect HSE talent with employers across the UAE, and help professionals grow into the industry."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/10 text-orange">
+                <Search className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 font-heading text-xl font-bold text-navy">
+                Welcome to HSE job Finder
+              </h3>
+              <p className="mt-3 text-navy/70">
+                We provide human resource in the field of HSE through out UAE. You can find job
+                openings related to construction, manufacturing etc. We select proffessionals with
+                high ability and help the companies to manage their HSE human resource needs.
+              </p>
+            </div>
+
+            <div className="rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
+              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-orange/10 text-orange">
+                <Target className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 font-heading text-xl font-bold text-navy">We Expertise</h3>
+              <p className="mt-3 text-navy/70">
+                So whether you are wanting to adbance in your health and safety career or looking to
+                break into the industry, we can definitely help you!
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section className="bg-muted py-20 md:py-28">
-        <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">We Expertise</h2>
-          <p className="mt-5 text-navy/70">
-            So whether you are wanting to adbance in your health and safety career or looking to
-            break into the industry, we can definitely help you!
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
-              <h2 className="font-heading text-2xl font-bold text-navy">
+          <SectionHeading
+            eyebrow="Support"
+            title="What We Offer"
+            description="Tailored support whether you're looking for your next role or building your HSE team."
+          />
+          <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <div className="rounded-3xl border border-navy/10 bg-white p-8 shadow-sm">
+              <h3 className="font-heading text-2xl font-bold text-navy">
                 What we offer Job Seekers
-              </h2>
+              </h3>
               <ul className="mt-6 space-y-3">
                 {jobSeekerOffers.map((offer) => (
                   <li key={offer} className="flex items-start gap-3 text-sm text-navy/80">
@@ -65,10 +89,10 @@ export default function CareerPage() {
               </ul>
             </div>
 
-            <div className="rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
-              <h2 className="font-heading text-2xl font-bold text-navy">
+            <div className="rounded-3xl border border-navy/10 bg-white p-8 shadow-sm">
+              <h3 className="font-heading text-2xl font-bold text-navy">
                 What we offer employers and recruiters
-              </h2>
+              </h3>
               <ul className="mt-6 space-y-3">
                 {employerOffers.map((offer) => (
                   <li key={offer} className="flex items-start gap-3 text-sm text-navy/80">
@@ -82,21 +106,18 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="bg-muted py-20 md:py-28">
+      <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
-            Current Job Openings
-          </h2>
-          <p className="mt-5 max-w-2xl text-navy/70">
-            We are continuously looking for talented people who would be interested in long-term
-            careers with us. Our employment environment offers great opportunities learning,
-            developing and contributing in different functions, regions and countries.
-          </p>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading
+            eyebrow="Opportunities"
+            title="Current Job Openings"
+            description="We are continuously looking for talented people who would be interested in long-term careers with us. Our employment environment offers great opportunities learning, developing and contributing in different functions, regions and countries."
+          />
+          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {careerJobOpenings.map((job) => (
               <div
                 key={job}
-                className="flex items-center gap-3 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm"
+                className="flex items-center gap-3 rounded-2xl border border-navy/10 bg-muted p-5 shadow-sm"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
                   <Briefcase className="h-5 w-5" aria-hidden="true" />
@@ -108,9 +129,16 @@ export default function CareerPage() {
         </div>
       </section>
 
-      <section className="bg-white py-20 md:py-28">
+      <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-2xl px-6">
-          <CareerForm />
+          <SectionHeading
+            eyebrow="Apply Now"
+            title="Send Us Your Details"
+            description="Fill out the form below and our team will get back to you."
+          />
+          <div className="mt-10">
+            <CareerForm />
+          </div>
         </div>
       </section>
     </>

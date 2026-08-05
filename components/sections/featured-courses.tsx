@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Clock, Signal } from "lucide-react";
 import { featuredCourses } from "@/lib/data";
@@ -11,17 +12,13 @@ export function FeaturedCourses() {
         <SectionHeading eyebrow="Course" title="General Safety Courses" />
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {featuredCourses.map((course) => {
-            const Icon = course.icon;
             return (
               <div
                 key={course.slug}
-                className="flex flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
+                className="flex flex-col overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
               >
-                <div
-                  aria-hidden="true"
-                  className="flex h-32 items-center justify-center rounded-t-2xl bg-gradient-to-br from-navy to-navy-deep"
-                >
-                  <Icon className="h-10 w-10 text-white" aria-hidden="true" />
+                <div className="relative h-48 w-full">
+                  <Image src={course.image} alt={course.title} fill className="object-cover" />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
                   <span className="text-xs font-semibold uppercase tracking-wide text-orange">

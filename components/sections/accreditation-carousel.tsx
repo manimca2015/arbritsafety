@@ -38,13 +38,13 @@ export function AccreditationCarousel() {
       </div>
 
       {shouldReduceMotion ? (
-        <div className="mt-10 flex flex-wrap justify-center gap-6 px-6">
+        <div className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-6 px-6">
           {logos.map((logo) => (
             <LogoCard key={logo.src} src={logo.src} alt={logo.alt} />
           ))}
         </div>
       ) : (
-        <div className="relative mt-10 w-full overflow-hidden">
+        <div className="relative mx-auto mt-10 max-w-7xl overflow-hidden px-6">
           <motion.div
             className="flex w-max gap-6"
             animate={{ x: ["0%", "-50%"] }}

@@ -10,7 +10,12 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   return (
     <>
-      <PageHeader title="Blog" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]} />
+      <PageHeader
+        title="Blog"
+        eyebrow="Insights From the Field"
+        description="Latest articles and updates from Arbrit Safety Training & Consultancy."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Blog" }]}
+      />
 
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">

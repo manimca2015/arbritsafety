@@ -12,7 +12,12 @@ export const metadata: Metadata = {
 export default function CoursesPage() {
   return (
     <>
-      <PageHeader title="Courses" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Courses" }]} />
+      <PageHeader
+        title="Courses"
+        eyebrow="International & General Safety Training"
+        description="Explore accredited HSE courses designed to build safer, more capable workplaces."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Courses" }]}
+      />
       <CourseCategories />
       <FeaturedCourses />
     </>

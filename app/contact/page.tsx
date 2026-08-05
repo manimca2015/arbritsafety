@@ -12,7 +12,12 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      <PageHeader title="Contact Us" breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]} />
+      <PageHeader
+        title="Contact Us"
+        eyebrow="We'd Love to Hear From You"
+        description="Get in touch with Arbrit Safety Training & Consultancy in Dubai, Abu Dhabi and the Kingdom of Saudi Arabia."
+        breadcrumbs={[{ label: "Home", href: "/" }, { label: "Contact Us" }]}
+      />
 
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
