@@ -23,7 +23,7 @@ const stackCards: StackCard[] = [
     alt: "Confined space rescue training drill",
     position: "hidden lg:block left-[2%] -top-[9%] h-[24%] w-[24%]",
     rotate: 5,
-    z: 10,
+    z: 25,
     floatDuration: 6.5,
     floatDelay: 0.6,
   },
