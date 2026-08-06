@@ -19,9 +19,9 @@ type StackCard = {
 
 const stackCards: StackCard[] = [
   {
-    src: "/general-safety-courses/Rescue-Training.jpg",
+    src: "/Rescue-Training.jpg",
     alt: "Confined space rescue training drill",
-    position: "hidden lg:block left-[16%] -top-[4%] h-[26%] w-[26%]",
+    position: "hidden lg:block left-[2%] -top-[9%] h-[24%] w-[24%]",
     rotate: 5,
     z: 10,
     floatDuration: 6.5,
