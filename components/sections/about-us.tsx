@@ -6,11 +6,11 @@ const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
 
 export function AboutUs() {
   return (
-    <section className="w-full bg-navy">
+    <section className="w-full bg-[#0066b2]">
       <div className="mx-auto grid max-w-7xl px-6 lg:grid-cols-2 lg:items-center">
         <div className="flex flex-col justify-center py-12 md:py-16">
           <div className="mx-auto max-w-xl lg:mx-0">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Who We Are</p>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Who We Are</p>
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">About Us</h2>
             <p className="mt-5 text-white/75">
               We proudly introduce Arbrit Safety Training &amp; Consultancy L.L.C. as a platform for
@@ -37,7 +37,7 @@ export function AboutUs() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="bg-white text-navy hover:bg-white/90">
+              <Button asChild size="lg" className="bg-white text-[#000] hover:bg-white/90">
                 <Link href="/about">
                   About Us <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Link>
@@ -46,7 +46,7 @@ export function AboutUs() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="border-white/40 bg-transparent text-white hover:bg-white/10"
+                className="border-white/40 bg-transparent text-white hover:bg-white/10 hover:text-white"
               >
                 <Link href="/contact">
                   <Phone className="mr-2 h-4 w-4" aria-hidden="true" /> Contact Us

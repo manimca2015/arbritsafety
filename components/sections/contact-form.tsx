@@ -36,11 +36,11 @@ export function ContactForm() {
     >
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange to-navy-deep"
+        className="absolute inset-x-0 top-0 h-1 bg-[#0066b2]"
       />
       <div>
-        <p className="text-xs font-semibold uppercase tracking-wide text-orange">Get In Touch</p>
-        <h2 className="mt-1 font-heading text-2xl font-bold text-navy">Send Us a Message</h2>
+        <p className="text-xs font-semibold uppercase tracking-wide text-[#0066b2]">Get In Touch</p>
+        <h2 className="mt-1 font-heading text-2xl font-bold text-[#0066b2]">Send Us a Message</h2>
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="group space-y-1.5">
@@ -178,12 +178,12 @@ export function ContactForm() {
       <Button
         type="submit"
         size="lg"
-        className="w-full rounded-xl bg-gradient-to-r from-orange to-navy-deep text-white shadow-md shadow-orange/20 transition hover:shadow-lg hover:shadow-orange/30"
+        className="w-full rounded-xl bg-[#0066b2] text-white shadow-md shadow-[#0066b2]/20 transition hover:bg-[#0066b2]/90 hover:shadow-lg hover:shadow-[#0066b2]/30"
       >
         Send Message <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
       {submitted && (
-        <p role="status" className="rounded-xl bg-orange/10 p-3 text-sm font-medium text-navy">
+        <p role="status" className="rounded-xl bg-orange/10 p-3 text-sm font-medium text-[#000]">
           Thanks — this form isn&apos;t connected to a backend yet, but we&apos;ve noted your interest.
         </p>
       )}

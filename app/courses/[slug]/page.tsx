@@ -62,16 +62,16 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
 
               {course.aim && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Aim and Content</h2>
-                  <p className="mt-4 text-navy/70">{course.aim}</p>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Course Aim and Content</h2>
+                  <p className="mt-4 text-[#000]">{course.aim}</p>
                 </>
               )}
 
               {course.courseInfoParagraphs && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Info</h2>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Course Info</h2>
                   {course.courseInfoParagraphs.map((paragraph, i) => (
-                    <p key={i} className="mt-4 text-navy/70">
+                    <p key={i} className="mt-4 text-[#000]">
                       {paragraph}
                     </p>
                   ))}
@@ -80,13 +80,13 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
 
               {course.topics && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">
                     Topics covered during this course include:
                   </h2>
                   <ul className="mt-5 space-y-3">
                     {course.topics.map((topic, i) => (
-                      <li key={i} className="flex items-start gap-3 text-sm text-navy/80">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                      <li key={i} className="flex items-start gap-3 text-sm text-[#000]">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0066b2]" aria-hidden="true" />
                         {topic}
                       </li>
                     ))}
@@ -96,22 +96,22 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
 
               {course.durationHeading && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Duration</h2>
-                  <p className="mt-4 text-navy/70">{course.durationHeading}</p>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Duration</h2>
+                  <p className="mt-4 text-[#000]">{course.durationHeading}</p>
                 </>
               )}
 
               {course.targetDelegates && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Target Delegates</h2>
-                  <p className="mt-4 text-navy/70">{course.targetDelegates}</p>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Target Delegates</h2>
+                  <p className="mt-4 text-[#000]">{course.targetDelegates}</p>
                 </>
               )}
 
               {course.certificationIntro && course.certificationLinkUrl && (
                 <>
-                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Certification</h2>
-                  <p className="mt-4 text-navy/70">
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Certification</h2>
+                  <p className="mt-4 text-[#000]">
                     {course.certificationIntro}{" "}
                     <a
                       href={course.certificationLinkUrl}
@@ -125,7 +125,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 </>
               )}
               {course.certificationHighlight && (
-                <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-navy">
+                <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-[#000]">
                   {course.certificationHighlight}
                 </p>
               )}
@@ -141,21 +141,21 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                     className="rounded-2xl border border-navy/10 bg-muted p-5 hover:border-orange/40"
                   >
                     <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Previous</p>
-                    <p className="mt-1 text-sm font-semibold text-navy">{prevCourse.title}</p>
+                    <p className="mt-1 text-sm font-semibold text-[#000]">{prevCourse.title}</p>
                   </Link>
                   <Link
                     href={`/courses/${nextCourse.slug}`}
                     className="rounded-2xl border border-navy/10 bg-muted p-5 text-right hover:border-orange/40"
                   >
                     <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Next</p>
-                    <p className="mt-1 text-sm font-semibold text-navy">{nextCourse.title}</p>
+                    <p className="mt-1 text-sm font-semibold text-[#000]">{nextCourse.title}</p>
                   </Link>
                 </div>
               )}
             </div>
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
-              <h2 className="font-heading text-xl font-bold text-navy">Other Courses</h2>
+              <h2 className="font-heading text-xl font-bold text-[#0066b2]">Other Courses</h2>
               <div className="mt-6 space-y-5">
                 {featuredCourses
                   .filter((c) => c.slug !== course.slug)
@@ -173,7 +173,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                           <span className="text-xs font-semibold uppercase tracking-wide text-orange">
                             {c.category}
                           </span>
-                          <h3 className="mt-1 font-heading text-sm font-bold leading-snug text-navy group-hover:text-orange">
+                          <h3 className="mt-1 font-heading text-sm font-bold leading-snug text-[#000] group-hover:text-orange">
                             {c.title}
                           </h3>
                           <p className="mt-1 flex items-center gap-1 text-xs text-navy/60">
@@ -190,12 +190,12 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
       </section>
 
       {course.clientLogos && (
-        <section className="overflow-hidden bg-white py-16 md:py-20">
+        <section className="bg-white py-16 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
-            <h2 className="text-center font-heading text-3xl font-bold text-navy sm:text-4xl">Our Clients</h2>
-          </div>
-          <div className="mt-10">
-            <CourseClientsCarousel logos={course.clientLogos} />
+            <h2 className="text-center font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">Our Clients</h2>
+            <div className="mt-10 rounded-3xl border border-navy/10 bg-muted p-6 shadow-sm md:p-8">
+              <CourseClientsCarousel logos={course.clientLogos} />
+            </div>
           </div>
         </section>
       )}

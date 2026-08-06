@@ -23,7 +23,7 @@ export default function ContactPage() {
 
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <p className="mx-auto max-w-2xl text-center text-navy/70">
+          <p className="mx-auto max-w-2xl text-center text-[#000]">
             Reach our Dubai, Abu Dhabi, or Kingdom of Saudi Arabia office directly, or send us a
             message below.
           </p>
@@ -53,7 +53,7 @@ export default function ContactPage() {
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
                   <MapPin className="h-4 w-4" aria-hidden="true" />
                 </span>
-                <p className="text-sm font-medium text-navy">{contactInfo.address}</p>
+                <p className="text-sm font-medium text-[#000]">{contactInfo.address}</p>
               </div>
             </div>
           </div>

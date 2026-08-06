@@ -17,6 +17,14 @@ export function Testimonials() {
     return card ? card.offsetWidth + 24 : el.clientWidth;
   };
 
+  const initials = (name: string) =>
+    name
+      .split(" ")
+      .map((part) => part[0])
+      .slice(0, 2)
+      .join("")
+      .toUpperCase();
+
   const advance = (el: HTMLDivElement, direction: 1 | -1) => {
     const behavior = shouldReduceMotion ? "auto" : "smooth";
     const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 1;
@@ -48,7 +56,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Testimonials" title="What Our Students Say" />
         <div
-          className="relative mt-12"
+          className="relative mt-12 overflow-hidden"
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onFocus={() => setPaused(true)}
@@ -65,13 +73,23 @@ export function Testimonials() {
               >
                 <div className="flex gap-1">
                   {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-orange text-orange" aria-hidden="true" />
+                    <Star key={i} className="h-5 w-5 fill-amber-400 text-amber-400" aria-hidden="true" />
                   ))}
                   <span className="sr-only">{testimonial.rating} out of 5 stars</span>
                 </div>
-                <p className="mt-5 text-navy/80">&ldquo;{testimonial.quote}&rdquo;</p>
-                <p className="mt-6 font-heading font-semibold text-navy">{testimonial.name}</p>
-                <p className="text-sm text-navy/60">{testimonial.role}</p>
+                <p className="mt-5 text-[#000]">&ldquo;{testimonial.quote}&rdquo;</p>
+                <div className="mt-6 flex items-center gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0066b2] text-sm font-semibold text-white"
+                  >
+                    {initials(testimonial.name)}
+                  </span>
+                  <div>
+                    <p className="font-heading font-semibold text-[#000]">{testimonial.name}</p>
+                    <p className="text-sm text-navy/60">{testimonial.role}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

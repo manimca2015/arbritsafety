@@ -19,10 +19,10 @@ export function Faq() {
               value={`item-${i}`}
               className="rounded-2xl border border-navy/10 bg-muted px-6 not-last:border-b-0"
             >
-              <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-navy hover:no-underline">
+              <AccordionTrigger className="py-5 text-left font-heading text-base font-semibold text-[#000] hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="pb-6 text-sm leading-relaxed text-navy/70">
+              <AccordionContent className="pb-6 text-sm leading-relaxed text-[#000]">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

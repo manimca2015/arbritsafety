@@ -16,26 +16,47 @@ export function Contact() {
           <ContactForm />
 
           <div className="flex flex-col gap-6">
-            <div className="space-y-4 rounded-3xl bg-white p-8 shadow-sm">
-              {contactInfo.phones.map((phone) => (
-                <p key={phone.label} className="flex items-center gap-3 text-sm text-navy/80">
-                  <Phone className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
-                  <a href={`tel:${phone.number.replace(/\s+/g, "")}`} className="hover:text-orange">
-                    {phone.number}
+            <div className="rounded-3xl border border-navy/10 bg-white p-8 shadow-sm">
+              <div className="grid gap-3 sm:grid-cols-3">
+                {contactInfo.phones.map((phone) => (
+                  <a
+                    key={phone.label}
+                    href={`tel:${phone.number.replace(/\s+/g, "")}`}
+                    className="group flex flex-col items-start gap-2 rounded-2xl border border-navy/10 bg-muted p-4 transition duration-300 hover:-translate-y-1 hover:border-orange/30 hover:shadow-md"
+                  >
+                    <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2] transition duration-300 group-hover:bg-[#0066b2] group-hover:text-white">
+                      <Phone className="h-4 w-4" aria-hidden="true" />
+                    </span>
+                    <span className="text-xs font-semibold uppercase tracking-wide text-navy/50">
+                      {phone.label}
+                    </span>
+                    <span className="text-sm font-semibold text-[#000] group-hover:text-orange">
+                      {phone.number}
+                    </span>
                   </a>
-                  <span className="text-navy/50">— {phone.label}</span>
-                </p>
-              ))}
-              <p className="flex items-center gap-3 text-sm text-navy/80">
-                <Mail className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
-                <a href={`mailto:${contactInfo.email}`} className="hover:text-orange">
+                ))}
+              </div>
+
+              <div className="mt-6 space-y-4 border-t border-navy/10 pt-6">
+                <a
+                  href={`mailto:${contactInfo.email}`}
+                  className="group flex items-center gap-3 text-sm text-[#000] hover:text-orange"
+                >
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange transition duration-300 group-hover:bg-orange group-hover:text-white">
+                    <Mail className="h-4 w-4" aria-hidden="true" />
+                  </span>
                   {contactInfo.email}
                 </a>
-              </p>
-              <p className="flex items-center gap-3 text-sm text-navy/80">
-                <MapPin className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" /> {contactInfo.address}
-              </p>
-              <p className="pl-8 text-sm text-navy/50">{contactInfo.ksaEntity}</p>
+                <div className="flex items-start gap-3 text-sm text-[#000]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
+                    <MapPin className="h-4 w-4" aria-hidden="true" />
+                  </span>
+                  <div>
+                    <p>{contactInfo.address}</p>
+                    <p className="mt-1 text-navy/50">{contactInfo.ksaEntity}</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="min-h-[220px] flex-1 overflow-hidden rounded-3xl">
               <iframe

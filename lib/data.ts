@@ -20,26 +20,11 @@ import {
   Video,
   X,
   MessageCircle,
-  Phone,
-  Info,
-  BookOpen,
 } from "lucide-react";
 
 export type NavLink = {
   label: string;
   href: string;
-};
-
-export type HeroSlide = {
-  image: string;
-  heading: string;
-  highlight?: string;
-  subtext: string;
-  ctaLabel: string;
-  ctaHref: string;
-  secondaryCtaLabel: string;
-  secondaryCtaHref: string;
-  secondaryCtaIcon: LucideIcon;
 };
 
 export type MegaMenuGroup = {
@@ -158,45 +143,6 @@ export const navLinks: NavLink[] = [
   { label: "Career", href: "/career" },
   { label: "Blog", href: "/blog" },
   { label: "Contact Us", href: "/contact" },
-];
-
-export const heroSlides: HeroSlide[] = [
-  {
-    image: "/hero/slide-1-construction-safety.jpg",
-    heading: "Health & Safety Training That Protects Your People and Your Business",
-    highlight: "Your People and Your Business",
-    subtext:
-      "Accredited HSE, lifting, scaffolding, and fire safety courses in Dubai, Abu Dhabi and KSA.",
-    ctaLabel: "Enroll Now",
-    ctaHref: "/courses",
-    secondaryCtaLabel: "Contact Us",
-    secondaryCtaHref: "/contact",
-    secondaryCtaIcon: Phone,
-  },
-  {
-    image: "/hero/slide-2-training-classroom.jpg",
-    heading: "Accredited Training Across Dubai, Abu Dhabi & KSA",
-    highlight: "Dubai, Abu Dhabi & KSA",
-    subtext:
-      "Multilingual courses (English/Hindi/Urdu/Arabic) delivered by certified, experienced instructors.",
-    ctaLabel: "Explore Courses",
-    ctaHref: "/courses",
-    secondaryCtaLabel: "About Us",
-    secondaryCtaHref: "/about",
-    secondaryCtaIcon: Info,
-  },
-  {
-    image: "/hero/slide-3-lifting-operations.jpg",
-    heading: "First LEEA Licensed Training Partner in the Region",
-    highlight: "in the Region",
-    subtext:
-      "Delivering the LEEA Foundation Certificate and LAC Diploma across the UAE & KSA.",
-    ctaLabel: "Talk to an Advisor",
-    ctaHref: "#contact",
-    secondaryCtaLabel: "View Courses",
-    secondaryCtaHref: "/courses",
-    secondaryCtaIcon: BookOpen,
-  },
 ];
 
 export const coursesMegaMenu: MegaMenuGroup[] = [

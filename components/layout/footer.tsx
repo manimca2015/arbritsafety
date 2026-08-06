@@ -9,17 +9,17 @@ import { footerQuickLinks, contactInfo, socialLinks } from "@/lib/data";
 
 export function Footer() {
   return (
-    <footer className="bg-navy text-white">
+    <footer className="bg-[#0066b2] text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.1fr_0.7fr_1.1fr]">
           <div>
             <div className="inline-block rounded-2xl bg-white p-2">
               <Image
-                src="/logo.jpg"
+                src="/arbritsafety-logo.png"
                 alt="Arbrit Safety"
-                width={235}
-                height={76}
-                className="h-10 w-auto rounded-xl"
+                width={180}
+                height={60}
+                className="rounded-xl"
               />
             </div>
             <p className="mt-4 text-sm text-white/70">
@@ -96,7 +96,7 @@ export function Footer() {
                 aria-label="Email address"
                 required
               />
-              <Button type="submit" className="bg-white text-navy hover:bg-white/90">
+              <Button type="submit" className="bg-white text-[#000] hover:bg-white/90">
                 Join <Send className="ml-2 h-4 w-4" aria-hidden="true" />
               </Button>
             </form>

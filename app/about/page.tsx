@@ -34,16 +34,16 @@ export default function AboutPage() {
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Who We Are</p>
-            <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0066b2]">Who We Are</p>
+            <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
               Health and Safety - Mission &amp; Purpose
             </h2>
-            <p className="mt-5 text-navy/70">
+            <p className="mt-5 text-[#000]">
               There are no crossroads when it comes to health and safety training, and therefore
               our task is to provide quality, valuable training nationally in order to provide an
               increasing number of people with proper training and safe work.
             </p>
-            <p className="mt-4 text-navy/70">
+            <p className="mt-4 text-[#000]">
               Arbrit now has offices in locations in different countries, including UAE, UK, Qatar
               and India.HSE course in UAE is offered in and out of the training center in major
               business centres, and clients across all types of industries are provided with
@@ -54,7 +54,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="h-[600px] overflow-hidden rounded-2xl shadow-lg">
+          <div className="h-[320px] overflow-hidden rounded-2xl shadow-lg sm:h-[380px] lg:h-[420px]">
             <video controls preload="metadata" className="h-full w-full object-cover">
               <source
                 src="https://arbritsafety.ae/wp-content/uploads/2024/04/Arbrit-Safety.mp4"
@@ -83,19 +83,19 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Research</p>
-              <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0066b2]">Research</p>
+              <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
                 HSE Training Research
               </h2>
-              <p className="mt-5 text-navy/70">
+              <p className="mt-5 text-[#000]">
                 Arbrit courses are intended for the contractor staff to be trained on a range of
                 basic skills to an international standard.
               </p>
             </div>
             <ul className="space-y-4 rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
               {researchPoints.map((point) => (
-                <li key={point} className="flex items-start gap-3 text-sm text-navy/80">
-                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                <li key={point} className="flex items-start gap-3 text-sm text-[#000]">
+                  <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0066b2]" aria-hidden="true" />
                   {point}
                 </li>
               ))}
@@ -116,12 +116,12 @@ export default function AboutPage() {
                 <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-muted shadow">
                   <Image src={trainer.image} alt={trainer.name} fill className="object-cover" />
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-navy">{trainer.name}</h3>
+                <h3 className="mt-5 font-heading text-lg font-bold text-[#000]">{trainer.name}</h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-orange">
                   {trainer.credentials}
                 </p>
-                <p className="mt-4 text-sm text-navy/70">{trainer.shortBio}</p>
-                <Button asChild variant="link" className="mt-4 text-orange">
+                <p className="mt-4 text-sm text-[#000]">{trainer.shortBio}</p>
+                <Button asChild variant="link" className="mt-4 text-[#0066b2]">
                   <Link href={`/about/trainers/${trainer.slug}`}>
                     Read more <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
                   </Link>

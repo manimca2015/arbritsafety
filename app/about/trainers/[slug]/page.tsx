@@ -44,19 +44,19 @@ export default async function TrainerPage({ params }: { params: Promise<{ slug: 
             <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-lg">
               <Image src={trainer.image} alt={trainer.name} fill className="object-cover" />
             </div>
-            <h1 className="mt-5 font-heading text-2xl font-bold text-navy">{trainer.name}</h1>
+            <h1 className="mt-5 font-heading text-2xl font-bold text-[#000]">{trainer.name}</h1>
             <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-orange">
               {trainer.credentials}
             </p>
-            <p className="mt-4 max-w-xl font-heading text-lg italic text-navy/70">
+            <p className="mt-4 max-w-xl font-heading text-lg italic text-[#000]">
               &ldquo;{trainer.quote}&rdquo;
             </p>
           </div>
 
-          <h2 className="mt-14 font-heading text-2xl font-bold text-navy">Biography</h2>
+          <h2 className="mt-14 font-heading text-2xl font-bold text-[#000]">Biography</h2>
           <div className="mt-5 space-y-4">
             {trainer.bio.map((paragraph, i) => (
-              <p key={i} className="text-navy/70">
+              <p key={i} className="text-[#000]">
                 {paragraph}
               </p>
             ))}

@@ -62,11 +62,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {post.content?.map((section, i) => (
                   <div key={i}>
                     {section.heading && (
-                      <h2 className="font-heading text-2xl font-bold text-navy">{section.heading}</h2>
+                      <h2 className="font-heading text-2xl font-bold text-[#000]">{section.heading}</h2>
                     )}
                     <div className={section.heading ? "mt-4 space-y-4" : "space-y-4"}>
                       {section.paragraphs.map((paragraph, j) => (
-                        <p key={j} className="text-navy/70">
+                        <p key={j} className="text-[#000]">
                           {paragraph}
                         </p>
                       ))}
@@ -74,9 +74,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     {section.bulletList && (
                       <ul className="mt-4 space-y-3">
                         {section.bulletList.map((item) => (
-                          <li key={item} className="flex items-start gap-3 text-sm text-navy/80">
+                          <li key={item} className="flex items-start gap-3 text-sm text-[#000]">
                             <CheckCircle2
-                              className="mt-0.5 h-5 w-5 shrink-0 text-orange"
+                              className="mt-0.5 h-5 w-5 shrink-0 text-[#0066b2]"
                               aria-hidden="true"
                             />
                             {item}
@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     )}
                   </div>
                 ))}
-                {!post.content && <p className="text-navy/70">{post.excerpt}</p>}
+                {!post.content && <p className="text-[#000]">{post.excerpt}</p>}
               </div>
 
               <div className="mt-14 grid gap-4 border-t border-navy/10 pt-8 sm:grid-cols-2">
@@ -99,7 +99,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">
                       Previous
                     </p>
-                    <p className="mt-1 text-sm font-semibold text-navy group-hover:text-orange">
+                    <p className="mt-1 text-sm font-semibold text-[#000] group-hover:text-orange">
                       {prevPost.title}
                     </p>
                   </div>
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                   <ChevronRight className="h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
                   <div>
                     <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Next</p>
-                    <p className="mt-1 text-sm font-semibold text-navy group-hover:text-orange">
+                    <p className="mt-1 text-sm font-semibold text-[#000] group-hover:text-orange">
                       {nextPost.title}
                     </p>
                   </div>
@@ -120,7 +120,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             </div>
 
             <aside className="lg:sticky lg:top-24 lg:self-start">
-              <h2 className="font-heading text-xl font-bold text-navy">Related Blogs</h2>
+              <h2 className="font-heading text-xl font-bold text-[#0066b2]">Related Blogs</h2>
               <div className="mt-6 space-y-5">
                 {blogPosts
                   .filter((p) => p.href !== post.href)
@@ -137,7 +137,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         <span className="text-xs font-semibold uppercase tracking-wide text-orange">
                           {p.category}
                         </span>
-                        <h3 className="mt-1 font-heading text-sm font-bold leading-snug text-navy group-hover:text-orange">
+                        <h3 className="mt-1 font-heading text-sm font-bold leading-snug text-[#000] group-hover:text-orange">
                           {p.title}
                         </h3>
                       </div>

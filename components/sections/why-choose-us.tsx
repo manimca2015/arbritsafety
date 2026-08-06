@@ -19,10 +19,10 @@ function StatCard({ value, suffix, label }: { value: number; suffix: string; lab
 
 export function WhyChooseUs() {
   return (
-    <section className="bg-navy py-20 md:py-28">
+    <section className="bg-[#0066b2] py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">Why Choose Us</p>
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Why Choose Us</p>
           <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">
             Two Decades of Trusted HSE Training
           </h2>

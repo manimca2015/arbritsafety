@@ -55,14 +55,14 @@ export function HistoryCoverflow({ photos }: { photos: Photo[] }) {
       <button
         type="button"
         aria-label="Previous photo"
-        className="history-coverflow-prev absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-navy shadow-md transition hover:bg-orange hover:text-white"
+        className="history-coverflow-prev absolute left-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#000] shadow-md transition hover:bg-orange hover:text-white"
       >
         <ChevronLeft className="h-5 w-5" aria-hidden="true" />
       </button>
       <button
         type="button"
         aria-label="Next photo"
-        className="history-coverflow-next absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-navy shadow-md transition hover:bg-orange hover:text-white"
+        className="history-coverflow-next absolute right-0 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#000] shadow-md transition hover:bg-orange hover:text-white"
       >
         <ChevronRight className="h-5 w-5" aria-hidden="true" />
       </button>

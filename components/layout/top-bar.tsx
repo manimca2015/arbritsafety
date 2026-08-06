@@ -3,7 +3,7 @@ import { contactInfo, socialLinks } from "@/lib/data";
 
 export function TopBar() {
   return (
-    <div className="hidden bg-navy py-2 text-xs text-white/80 lg:block">
+    <div className="hidden bg-[#0066b2] py-2 text-xs text-white/80 lg:block">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
         <div className="flex items-center gap-4">
           <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-1.5 hover:text-white">

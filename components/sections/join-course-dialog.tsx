@@ -34,7 +34,7 @@ export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
   return (
     <Dialog onOpenChange={(open) => !open && setSubmitted(false)}>
       <DialogTrigger asChild>
-        <Button size="lg" className="bg-orange text-white hover:bg-orange/90">
+        <Button size="lg" className="bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
           Join Course
         </Button>
       </DialogTrigger>
@@ -158,7 +158,7 @@ export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
             Submit <Send className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
           {submitted && (
-            <p role="status" className="text-sm font-medium text-navy">
+            <p role="status" className="text-sm font-medium text-[#000]">
               Thanks — this form isn&apos;t connected to a backend yet, but we&apos;ve noted your interest.
             </p>
           )}

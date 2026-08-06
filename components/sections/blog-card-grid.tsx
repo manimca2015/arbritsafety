@@ -24,14 +24,14 @@ export function BlogCardGrid({ excludeHref }: { excludeHref?: string }) {
             />
           </div>
           <div className="flex flex-1 flex-col p-6">
-            <span className="text-xs font-semibold uppercase tracking-wide text-orange">
+            <span className="text-xs font-semibold uppercase tracking-wide text-[#0066b2]">
               {post.category}
             </span>
-            <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-navy">
+            <h3 className="mt-2 font-heading text-lg font-bold leading-snug text-[#0066b2]">
               {post.title}
             </h3>
-            <p className="mt-3 flex-1 text-sm text-navy/70">{post.excerpt}</p>
-            <Button asChild variant="link" className="mt-4 justify-start px-0 text-orange">
+            <p className="mt-3 flex-1 text-sm text-[#000]">{post.excerpt}</p>
+            <Button asChild variant="link" className="mt-4 justify-start px-0 text-[#0066b2]">
               <Link href={post.href}>
                 Read More <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
               </Link>

@@ -13,17 +13,17 @@ export function CorporateTraining() {
     <section className="bg-white py-20 md:py-28">
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center">
         <div>
-          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-orange">
+          <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-[#0066b2]">
             Corporate Training
           </p>
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
             These courses will raise the profile of health and safety in your organization, which
             will help:
           </h2>
           <ul className="mt-6 space-y-3">
             {corporateBenefits.map((benefit) => (
-              <li key={benefit} className="flex items-start gap-3 text-sm text-navy/80">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+              <li key={benefit} className="flex items-start gap-3 text-sm text-[#000]">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#0066b2]" aria-hidden="true" />
                 {benefit}
               </li>
             ))}
@@ -32,14 +32,14 @@ export function CorporateTraining() {
 
         <div className="rounded-3xl border border-navy/10 bg-muted p-8 shadow-sm">
           <Users className="h-10 w-10 text-orange" aria-hidden="true" />
-          <h3 className="mt-4 font-heading text-xl font-bold text-navy">
+          <h3 className="mt-4 font-heading text-xl font-bold text-[#0066b2]">
             Request a Corporate Training Quote
           </h3>
-          <p className="mt-2 text-sm text-navy/70">
+          <p className="mt-2 text-sm text-[#000]">
             Tell us your team size and required certifications — we&apos;ll put together a
             tailored proposal.
           </p>
-          <Button asChild size="lg" className="mt-6 w-full bg-orange text-white hover:bg-orange/90">
+          <Button asChild size="lg" className="mt-6 w-full bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
             <Link href="#contact">
               Request a Quote <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>

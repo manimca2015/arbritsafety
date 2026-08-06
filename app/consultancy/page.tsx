@@ -23,10 +23,10 @@ export default function ConsultancyPage() {
 
       <section className="bg-white py-20 md:py-28">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
             Consultancy Services
           </h2>
-          <p className="mt-5 text-navy/70">
+          <p className="mt-5 text-[#000]">
             We specialize in HSE Human resource that cater accross different sectors including:
             Health care, Construction and Engineering, Manufacturing etc. We maintain long term
             relationships with our clients by simply analyzing and assisting them through every
@@ -39,10 +39,10 @@ export default function ConsultancyPage() {
                 key={service}
                 className="flex items-center gap-3 rounded-2xl border border-navy/10 bg-muted p-5 shadow-sm"
               >
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange/10 text-orange">
+                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2]">
                   <ClipboardCheck className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <span className="text-sm font-semibold text-navy">{service}</span>
+                <span className="text-sm font-semibold text-[#000]">{service}</span>
               </div>
             ))}
           </div>
@@ -51,7 +51,7 @@ export default function ConsultancyPage() {
 
       <section className="bg-muted py-20 md:py-28">
         <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">
+          <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
             Contact Details
           </h2>
           <div className="mt-10">

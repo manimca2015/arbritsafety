@@ -13,7 +13,7 @@ export function LatestBlogs() {
           <BlogCardGrid />
         </div>
         <div className="mt-10 text-center">
-          <Button asChild size="lg" variant="outline" className="border-navy text-navy">
+          <Button asChild size="lg" variant="outline" className="border-[#0066b2] text-[#0066b2]">
             <Link href="/blog">
               View All Blogs <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
             </Link>

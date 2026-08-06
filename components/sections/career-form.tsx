@@ -27,7 +27,7 @@ export function CareerForm() {
     <form onSubmit={handleSubmit} className="relative space-y-5 overflow-hidden rounded-3xl bg-white p-8 shadow-sm">
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange to-navy-deep"
+        className="absolute inset-x-0 top-0 h-1 bg-[#0066b2]"
       />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
@@ -139,11 +139,11 @@ export function CareerForm() {
           <Textarea id="career-message" name="message" placeholder="Message" rows={4} className="pl-10" />
         </div>
       </div>
-      <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
+      <Button type="submit" size="lg" className="w-full bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
         Send Message <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
       {submitted && (
-        <p role="status" className="text-sm font-medium text-navy">
+        <p role="status" className="text-sm font-medium text-[#000]">
           Thanks — this form isn&apos;t connected to a backend yet, but we&apos;ve noted your interest.
         </p>
       )}
