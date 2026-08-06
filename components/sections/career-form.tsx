@@ -24,7 +24,11 @@ export function CareerForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 rounded-3xl bg-white p-8 shadow-sm">
+    <form onSubmit={handleSubmit} className="relative space-y-5 overflow-hidden rounded-3xl bg-white p-8 shadow-sm">
+      <span
+        aria-hidden="true"
+        className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-orange to-navy-deep"
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="career-name">Name</Label>

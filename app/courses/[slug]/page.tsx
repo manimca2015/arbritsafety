@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight, CheckCircle2, Clock, ExternalLink } from "lucide-react";
+import { CheckCircle2, Clock, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
 import { CourseClientsCarousel } from "@/components/sections/course-clients-carousel";
@@ -47,109 +47,145 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
       />
 
       <section className="bg-white py-20 md:py-28">
-        <div className="mx-auto max-w-3xl px-6">
-          <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
-            <Image src={course.image} alt={course.title} fill sizes="768px" className="object-cover" />
-          </div>
-          {course.duration && (
-            <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
-              <Clock className="h-4 w-4" aria-hidden="true" />
-              {course.duration}
-            </div>
-          )}
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-12 lg:grid-cols-[7fr_3fr]">
+            <div>
+              <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
+                <Image src={course.image} alt={course.title} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+              </div>
+              {course.duration && (
+                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
+                  <Clock className="h-4 w-4" aria-hidden="true" />
+                  {course.duration}
+                </div>
+              )}
 
-          {course.aim && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Aim and Content</h2>
-              <p className="mt-4 text-navy/70">{course.aim}</p>
-            </>
-          )}
+              {course.aim && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Aim and Content</h2>
+                  <p className="mt-4 text-navy/70">{course.aim}</p>
+                </>
+              )}
 
-          {course.courseInfoParagraphs && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Info</h2>
-              {course.courseInfoParagraphs.map((paragraph, i) => (
-                <p key={i} className="mt-4 text-navy/70">
-                  {paragraph}
+              {course.courseInfoParagraphs && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Course Info</h2>
+                  {course.courseInfoParagraphs.map((paragraph, i) => (
+                    <p key={i} className="mt-4 text-navy/70">
+                      {paragraph}
+                    </p>
+                  ))}
+                </>
+              )}
+
+              {course.topics && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">
+                    Topics covered during this course include:
+                  </h2>
+                  <ul className="mt-5 space-y-3">
+                    {course.topics.map((topic, i) => (
+                      <li key={i} className="flex items-start gap-3 text-sm text-navy/80">
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
+                        {topic}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {course.durationHeading && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Duration</h2>
+                  <p className="mt-4 text-navy/70">{course.durationHeading}</p>
+                </>
+              )}
+
+              {course.targetDelegates && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Target Delegates</h2>
+                  <p className="mt-4 text-navy/70">{course.targetDelegates}</p>
+                </>
+              )}
+
+              {course.certificationIntro && course.certificationLinkUrl && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Certification</h2>
+                  <p className="mt-4 text-navy/70">
+                    {course.certificationIntro}{" "}
+                    <a
+                      href={course.certificationLinkUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-orange underline"
+                    >
+                      {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                    </a>
+                  </p>
+                </>
+              )}
+              {course.certificationHighlight && (
+                <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-navy">
+                  {course.certificationHighlight}
                 </p>
-              ))}
-            </>
-          )}
+              )}
 
-          {course.topics && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">
-                Topics covered during this course include:
-              </h2>
-              <ul className="mt-5 space-y-3">
-                {course.topics.map((topic, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-navy/80">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-orange" aria-hidden="true" />
-                    {topic}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+              <div className="mt-10">
+                <JoinCourseDialog courseTitle={course.title} />
+              </div>
 
-          {course.durationHeading && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Duration</h2>
-              <p className="mt-4 text-navy/70">{course.durationHeading}</p>
-            </>
-          )}
-
-          {course.targetDelegates && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Target Delegates</h2>
-              <p className="mt-4 text-navy/70">{course.targetDelegates}</p>
-            </>
-          )}
-
-          {course.certificationIntro && course.certificationLinkUrl && (
-            <>
-              <h2 className="mt-10 font-heading text-2xl font-bold text-navy">Certification</h2>
-              <p className="mt-4 text-navy/70">
-                {course.certificationIntro}{" "}
-                <a
-                  href={course.certificationLinkUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 text-orange underline"
-                >
-                  {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                </a>
-              </p>
-            </>
-          )}
-          {course.certificationHighlight && (
-            <p className="mt-4 rounded-2xl border border-orange/20 bg-orange/10 p-4 text-sm font-semibold text-navy">
-              {course.certificationHighlight}
-            </p>
-          )}
-
-          <div className="mt-10">
-            <JoinCourseDialog courseTitle={course.title} />
-          </div>
-
-          {prevCourse && nextCourse && (
-            <div className="mt-14 grid gap-4 border-t border-navy/10 pt-8 sm:grid-cols-2">
-              <Link
-                href={`/courses/${prevCourse.slug}`}
-                className="rounded-2xl border border-navy/10 bg-muted p-5 hover:border-orange/40"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Previous</p>
-                <p className="mt-1 text-sm font-semibold text-navy">{prevCourse.title}</p>
-              </Link>
-              <Link
-                href={`/courses/${nextCourse.slug}`}
-                className="rounded-2xl border border-navy/10 bg-muted p-5 text-right hover:border-orange/40"
-              >
-                <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Next</p>
-                <p className="mt-1 text-sm font-semibold text-navy">{nextCourse.title}</p>
-              </Link>
+              {prevCourse && nextCourse && (
+                <div className="mt-14 grid gap-4 border-t border-navy/10 pt-8 sm:grid-cols-2">
+                  <Link
+                    href={`/courses/${prevCourse.slug}`}
+                    className="rounded-2xl border border-navy/10 bg-muted p-5 hover:border-orange/40"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Previous</p>
+                    <p className="mt-1 text-sm font-semibold text-navy">{prevCourse.title}</p>
+                  </Link>
+                  <Link
+                    href={`/courses/${nextCourse.slug}`}
+                    className="rounded-2xl border border-navy/10 bg-muted p-5 text-right hover:border-orange/40"
+                  >
+                    <p className="text-xs font-semibold uppercase tracking-wide text-navy/50">Next</p>
+                    <p className="mt-1 text-sm font-semibold text-navy">{nextCourse.title}</p>
+                  </Link>
+                </div>
+              )}
             </div>
-          )}
+
+            <aside className="lg:sticky lg:top-24 lg:self-start">
+              <h2 className="font-heading text-xl font-bold text-navy">Other Courses</h2>
+              <div className="mt-6 space-y-5">
+                {featuredCourses
+                  .filter((c) => c.slug !== course.slug)
+                  .map((c) => {
+                    return (
+                      <Link
+                        key={c.slug}
+                        href={c.href}
+                        className="group flex items-center gap-4 rounded-2xl border border-navy/10 bg-white p-3 shadow-sm transition hover:shadow-lg hover:border-orange/40"
+                      >
+                        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
+                          <Image src={c.image} alt={c.title} fill sizes="64px" className="object-cover" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-xs font-semibold uppercase tracking-wide text-orange">
+                            {c.category}
+                          </span>
+                          <h3 className="mt-1 font-heading text-sm font-bold leading-snug text-navy group-hover:text-orange">
+                            {c.title}
+                          </h3>
+                          <p className="mt-1 flex items-center gap-1 text-xs text-navy/60">
+                            {c.duration} · {c.level}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+              </div>
+            </aside>
+          </div>
         </div>
       </section>
 
@@ -163,47 +199,6 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           </div>
         </section>
       )}
-
-      <section className="bg-muted py-20 md:py-28">
-        <div className="mx-auto max-w-7xl px-6">
-          <h2 className="font-heading text-3xl font-bold text-navy sm:text-4xl">Other Courses</h2>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredCourses
-              .filter((c) => c.slug !== course.slug)
-              .map((c) => {
-              const Icon = c.icon;
-              return (
-                <div
-                  key={c.slug}
-                  className="flex flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
-                >
-                  <div
-                    aria-hidden="true"
-                    className="flex h-32 items-center justify-center rounded-t-2xl bg-gradient-to-br from-navy to-navy-deep"
-                  >
-                    <Icon className="h-10 w-10 text-white" aria-hidden="true" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-orange">
-                      {c.category}
-                    </span>
-                    <h3 className="mt-2 font-heading text-lg font-bold text-navy">{c.title}</h3>
-                    <p className="mt-3 flex-1 text-sm text-navy/70">
-                      {c.duration} · {c.level}
-                    </p>
-                    <Link
-                      href={c.href}
-                      className="mt-4 flex items-center gap-1 text-sm font-semibold text-orange hover:underline"
-                    >
-                      View Course <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
     </>
   );
 }
