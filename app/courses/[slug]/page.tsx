@@ -12,6 +12,32 @@ export function generateStaticParams() {
   return courseDetails.map((course) => ({ slug: course.slug }));
 }
 
+function renderWithMailtoLinks(text: string) {
+  const parts = text.split(/([\w.+-]+@[\w-]+\.[\w.-]+)/g);
+  return parts.map((part, i) =>
+    /^[\w.+-]+@[\w-]+\.[\w.-]+$/.test(part) ? (
+      <a key={i} href={`mailto:${part}`} className="text-orange underline">
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
+function renderWithBoldLabels(text: string) {
+  const parts = text.split(/([A-Za-z0-9()\s]+:)/g).filter(Boolean);
+  return parts.map((part, i) =>
+    part.endsWith(":") ? (
+      <strong key={i} className="font-semibold">
+        {part}
+      </strong>
+    ) : (
+      part
+    )
+  );
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -72,16 +98,89 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Course Info</h2>
                   {course.courseInfoParagraphs.map((paragraph, i) => (
                     <p key={i} className="mt-4 text-[#000]">
-                      {paragraph}
+                      {renderWithMailtoLinks(paragraph)}
                     </p>
                   ))}
+                </>
+              )}
+
+              {course.accreditationLogo && (
+                <div className="relative mt-10 h-24 w-full overflow-hidden rounded-2xl bg-muted sm:h-32">
+                  <Image
+                    src={course.accreditationLogo}
+                    alt={`${course.title} accreditation logo`}
+                    fill
+                    sizes="(min-width: 1024px) 60vw, 100vw"
+                    className="object-contain p-4"
+                  />
+                </div>
+              )}
+
+              {course.accreditationLogos && (
+                <div className="mt-10 flex flex-wrap gap-4">
+                  {course.accreditationLogos.map((logo, i) => (
+                    <div key={i} className="relative h-24 w-full max-w-xs overflow-hidden rounded-2xl bg-muted sm:h-32">
+                      <Image
+                        src={logo}
+                        alt={`${course.title} accreditation logo ${i + 1}`}
+                        fill
+                        sizes="(min-width: 1024px) 30vw, 100vw"
+                        className="object-contain p-4"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {course.courseTable && (
+                <div className="mt-10 overflow-auto">
+                  <table className="w-full border-collapse text-sm text-[#000]">
+                    <thead>
+                      <tr className="border-b border-navy/10">
+                        <th className="px-3 py-2 text-left font-semibold">Course Name</th>
+                        <th className="px-3 py-2 text-left font-semibold">Course Type</th>
+                        <th className="px-3 py-2 text-left font-semibold">Starts</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {course.courseTable.map((row, i) => (
+                        <tr key={i} className="border-b border-navy/10">
+                          <td className="px-3 py-2">{row.name}</td>
+                          <td className="px-3 py-2">{row.type}</td>
+                          <td className="px-3 py-2">{row.starts}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {course.courseOfferings && (
+                <>
+                  <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Courses Offered</h2>
+                  <div className="mt-5 grid gap-4 sm:grid-cols-2">
+                    {course.courseOfferings.map((offering, i) => (
+                      <div key={i} className="rounded-2xl border border-navy/10 bg-muted p-6 shadow-sm">
+                        <h3 className="font-heading text-base font-bold text-[#0066b2]">{offering.label}</h3>
+                        <p className="mt-2 text-sm text-[#000]">{offering.description}</p>
+                        {offering.href && (
+                          <Link
+                            href={offering.href}
+                            className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-orange"
+                          >
+                            Read More <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                          </Link>
+                        )}
+                      </div>
+                    ))}
+                  </div>
                 </>
               )}
 
               {course.topics && (
                 <>
                   <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">
-                    Topics covered during this course include:
+                    Topics covered during this course include
                   </h2>
                   <ul className="mt-5 space-y-3">
                     {course.topics.map((topic, i) => (
@@ -97,7 +196,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
               {course.durationHeading && (
                 <>
                   <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Duration</h2>
-                  <p className="mt-4 text-[#000]">{course.durationHeading}</p>
+                  <p className="mt-4 text-[#000]">{renderWithBoldLabels(course.durationHeading)}</p>
                 </>
               )}
 
@@ -108,19 +207,24 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 </>
               )}
 
-              {course.certificationIntro && course.certificationLinkUrl && (
+              {course.certificationIntro && (
                 <>
                   <h2 className="mt-10 font-heading text-2xl font-bold text-[#000]">Certification</h2>
                   <p className="mt-4 text-[#000]">
-                    {course.certificationIntro}{" "}
-                    <a
-                      href={course.certificationLinkUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-orange underline"
-                    >
-                      {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
-                    </a>
+                    {course.certificationIntro}
+                    {course.certificationLinkUrl && (
+                      <>
+                        {" "}
+                        <a
+                          href={course.certificationLinkUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-orange underline"
+                        >
+                          {course.certificationLinkUrl} <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
+                        </a>
+                      </>
+                    )}
                   </p>
                 </>
               )}

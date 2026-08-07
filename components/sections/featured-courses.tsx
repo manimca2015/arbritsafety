@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { featuredCourses } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
 
 export function FeaturedCourses() {
   return (
@@ -41,21 +42,26 @@ export function FeaturedCourses() {
             );
           })}
 
-          <Link
-            href="/courses"
-            className="group relative flex h-full min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-navy/10 shadow-sm transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-          >
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 bg-[#0066b2] transition group-hover:scale-105"
-            />
-            <div className="relative flex flex-col items-center gap-3 p-6 text-center">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
-                <ArrowRight className="h-6 w-6" aria-hidden="true" />
-              </span>
-              <span className="font-heading text-lg font-bold text-white">View All Courses</span>
-            </div>
-          </Link>
+          <JoinCourseDialog
+            courseTitle="General Safety Courses"
+            trigger={
+              <button
+                type="button"
+                className="group relative flex h-full min-h-[220px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-navy/10 shadow-sm transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#0066b2] transition group-hover:scale-105"
+                />
+                <div className="relative flex flex-col items-center gap-3 p-6 text-center">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
+                    <ArrowRight className="h-6 w-6" aria-hidden="true" />
+                  </span>
+                  <span className="font-heading text-lg font-bold text-white">Join Course</span>
+                </div>
+              </button>
+            }
+          />
         </div>
       </div>
     </section>

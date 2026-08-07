@@ -54,6 +54,15 @@ const stackCards: StackCard[] = [
     floatDuration: 6,
     floatDelay: 0.9,
   },
+  {
+    src: "/hero/slide-2-training-classroom.jpg",
+    alt: "Safety trainees in a classroom training session",
+    position: "hidden sm:block right-0 bottom-[6%] h-[44%] w-[44%]",
+    rotate: 4,
+    z: 15,
+    floatDuration: 5.8,
+    floatDelay: 0.45,
+  },
 ];
 
 export function Hero() {

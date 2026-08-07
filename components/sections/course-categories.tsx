@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { courseCategories } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
 
 export function CourseCategories() {
   return (
@@ -33,15 +34,20 @@ export function CourseCategories() {
             );
           })}
 
-          <Link
-            href="/courses"
-            className="group flex h-64 flex-col items-center justify-center gap-3 rounded-2xl bg-[#0066b2] p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
-          >
-            <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
-              <ArrowRight className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <span className="text-sm font-semibold text-white">View All Courses</span>
-          </Link>
+          <JoinCourseDialog
+            courseTitle="International Course"
+            trigger={
+              <button
+                type="button"
+                className="group flex h-64 flex-col items-center justify-center gap-3 rounded-2xl bg-[#0066b2] p-6 text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy"
+              >
+                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white">
+                  <ArrowRight className="h-6 w-6" aria-hidden="true" />
+                </span>
+                <span className="text-sm font-semibold text-white">Join Course</span>
+              </button>
+            }
+          />
         </div>
       </div>
     </section>

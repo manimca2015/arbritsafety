@@ -1,6 +1,4 @@
-import Link from "next/link";
 import { Building2, Flag, Landmark, MapPin } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const locations = [
   { label: "Dubai", icon: Building2 },
@@ -18,21 +16,18 @@ export function LocationsStrip() {
         </p>
         <div className="flex flex-wrap gap-3">
           {locations.map(({ label, icon: Icon }) => (
-            <Button
+            <div
               key={label}
-              asChild
-              size="lg"
-              variant="outline"
-              className="group h-auto border-[#0066b2]/30 px-6 py-3.5 text-base font-semibold text-[#0066b2] transition-colors hover:border-[#0066b2] hover:bg-[#0066b2] hover:text-white"
+              className={`flex min-w-[220px] items-center justify-center gap-3 rounded-2xl border border-[#0066b2]/30 px-12 py-8 text-xl font-semibold shadow-sm ${
+                label === "Abu Dhabi" ? "bg-[#0066b2] text-white" : "text-[#0066b2]"
+              }`}
             >
-              <Link href="#contact">
-                <Icon
-                  className="mr-2 h-5 w-5 shrink-0 text-[#0066b2] transition-colors group-hover:text-white"
-                  aria-hidden="true"
-                />
-                {label}
-              </Link>
-            </Button>
+              <Icon
+                className={`h-8 w-8 shrink-0 ${label === "Abu Dhabi" ? "text-white" : "text-[#0066b2]"}`}
+                aria-hidden="true"
+              />
+              {label}
+            </div>
           ))}
         </div>
       </div>

@@ -32,7 +32,7 @@ export function CoursesDirectory() {
               </ul>
               <Link
                 href="/courses"
-                className="mt-auto flex items-center justify-center gap-2 rounded-lg border border-[#0066b2] px-4 py-2 pt-4 text-sm font-semibold text-[#0066b2] transition-colors hover:bg-[#0066b2] hover:text-white"
+                className="mt-auto flex items-center justify-center gap-2 rounded-lg border border-[#0066b2] px-4 py-2 text-sm font-semibold text-[#0066b2] transition-colors hover:bg-[#0066b2] hover:text-white"
               >
                 View Courses <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>

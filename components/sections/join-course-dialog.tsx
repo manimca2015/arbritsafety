@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, type FormEvent, type ReactNode } from "react";
 import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -23,7 +23,13 @@ import {
 } from "@/components/ui/dialog";
 import { careerCourseOptions, careerLocationOptions } from "@/lib/data";
 
-export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
+export function JoinCourseDialog({
+  courseTitle,
+  trigger,
+}: {
+  courseTitle: string;
+  trigger?: ReactNode;
+}) {
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -34,9 +40,11 @@ export function JoinCourseDialog({ courseTitle }: { courseTitle: string }) {
   return (
     <Dialog onOpenChange={(open) => !open && setSubmitted(false)}>
       <DialogTrigger asChild>
-        <Button size="lg" className="bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
-          Join Course
-        </Button>
+        {trigger ?? (
+          <Button size="lg" className="bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
+            Join Course
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="max-h-[90vh] w-[calc(100%-2rem)] overflow-y-auto sm:max-w-lg">
         <DialogHeader>

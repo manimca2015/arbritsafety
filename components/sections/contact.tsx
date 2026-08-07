@@ -5,8 +5,17 @@ import { contactInfo } from "@/lib/data";
 
 export function Contact() {
   return (
-    <section id="contact" className="bg-muted py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contact" className="relative overflow-hidden bg-muted py-20 md:py-28">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 opacity-[0.06]"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%230066b2' stroke-width='1.5'%3E%3Cpath d='M40 4 L74 22 V58 L40 76 L6 58 V22 Z'/%3E%3Ccircle cx='40' cy='40' r='6'/%3E%3C/g%3E%3C/svg%3E\")",
+          backgroundSize: "80px 80px",
+        }}
+      />
+      <div className="relative mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Contact Us"
           title="Join the Community of HSE Professionals"

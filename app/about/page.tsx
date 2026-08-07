@@ -111,17 +111,17 @@ export default function AboutPage() {
             {trainers.map((trainer) => (
               <div
                 key={trainer.slug}
-                className="flex flex-col items-center rounded-3xl border border-navy/10 bg-white p-8 text-center shadow-sm"
+                className="group flex flex-col items-center rounded-3xl border border-navy/10 bg-[#0066b2] p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
-                <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-muted shadow">
+                <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-white/30 shadow transition-transform duration-300 group-hover:scale-110">
                   <Image src={trainer.image} alt={trainer.name} fill className="object-cover" />
                 </div>
-                <h3 className="mt-5 font-heading text-lg font-bold text-[#000]">{trainer.name}</h3>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-orange">
+                <h3 className="mt-5 font-heading text-lg font-bold text-white">{trainer.name}</h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-white">
                   {trainer.credentials}
                 </p>
-                <p className="mt-4 text-sm text-[#000]">{trainer.shortBio}</p>
-                <Button asChild variant="link" className="mt-4 text-[#0066b2]">
+                <p className="mt-4 text-sm text-white/90">{trainer.shortBio}</p>
+                <Button asChild variant="link" className="mt-4 text-white">
                   <Link href={`/about/trainers/${trainer.slug}`}>
                     Read more <ArrowRight className="ml-1 h-4 w-4" aria-hidden="true" />
                   </Link>

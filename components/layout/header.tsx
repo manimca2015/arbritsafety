@@ -60,7 +60,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/arbritsafety-logo.png"
+            src="/logo.png"
             alt="Arbrit Safety"
             width={180}
             height={60}
@@ -135,7 +135,7 @@ export function Header() {
 
             {contactLink && (
               <NavigationMenuItem>
-                <Button asChild variant="outline" size="sm" className="border-navy/30 text-[#000] hover:bg-navy/5">
+                <Button asChild variant="outline" className="border-navy/30 text-[#000] hover:bg-navy/5">
                   <Link href={contactLink.href} aria-current={isActive(contactLink.href) ? "page" : undefined}>
                     {contactLink.label}
                   </Link>

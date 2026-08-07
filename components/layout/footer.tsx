@@ -13,15 +13,12 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.1fr_0.7fr_1.1fr]">
           <div>
-            <div className="inline-block rounded-2xl bg-white p-2">
-              <Image
-                src="/arbritsafety-logo.png"
-                alt="Arbrit Safety"
-                width={180}
-                height={60}
-                className="rounded-xl"
-              />
-            </div>
+            <Image
+              src="/footer-logo.png"
+              alt="Arbrit Safety"
+              width={180}
+              height={60}
+            />
             <p className="mt-4 text-sm text-white/70">
               Arbrit Safety training and Consultancy L.L.C has developed a reputation for providing
               quality, cost effective, training, courses and most of our courses are multilingual
