@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, ChevronDown, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -21,6 +21,7 @@ export function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
@@ -165,8 +166,15 @@ export function Header() {
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[360px]">
-            <SheetTitle className="font-heading text-[#000]">Menu</SheetTitle>
-            <nav className="mt-6 flex flex-1 flex-col gap-4 overflow-y-auto px-4" aria-label="Mobile">
+            <SheetTitle className="sr-only">Menu</SheetTitle>
+            <Image
+              src="/header-logo.svg"
+              alt="Arbrit Safety"
+              width={140}
+              height={46}
+              className="mt-2 ml-4"
+            />
+            <nav className="mt-2 flex flex-1 flex-col gap-4 overflow-y-auto px-4" aria-label="Mobile">
               <Link
                 href={navLinks[0]?.href ?? "/about"}
                 aria-current={navLinks[0] && isActive(navLinks[0].href) ? "page" : undefined}
@@ -177,35 +185,61 @@ export function Header() {
                 {navLinks[0]?.label}
               </Link>
               <div>
-                <Link
-                  href="/courses"
-                  aria-current={isCoursesActive ? "page" : undefined}
-                  className={`rounded-lg px-3 py-2 text-base font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${
+                <div
+                  className={`flex items-center justify-between rounded-lg text-base font-medium ${
                     isCoursesActive ? "bg-muted text-[#000]" : "text-[#000]"
                   }`}
                 >
-                  Courses
-                </Link>
-                {coursesMegaMenu.map((group, groupIndex) => (
-                  <div key={groupIndex} className="mt-3">
-                    {group.title && (
-                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
-                        {group.title}
-                      </p>
-                    )}
-                    <div className="flex flex-col gap-2">
-                      {group.links.map((link, linkIndex) => (
-                        <Link
-                          key={`${groupIndex}-${linkIndex}`}
-                          href={link.href}
-                          className="text-sm text-[#000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
-                        >
-                          {link.label}
-                        </Link>
-                      ))}
-                    </div>
+                  <Link
+                    href="/courses"
+                    aria-current={isCoursesActive ? "page" : undefined}
+                    className="flex-1 rounded-lg px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  >
+                    Courses
+                  </Link>
+                  <button
+                    type="button"
+                    onClick={() => setMobileCoursesOpen((open) => !open)}
+                    aria-expanded={mobileCoursesOpen}
+                    aria-label={mobileCoursesOpen ? "Collapse courses list" : "Expand courses list"}
+                    className="mr-1 rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                  >
+                    <ChevronDown
+                      className={`h-4 w-4 transition-transform duration-200 ${
+                        mobileCoursesOpen ? "rotate-180" : ""
+                      }`}
+                      aria-hidden="true"
+                    />
+                  </button>
+                </div>
+                <div
+                  className={`grid overflow-hidden transition-all duration-300 ease-in-out ${
+                    mobileCoursesOpen ? "mt-3 grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  }`}
+                >
+                  <div className="min-h-0 overflow-hidden">
+                    {coursesMegaMenu.map((group, groupIndex) => (
+                      <div key={groupIndex} className="mt-3 first:mt-0 px-3">
+                        {group.title && (
+                          <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-navy/60">
+                            {group.title}
+                          </p>
+                        )}
+                        <div className="flex flex-col gap-2">
+                          {group.links.map((link, linkIndex) => (
+                            <Link
+                              key={`${groupIndex}-${linkIndex}`}
+                              href={link.href}
+                              className="text-sm text-[#000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
+                            >
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
               </div>
               {navLinks.slice(1).map((link) => (
                 <Link
