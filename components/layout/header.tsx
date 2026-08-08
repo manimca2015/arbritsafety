@@ -60,7 +60,7 @@ export function Header() {
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/logo.png"
+            src="/header-logo.svg"
             alt="Arbrit Safety"
             width={180}
             height={60}

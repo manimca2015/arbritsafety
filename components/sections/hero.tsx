@@ -70,7 +70,7 @@ export function Hero() {
   const yearsStat = stats[0];
 
   return (
-    <section className="relative overflow-hidden bg-muted">
+    <section className="relative isolate overflow-hidden bg-muted">
       <div className="mx-auto grid max-w-7xl items-center gap-12 px-6 py-12 md:py-16 lg:grid-cols-2">
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
@@ -162,7 +162,7 @@ export function Hero() {
           ))}
 
           <motion.div
-            className="absolute -bottom-5 -right-3 z-50 sm:-right-5"
+            className="absolute -bottom-5 -right-3 z-40 sm:-right-5"
             initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.85, y: 16 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}

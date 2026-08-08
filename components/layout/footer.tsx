@@ -14,7 +14,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.1fr_0.7fr_1.1fr]">
           <div>
             <Image
-              src="/footer-logo.png"
+              src="/footer-logo.svg"
               alt="Arbrit Safety"
               width={180}
               height={60}
