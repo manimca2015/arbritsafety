@@ -11,7 +11,7 @@ export function Certifications() {
           title="Globally Recognized Accreditation"
           description="Every course is delivered under internationally recognized accreditation bodies, so your certificate carries weight wherever you work."
         />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
           {accreditations.map((a) => (
             <AccreditationBadge key={a.name} {...a} />
           ))}

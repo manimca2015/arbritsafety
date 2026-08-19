@@ -22,11 +22,16 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileCoursesOpen, setMobileCoursesOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const isCoursesActive = pathname.startsWith("/courses") || pathname.startsWith("/course/");
   const contactLink = navLinks.find((link) => link.label === "Contact Us");
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -154,7 +159,7 @@ export function Header() {
           </Button>
         </div>
 
-        <Sheet>
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
           <SheetTrigger asChild>
             <Button
               variant="ghost"
@@ -177,6 +182,7 @@ export function Header() {
             <nav className="mt-2 flex flex-1 flex-col gap-4 overflow-y-auto px-4" aria-label="Mobile">
               <Link
                 href={navLinks[0]?.href ?? "/about"}
+                onClick={() => setMobileMenuOpen(false)}
                 aria-current={navLinks[0] && isActive(navLinks[0].href) ? "page" : undefined}
                 className={`rounded-lg px-3 py-2 text-base font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${
                   navLinks[0] && isActive(navLinks[0].href) ? "bg-muted text-[#000]" : "text-[#000]"
@@ -192,6 +198,7 @@ export function Header() {
                 >
                   <Link
                     href="/courses"
+                    onClick={() => setMobileMenuOpen(false)}
                     aria-current={isCoursesActive ? "page" : undefined}
                     className="flex-1 rounded-lg px-3 py-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                   >
@@ -230,6 +237,7 @@ export function Header() {
                             <Link
                               key={`${groupIndex}-${linkIndex}`}
                               href={link.href}
+                              onClick={() => setMobileMenuOpen(false)}
                               className="text-sm text-[#000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                             >
                               {link.label}
@@ -245,6 +253,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
                   aria-current={isActive(link.href) ? "page" : undefined}
                   className={`rounded-lg px-3 py-2 text-base font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange ${
                     isActive(link.href) ? "bg-muted text-[#000]" : "text-[#000]"
@@ -254,9 +263,9 @@ export function Header() {
                 </Link>
               ))}
               <Button asChild className="mt-4 bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
-                <Link href="/courses">
-              Join Course <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-            </Link>
+                <Link href="/courses" onClick={() => setMobileMenuOpen(false)}>
+                  Join Course <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
               </Button>
             </nav>
           </SheetContent>

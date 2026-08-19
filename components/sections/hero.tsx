@@ -3,9 +3,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { accreditations, stats } from "@/lib/data";
+import { stats } from "@/lib/data";
 
 type StackCard = {
   src: string;
@@ -80,22 +80,28 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-navy/10 px-4 py-1.5 text-sm font-semibold text-[#0066b2]">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
-            First LEEA Licensed Training Partner in UAE &amp; KSA
+            20+ Years of Safety | UAE &amp; KSA
           </span>
 
           <h1 className="mt-6 font-heading text-4xl font-bold leading-tight text-[#0066b2] sm:text-5xl">
-            Health &amp; Safety Training That Protects Your People and Your Business
+            Health &amp; Safety Training - Build Safer Workplaces. Develop
+            Competent Professionals.
           </h1>
 
           <p className="mt-5 max-w-xl text-lg text-[#000]">
-            Accredited HSE, lifting, scaffolding, and fire safety courses in Dubai, Abu Dhabi and
-            KSA, delivered by the region&apos;s first LEEA Licensed Training Partner.
+            Accredited HSE, lifting, scaffolding, fire safety and professional
+            certification training for individuals and organisations across the
+            UAE and Saudi Arabia.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-[#0066b2] text-white shadow-lg hover:bg-[#0066b2]/90">
+            <Button
+              asChild
+              size="lg"
+              className="bg-[#0066b2] text-white shadow-xl shadow-[#0066b2]/30 transition-transform hover:scale-105 hover:bg-[#0066b2]/90"
+            >
               <Link href="/courses">
-                Enroll Now <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                Explore Courses <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="border-navy/30 text-[#000] hover:bg-navy/5">
@@ -103,14 +109,16 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-10 flex flex-wrap items-center gap-6">
-            {accreditations.map((a) => (
-              <span key={a.name} className="flex items-center gap-2 text-sm font-semibold text-[#0066b2]">
-                <ShieldCheck className="h-4 w-4 text-[#000]" aria-hidden="true" />
-                {a.name}
-              </span>
-            ))}
-          </div>
+          <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2">
+            {["20+ Years Experience", "UAE & KSA", "LEEA Licensed Training Partner", "Accredited Training"].map(
+              (point) => (
+                <li key={point} className="flex items-center gap-1.5 text-sm font-medium text-[#000]/70">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-[#0066b2]" aria-hidden="true" />
+                  {point}
+                </li>
+              )
+            )}
+          </ul>
         </motion.div>
 
         <div className="relative h-[360px] sm:h-[420px] lg:h-[540px]">
@@ -169,7 +177,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
           >
             <motion.div
-              className="rounded-2xl border border-white/50 bg-white/70 p-4 shadow-[0_15px_35px_-12px_rgba(0,102,178,0.4)] backdrop-blur-xl [box-shadow:inset_0_1px_0_rgba(255,255,255,0.6)]"
+              className="rounded-2xl border-2 border-[#0066b2]/20 bg-white p-5 shadow-[0_20px_45px_-12px_rgba(0,102,178,0.55)]"
               animate={shouldReduceMotion ? undefined : { y: [0, -8, 0] }}
               transition={
                 shouldReduceMotion
@@ -177,11 +185,13 @@ export function Hero() {
                   : { duration: 5, delay: 1.1, repeat: Infinity, ease: "easeInOut" }
               }
             >
-              <p className="font-heading text-2xl font-bold text-[#0066b2]">
+              <p className="font-heading text-4xl font-extrabold leading-none text-[#0066b2]">
                 {yearsStat.value}
                 {yearsStat.suffix}
               </p>
-              <p className="text-xs text-navy/70">{yearsStat.label}</p>
+              <p className="mt-1 text-xs font-semibold tracking-wide text-navy/70 uppercase">
+                {yearsStat.label}
+              </p>
             </motion.div>
           </motion.div>
         </div>

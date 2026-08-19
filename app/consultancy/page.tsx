@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ClipboardCheck } from "lucide-react";
+import { ClipboardCheck, HardHat, ShieldAlert } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { OfficesContactBlock } from "@/components/sections/offices-contact-block";
 
@@ -9,7 +9,11 @@ export const metadata: Metadata = {
     "HSE consultancy services from Arbrit Safety Training & Consultancy across Dubai, Abu Dhabi and the Kingdom of Saudi Arabia.",
 };
 
-const services = ["Project HSE support", "Safety audit", "Hazop/SIL studies"];
+const services = [
+  { label: "Project HSE support", icon: HardHat },
+  { label: "Safety audit", icon: ClipboardCheck },
+  { label: "Hazop/SIL studies", icon: ShieldAlert },
+];
 
 export default function ConsultancyPage() {
   return (
@@ -34,15 +38,15 @@ export default function ConsultancyPage() {
           </p>
 
           <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {services.map((service) => (
+            {services.map(({ label, icon: Icon }) => (
               <div
-                key={service}
+                key={label}
                 className="flex items-center gap-3 rounded-2xl border border-navy/10 bg-muted p-5 shadow-sm"
               >
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2]">
-                  <ClipboardCheck className="h-5 w-5" aria-hidden="true" />
+                  <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <span className="text-sm font-semibold text-[#000]">{service}</span>
+                <span className="text-sm font-semibold text-[#000]">{label}</span>
               </div>
             ))}
           </div>

@@ -1,16 +1,15 @@
 import type { Accreditation } from "@/lib/data";
-import { BadgeCheck } from "lucide-react";
 
-export function AccreditationBadge({ name, description }: Accreditation) {
+export function AccreditationBadge({ name, description, icon: Icon }: Accreditation) {
   return (
-    <div className="group flex items-start gap-3 rounded-2xl border border-navy/10 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[#0066b2]/30 hover:shadow-lg hover:shadow-[#0066b2]/10">
-      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2] transition duration-300 group-hover:bg-[#0066b2] group-hover:text-white">
-        <BadgeCheck className="h-6 w-6" aria-hidden="true" />
+    <div
+      title={description}
+      className="group flex items-center gap-2.5 rounded-xl border border-navy/10 bg-white px-4 py-3 shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-[#0066b2]/30 hover:shadow-md hover:shadow-[#0066b2]/10"
+    >
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2] transition duration-300 group-hover:bg-[#0066b2] group-hover:text-white">
+        <Icon className="h-4 w-4" aria-hidden="true" />
       </span>
-      <div>
-        <p className="font-heading text-base font-semibold text-[#0066b2]">{name}</p>
-        <p className="mt-1 text-sm text-[#000]">{description}</p>
-      </div>
+      <p className="font-heading text-sm font-semibold text-[#0066b2]">{name}</p>
     </div>
   );
 }

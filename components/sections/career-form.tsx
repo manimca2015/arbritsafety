@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
+import { BookOpen, Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -13,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { FormTrustSignals } from "@/components/ui/form-trust-signals";
 import { careerCourseOptions, careerLocationOptions } from "@/lib/data";
 
 export function CareerForm() {
@@ -29,6 +29,7 @@ export function CareerForm() {
         aria-hidden="true"
         className="absolute inset-x-0 top-0 h-1 bg-[#0066b2]"
       />
+      <FormTrustSignals />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-1.5">
           <Label htmlFor="career-name">Name</Label>
@@ -119,28 +120,8 @@ export function CareerForm() {
           </Select>
         </div>
       </div>
-      <div className="space-y-1.5">
-        <Label htmlFor="career-subject">Subject</Label>
-        <div className="relative">
-          <Tag
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
-            aria-hidden="true"
-          />
-          <Input id="career-subject" name="subject" placeholder="Subject" className="h-11 pl-10" />
-        </div>
-      </div>
-      <div className="space-y-1.5">
-        <Label htmlFor="career-message">Message</Label>
-        <div className="relative">
-          <MessageSquare
-            className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-navy/40"
-            aria-hidden="true"
-          />
-          <Textarea id="career-message" name="message" placeholder="Message" rows={4} className="pl-10" />
-        </div>
-      </div>
       <Button type="submit" size="lg" className="w-full bg-[#0066b2] text-white hover:bg-[#0066b2]/90">
-        Send Message <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+        Send Enquiry <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
       {submitted && (
         <p role="status" className="text-sm font-medium text-[#000]">

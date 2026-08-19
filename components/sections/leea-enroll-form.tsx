@@ -2,10 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
-import { Building2, BookOpen, Mail, MessageSquare, Phone, Send, User } from "lucide-react";
+import { Building2, BookOpen, Mail, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -14,6 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { FormTrustSignals } from "@/components/ui/form-trust-signals";
 
 const leeaCourseOptions = ["LEEA Foundation Certificate (FOU)", "LEEA Lifting Accessories Diploma (LAC)"];
 
@@ -42,6 +42,8 @@ export function LeeaEnrollForm() {
         <h2 className="font-heading text-2xl font-bold text-[#0066b2]">Start Your Certification</h2>
         <p className="mt-1 text-sm text-navy/60">Join the elite class of LEEA certified professionals</p>
       </div>
+
+      <FormTrustSignals />
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="group space-y-1.5">
@@ -130,29 +132,12 @@ export function LeeaEnrollForm() {
         </div>
       </div>
 
-      <div className="group space-y-1.5">
-        <Label htmlFor="enroll-message">Message</Label>
-        <div className="relative">
-          <MessageSquare
-            className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-navy/40 transition-colors group-focus-within:text-orange"
-            aria-hidden="true"
-          />
-          <Textarea
-            id="enroll-message"
-            name="message"
-            placeholder="Message"
-            rows={4}
-            className="rounded-xl border-navy/15 bg-white pl-10 shadow-sm"
-          />
-        </div>
-      </div>
-
       <Button
         type="submit"
         size="lg"
         className="w-full rounded-xl bg-orange text-white shadow-md shadow-orange/20 transition hover:bg-orange/90 hover:shadow-lg hover:shadow-orange/30"
       >
-        Send <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+        Enquire Now <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
 
       {submitted && (

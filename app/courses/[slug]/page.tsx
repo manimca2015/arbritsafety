@@ -235,7 +235,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
               )}
 
               <div className="mt-10">
-                <JoinCourseDialog courseTitle={course.title} />
+                <JoinCourseDialog courseTitle={course.title} preselectCourse={course.title} />
               </div>
 
               {prevCourse && nextCourse && (

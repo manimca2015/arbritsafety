@@ -1,4 +1,5 @@
 import type { LucideIcon } from "lucide-react";
+import type { ComponentType, SVGProps } from "react";
 import {
   Anchor,
   ClipboardCheck,
@@ -14,13 +15,15 @@ import {
   HardHat,
   Forklift,
   ShieldAlert,
-  Globe,
-  Camera,
-  Briefcase,
-  Video,
-  X,
-  MessageCircle,
 } from "lucide-react";
+import {
+  FacebookIcon,
+  InstagramIcon,
+  LinkedinIcon,
+  YoutubeIcon,
+  WhatsappIcon,
+  XIcon,
+} from "@/components/icons/social-icons";
 
 export type NavLink = {
   label: string;
@@ -60,6 +63,7 @@ export type Stat = {
 export type Accreditation = {
   name: string;
   description: string;
+  icon: LucideIcon;
 };
 
 export type Testimonial = {
@@ -132,7 +136,7 @@ export type PhoneNumber = {
 export type SocialLink = {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: ComponentType<SVGProps<SVGSVGElement>>;
 };
 
 export type Office = {
@@ -153,6 +157,8 @@ export const coursesMegaMenu: MegaMenuGroup[] = [
   {
     title: "",
     links: [
+      { label: "LEEA – Foundation Course (FOUG)", href: "#" },
+      { label: "LEEA – Appointed Person for Lifting Operations (APLO)", href: "#" },
       { label: "Lead Auditor", href: "#" },
       { label: "Rope Access Training", href: "#" },
       { label: "STI – Scaffold Inspector", href: "#" },
@@ -269,16 +275,49 @@ export const accreditations: Accreditation[] = [
     name: "LEEA",
     description:
       "Official Licensed Training Partner (LTP) — the first in the UAE & KSA — delivering the LEEA Foundation Certificate (FOU) and LAC Diploma.",
+    icon: Forklift,
   },
   {
     name: "IOSH",
     description:
       "Institution of Occupational Safety and Health recognized Managing Safely and Working Safely programs.",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Highfield",
+    description:
+      "Highfield-endorsed qualifications, one of the world's largest awarding organizations for health & safety.",
+    icon: GraduationCap,
+  },
+  {
+    name: "NFPA",
+    description:
+      "Training aligned with National Fire Protection Association codes and standards for fire safety.",
+    icon: Flame,
+  },
+  {
+    name: "STI",
+    description:
+      "Safety Training International accredited rigging, lifting, and working-at-height programs.",
+    icon: Anchor,
+  },
+  {
+    name: "PASMA",
+    description:
+      "Prefabricated Access Suppliers' and Manufacturers' Association certified mobile access tower training.",
+    icon: Layers,
+  },
+  {
+    name: "RoSPA",
+    description:
+      "Royal Society for the Prevention of Accidents recognized health & safety training standards.",
+    icon: Award,
   },
   {
     name: "OSHAD Aligned",
     description:
       "Training programs structured to meet Abu Dhabi OSHAD occupational health & safety compliance requirements.",
+    icon: ClipboardCheck,
   },
 ];
 
@@ -615,12 +654,12 @@ export const offices: Office[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-  { label: "Facebook", href: "https://www.facebook.com/arbritsafetytrainingdubai", icon: Globe },
-  { label: "Instagram", href: "https://www.instagram.com/arbritdubai", icon: Camera },
-  { label: "Twitter", href: "https://twitter.com/ArbritD", icon: X },
-  { label: "LinkedIn", href: "https://www.linkedin.com/company/20386197", icon: Briefcase },
-  { label: "YouTube", href: "https://www.youtube.com/channel/UCXFmosNtIuUbPff5nzL5Ydw", icon: Video },
-  { label: "WhatsApp", href: "https://wa.me/971586695300", icon: MessageCircle },
+  { label: "Instagram", href: "https://www.instagram.com/arbritdubai", icon: InstagramIcon },
+  { label: "Facebook", href: "https://www.facebook.com/arbritsafetytrainingdubai", icon: FacebookIcon },
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/20386197", icon: LinkedinIcon },
+  { label: "YouTube", href: "https://www.youtube.com/channel/UCXFmosNtIuUbPff5nzL5Ydw", icon: YoutubeIcon },
+  { label: "WhatsApp", href: "https://wa.me/971586695300", icon: WhatsappIcon },
+  { label: "X (Twitter)", href: "https://twitter.com/ArbritD", icon: XIcon },
 ];
 
 export const courseSelectOptions = [

@@ -7,6 +7,7 @@ import { Footer } from "@/components/layout/footer";
 import { CoursesDirectory } from "@/components/layout/courses-directory";
 import { HseOfficersCta } from "@/components/sections/hse-officers-cta";
 import { BackToTop } from "@/components/ui/back-to-top";
+import { WhatsappFloatButton } from "@/components/ui/whatsapp-float-button";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -61,6 +62,7 @@ export default function RootLayout({
         <CoursesDirectory />
         <Footer />
         <BackToTop />
+        <WhatsappFloatButton />
       </body>
     </html>
   );

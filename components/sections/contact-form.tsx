@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { FormTrustSignals } from "@/components/ui/form-trust-signals";
 import { courseSelectOptions, locationSelectOptions } from "@/lib/data";
 
 export function ContactForm() {
@@ -42,6 +43,7 @@ export function ContactForm() {
         <p className="text-xs font-semibold uppercase tracking-wide text-[#0066b2]">Get In Touch</p>
         <h2 className="mt-1 font-heading text-2xl font-bold text-[#0066b2]">Send Us a Message</h2>
       </div>
+      <FormTrustSignals />
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="group space-y-1.5">
           <Label htmlFor="contact-name">Full Name</Label>
@@ -180,7 +182,7 @@ export function ContactForm() {
         size="lg"
         className="w-full rounded-xl bg-[#0066b2] text-white shadow-md shadow-[#0066b2]/20 transition hover:bg-[#0066b2]/90 hover:shadow-lg hover:shadow-[#0066b2]/30"
       >
-        Send Message <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+        Send Enquiry <Send className="ml-2 h-4 w-4" aria-hidden="true" />
       </Button>
       {submitted && (
         <p role="status" className="rounded-xl bg-orange/10 p-3 text-sm font-medium text-[#000]">

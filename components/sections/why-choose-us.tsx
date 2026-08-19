@@ -1,13 +1,27 @@
 "use client";
 
+import { Award, BookOpenCheck, Clock, Users, type LucideIcon } from "lucide-react";
 import { stats } from "@/lib/data";
 import { useCountUp } from "@/hooks/use-count-up";
 
+const statIcons: Record<string, LucideIcon> = {
+  "Years of Experience": Clock,
+  "Students Trained": Users,
+  "Course Pass Rate": Award,
+  "Accredited Courses": BookOpenCheck,
+};
+
 function StatCard({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const { ref, value: animatedValue } = useCountUp(value);
+  const Icon = statIcons[label];
 
   return (
     <div ref={ref} className="text-center">
+      {Icon && (
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full border border-white/25 bg-white/10">
+          <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+        </div>
+      )}
       <p className="font-heading text-4xl font-bold text-white sm:text-5xl">
         {animatedValue.toLocaleString()}
         {suffix}

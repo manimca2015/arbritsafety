@@ -1,10 +1,9 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
+import { BookOpen, Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -21,16 +20,25 @@ import {
   DialogDescription,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { FormTrustSignals } from "@/components/ui/form-trust-signals";
 import { careerCourseOptions, careerLocationOptions } from "@/lib/data";
 
 export function JoinCourseDialog({
   courseTitle,
+  preselectCourse,
   trigger,
 }: {
   courseTitle: string;
+  /** Pre-selects this course in the Course dropdown. Pass the page's course title on course detail pages. */
+  preselectCourse?: string;
   trigger?: ReactNode;
 }) {
   const [submitted, setSubmitted] = useState(false);
+
+  const courseOptions =
+    preselectCourse && !careerCourseOptions.includes(preselectCourse)
+      ? [preselectCourse, ...careerCourseOptions]
+      : careerCourseOptions;
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -51,6 +59,7 @@ export function JoinCourseDialog({
           <DialogTitle>Join Course</DialogTitle>
           <DialogDescription>{courseTitle}</DialogDescription>
         </DialogHeader>
+        <FormTrustSignals />
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
@@ -106,12 +115,12 @@ export function JoinCourseDialog({
                   className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
                   aria-hidden="true"
                 />
-                <Select name="course">
+                <Select name="course" defaultValue={preselectCourse}>
                   <SelectTrigger id="join-course" className="h-11 w-full pl-10">
                     <SelectValue placeholder="Select Course" />
                   </SelectTrigger>
                   <SelectContent>
-                    {careerCourseOptions.map((course) => (
+                    {courseOptions.map((course) => (
                       <SelectItem key={course} value={course}>
                         {course}
                       </SelectItem>
@@ -142,28 +151,8 @@ export function JoinCourseDialog({
               </Select>
             </div>
           </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="join-subject">Subject</Label>
-            <div className="relative">
-              <Tag
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
-                aria-hidden="true"
-              />
-              <Input id="join-subject" name="subject" placeholder="Subject" className="h-11 pl-10" />
-            </div>
-          </div>
-          <div className="space-y-1.5">
-            <Label htmlFor="join-message">Message</Label>
-            <div className="relative">
-              <MessageSquare
-                className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-navy/40"
-                aria-hidden="true"
-              />
-              <Textarea id="join-message" name="message" placeholder="Message" rows={3} className="pl-10" />
-            </div>
-          </div>
           <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
-            Submit <Send className="ml-2 h-4 w-4" aria-hidden="true" />
+            Enquire Now <Send className="ml-2 h-4 w-4" aria-hidden="true" />
           </Button>
           {submitted && (
             <p role="status" className="text-sm font-medium text-[#000]">

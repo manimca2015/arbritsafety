@@ -19,6 +19,7 @@ export function BlogCardGrid({ excludeHref }: { excludeHref?: string }) {
               src={post.image}
               alt={post.title}
               fill
+              quality={100}
               sizes="(min-width: 1024px) 33vw, 100vw"
               className="object-cover"
             />
