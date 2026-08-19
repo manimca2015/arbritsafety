@@ -28,7 +28,7 @@ export function LeeaHandsOnExperience() {
               <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-muted to-white">
                 <Image
                   src={image}
-                  alt={title}
+                  alt={`${title} — LEEA lifting equipment training in progress`}
                   fill
                   sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/ui/reveal";
 
 const credentials = ["STI", "IOSH", "Highfield", "IRCA Lead Auditor", "RAKEZ"];
 
@@ -9,7 +10,7 @@ export function AboutUs() {
     <section className="w-full bg-[#0066b2]">
       <div className="mx-auto grid max-w-7xl px-6 lg:grid-cols-2 lg:items-center">
         <div className="flex flex-col justify-center py-12 md:py-16">
-          <div className="mx-auto max-w-xl lg:mx-0">
+          <Reveal from="left" className="mx-auto max-w-xl lg:mx-0">
             <p className="mb-3 text-sm font-semibold uppercase tracking-wide text-white">Who We Are</p>
             <h2 className="font-heading text-3xl font-bold text-white sm:text-4xl">About Us</h2>
             <p className="mt-5 text-white/75">
@@ -53,7 +54,7 @@ export function AboutUs() {
                 </Link>
               </Button>
             </div>
-          </div>
+          </Reveal>
         </div>
 
         <div className="py-12 md:py-16 lg:pl-10">

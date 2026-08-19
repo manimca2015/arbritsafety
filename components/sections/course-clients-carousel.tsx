@@ -8,7 +8,13 @@ function LogoCard({ src, alt }: ClientLogo) {
   return (
     <div className="flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border border-navy/10 bg-white p-4 shadow-sm">
       <div className="relative h-full w-full">
-        <Image src={src} alt={alt} fill sizes="160px" className="object-contain" />
+        <Image
+          src={src}
+          alt={`${alt} — Arbrit Safety corporate training client logo`}
+          fill
+          sizes="160px"
+          className="object-contain"
+        />
       </div>
     </div>
   );

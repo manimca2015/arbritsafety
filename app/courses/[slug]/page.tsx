@@ -77,7 +77,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           <div className="grid gap-12 lg:grid-cols-[7fr_3fr]">
             <div>
               <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
-                <Image src={course.image} alt={course.title} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+                <Image src={course.image} alt={`${course.title} safety training course`} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
               </div>
               {course.duration && (
                 <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
@@ -271,7 +271,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                         className="group flex items-center gap-4 rounded-2xl border border-navy/10 bg-white p-3 shadow-sm transition hover:shadow-lg hover:border-orange/40"
                       >
                         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
-                          <Image src={c.image} alt={c.title} fill sizes="64px" className="object-cover" />
+                          <Image src={c.image} alt={`${c.title} safety training course`} fill sizes="64px" className="object-cover" />
                         </div>
                         <div className="min-w-0">
                           <span className="text-xs font-semibold uppercase tracking-wide text-orange">

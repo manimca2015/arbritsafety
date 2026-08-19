@@ -114,7 +114,13 @@ export default function AboutPage() {
                 className="group flex flex-col items-center rounded-3xl border border-navy/10 bg-[#0066b2] p-8 text-center shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
               >
                 <div className="relative h-28 w-28 overflow-hidden rounded-full border-4 border-white/30 shadow transition-transform duration-300 group-hover:scale-110">
-                  <Image src={trainer.image} alt={trainer.name} fill className="object-cover" />
+                  <Image
+                    src={trainer.image}
+                    alt={`${trainer.name}, safety trainer at Arbrit Safety`}
+                    fill
+                    sizes="(min-width: 1024px) 300px, (min-width: 640px) 45vw, 100vw"
+                    className="object-cover"
+                  />
                 </div>
                 <h3 className="mt-5 font-heading text-lg font-bold text-white">{trainer.name}</h3>
                 <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-white">

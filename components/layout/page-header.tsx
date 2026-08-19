@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Home, MapPin } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
 
 type Crumb = {
   label: string;
@@ -15,7 +16,7 @@ const dotGridStyle = {
 export function PageHeader({
   title,
   breadcrumbs,
-  image = "/hero/slide-1-construction-safety.jpg",
+  image = "/slide-1-construction-safety.webp",
   eyebrow,
   description,
 }: {
@@ -61,7 +62,7 @@ export function PageHeader({
         className="relative z-10 mx-auto max-w-7xl px-6 pb-24 sm:pb-32"
         style={{ paddingTop: "calc(var(--site-header-height, 80px) + 2.5rem)" }}
       >
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           {eyebrow && (
             <p className="flex items-center gap-2 text-sm font-semibold text-[#fff]">
               <MapPin className="h-4 w-4 shrink-0" aria-hidden="true" />
@@ -94,7 +95,7 @@ export function PageHeader({
               </span>
             ))}
           </nav>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -15,7 +15,7 @@ export function Footer() {
           <div>
             <Image
               src="/footer-logo.svg"
-              alt="Arbrit Safety"
+              alt="Arbrit Safety Training & Consultancy logo"
               width={180}
               height={60}
             />

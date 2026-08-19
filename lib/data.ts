@@ -15,6 +15,7 @@ import {
   HardHat,
   Forklift,
   ShieldAlert,
+  Landmark,
 } from "lucide-react";
 import {
   FacebookIcon,
@@ -41,6 +42,9 @@ export type CourseCategory = {
   icon: LucideIcon;
   image: string;
   href: string;
+  duration?: string;
+  location?: string;
+  certification?: string;
 };
 
 export type Course = {
@@ -52,6 +56,8 @@ export type Course = {
   icon: LucideIcon;
   image: string;
   href: string;
+  location?: string;
+  certification?: string;
 };
 
 export type Stat = {
@@ -71,6 +77,23 @@ export type Testimonial = {
   role: string;
   quote: string;
   rating: number;
+};
+
+export type VideoTestimonial = {
+  name: string;
+  role: string;
+  company?: string;
+  /** Portrait photo. Falls back to an initials avatar when omitted. */
+  photo?: string;
+  /** Poster frame. Falls back to the first frame of the video when omitted. */
+  thumbnail?: string;
+  /** Local file under /public, e.g. "/testimonials/ravi.mp4". Use this OR youtubeId. */
+  videoSrc?: string;
+  /** YouTube video id, e.g. "dQw4w9WgXcQ". Use this OR videoSrc. */
+  youtubeId?: string;
+  /** Shown on the thumbnail, e.g. "0:45". Keep clips under ~60s. */
+  duration?: string;
+  headline?: string;
 };
 
 export type BlogSection = {
@@ -244,23 +267,24 @@ export const coursesMegaMenu: MegaMenuGroup[] = [
 ];
 
 export const courseCategories: CourseCategory[] = [
-  { slug: "rope-access", title: "Rope Access", icon: Anchor, image: "/international-course/rope-access.webp", href: "/courses/rope-access" },
-  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, image: "/international-course/Lead-Auditor.jpg", href: "/courses/irca-lead-auditor" },
-  { slug: "highfield", title: "Highfield", icon: GraduationCap, image: "/international-course/HIghfield.jpg", href: "/courses/highfield" },
-  { slug: "iosh", title: "IOSH", icon: ShieldCheck, image: "/international-course/IOSH.jpg", href: "/courses/iosh" },
-  { slug: "sti", title: "STI", icon: Layers, image: "/international-course/STI-Scaffold-Training-Institute.jpg", href: "/courses/sti" },
-  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, image: "/international-course/LEEA-diploma.jpg", href: "/courses/leea-diploma" },
-  { slug: "leea-course", title: "LEEA course", icon: BadgeCheck, image: "/international-course/LEEA.jpg", href: "/courses/leea-course-dubai" },
+  { slug: "leea-foundation", title: "LEEA – Foundation Course (FOUG)", icon: BadgeCheck, image: "/international/LEEA-Courses-Dubai-UAE.webp", href: "/course/leea-foundation-certificate", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
+  { slug: "leea-course", title: "LEEA – Appointed Person for Lifting Operations (APLO)", icon: Forklift, image: "/international/LEEA.webp", href: "/courses/leea-course-dubai", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
+  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, image: "/international/Lead-Auditor.webp", href: "/courses/irca-lead-auditor", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IRCA Certified" },
+  { slug: "rope-access", title: "Rope Access", icon: Anchor, image: "/international/rope-access.webp", href: "/courses/rope-access", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Internationally Accredited" },
+  { slug: "sti", title: "STI", icon: Layers, image: "/international/STI-Scaffold-Training-Institute.webp", href: "/courses/sti", duration: "2-5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "STI Certified" },
+  { slug: "highfield", title: "Highfield", icon: GraduationCap, image: "/international/HIghfield.webp", href: "/courses/highfield", duration: "1-3 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Highfield Accredited" },
+  { slug: "iosh", title: "IOSH", icon: ShieldCheck, image: "/international/IOSH.webp", href: "/courses/iosh", duration: "3-4 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IOSH Certified" },
+  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, image: "/international/LEEA-diploma.webp", href: "/courses/leea-diploma", duration: "Modular", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
 ];
 
 export const featuredCourses: Course[] = [
-  { slug: "fire-fighting", title: "Fire Fighting", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Flame, image: "/general-safety-courses/FIRE-FIGHTING.jpg", href: "/courses/fire-fighting" },
-  { slug: "rescue-training", title: "Rescue Training", category: "General Safety", duration: "3 Days", level: "All Levels", icon: LifeBuoy, image: "/general-safety-courses/Rescue-Training.jpg", href: "/courses/rescue-training" },
-  { slug: "oil-and-gas", title: "Oil and Gas", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Fuel, image: "/general-safety-courses/Oil-and-gas.jpg", href: "/courses/oil-and-gas" },
-  { slug: "construction-safety", title: "Construction Safety", category: "General Safety", duration: "2 Days", level: "All Levels", icon: HardHat, image: "/general-safety-courses/constructions.jpg", href: "/courses/construction-safety" },
-  { slug: "first-aid", title: "First Aid", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, image: "/general-safety-courses/first-aid.jpg", href: "/courses/first-aid" },
-  { slug: "forklift-operator", title: "Forklift Operator", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Forklift, image: "/general-safety-courses/Forklift-Operator.jpg", href: "/courses/forklift-operator" },
-  { slug: "safety-awareness", title: "Safety Awareness", category: "General Safety", duration: "1 Day", level: "All Levels", icon: ShieldAlert, image: "/general-safety-courses/safety-awareness.jpg", href: "/courses/general-safety-awareness" },
+  { slug: "fire-fighting", title: "Fire Fighting", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Flame, image: "/general-safety/FIRE-FIGHTING.webp", href: "/courses/fire-fighting", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "rescue-training", title: "Rescue Training", category: "General Safety", duration: "3 Days", level: "All Levels", icon: LifeBuoy, image: "/general-safety/Rescue-Training.webp", href: "/courses/rescue-training", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "oil-and-gas", title: "Oil and Gas", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Fuel, image: "/general-safety/Oil-and-gas.webp", href: "/courses/oil-and-gas", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "construction-safety", title: "Construction Safety", category: "General Safety", duration: "2 Days", level: "All Levels", icon: HardHat, image: "/general-safety/constructions.webp", href: "/courses/construction-safety", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "first-aid", title: "First Aid", category: "General Safety", duration: "1 Day", level: "All Levels", icon: HeartPulse, image: "/general-safety/first-aid.webp", href: "/courses/first-aid", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "forklift-operator", title: "Forklift Operator", category: "General Safety", duration: "2 Days", level: "All Levels", icon: Forklift, image: "/general-safety/Forklift-Operator.webp", href: "/courses/forklift-operator", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
+  { slug: "safety-awareness", title: "Safety Awareness", category: "General Safety", duration: "1 Day", level: "All Levels", icon: ShieldAlert, image: "/general-safety/safety-awareness.webp", href: "/courses/general-safety-awareness", location: "Dubai · Abu Dhabi · KSA", certification: "Arbrit Certificate" },
 ];
 
 export const stats: Stat[] = [
@@ -318,6 +342,59 @@ export const accreditations: Accreditation[] = [
     description:
       "Training programs structured to meet Abu Dhabi OSHAD occupational health & safety compliance requirements.",
     icon: ClipboardCheck,
+  },
+  {
+    name: "HABC",
+    description:
+      "Highfield Awarding Body for Compliance approved centre, delivering internationally recognised HABC qualifications.",
+    icon: GraduationCap,
+  },
+  {
+    name: "RAKEZ",
+    description:
+      "Ras Al Khaimah Economic Zone approved training provider for licensed workplace safety programs.",
+    icon: Award,
+  },
+  {
+    name: "Trakhees",
+    description:
+      "Trakhees (Ports, Customs & Free Zone Corporation, Dubai) approved health & safety training provider.",
+    icon: Landmark,
+  },
+];
+
+// Video testimonials. Drop the media in /public/testimonials/ and fill an entry per person.
+// Each needs: a real name + role (+ company), a portrait photo, a thumbnail poster frame,
+// and either videoSrc (local mp4) or youtubeId. Entries missing a video source are skipped.
+// Example:
+//   {
+//     name: "Ravi Kumar",
+//     role: "Site Supervisor",
+//     company: "ALEC Engineering",
+//     photo: "/testimonials/ravi-kumar.jpg",
+//     thumbnail: "/testimonials/ravi-kumar-poster.jpg",
+//     videoSrc: "/testimonials/ravi-kumar.mp4",
+//     duration: "0:48",
+//     headline: "The confined space training changed how our site works.",
+//   },
+export const videoTestimonials: VideoTestimonial[] = [
+  {
+    name: "Arbrit Safety Training",
+    role: "Trainee stories",
+    videoSrc: "/Testimonials.webm",
+    headline: "Hear from the people who trained with us.",
+  },
+  {
+    name: "Arbrit Safety Training",
+    role: "Trainee stories",
+    videoSrc: "/Testimonials.webm",
+    headline: "Hear from the people who trained with us.",
+  },
+  {
+    name: "Arbrit Safety Training",
+    role: "Trainee stories",
+    videoSrc: "/Testimonials.webm",
+    headline: "Hear from the people who trained with us.",
   },
 ];
 
@@ -705,23 +782,23 @@ export const careerJobOpenings = [
 ];
 
 export const historyGallery = [
-  { src: "/about/Arbirt-safety-2-300x225.jpg", alt: "Arbrit Safety team" },
-  { src: "/about/Arbirt-safety-3-300x200.jpg", alt: "Arbrit Safety team" },
-  { src: "/about/Arbirt-safety-4-300x200.jpg", alt: "Arbrit Safety team" },
-  { src: "/about/Arbirt-safety-5-300x200.jpg", alt: "Arbrit Safety team" },
-  { src: "/about/Arbirt-safety-6-300x200.jpg", alt: "Arbrit Safety team" },
-  { src: "/about/blood-donation-2-big-300x225.jpg", alt: "Blood donation drive" },
-  { src: "/about/blood-donation-3-big-300x225.jpg", alt: "Blood donation drive" },
-  { src: "/about/blood-donation-award-big-300x225.jpg", alt: "Blood donation award" },
-  { src: "/about/confined-space-big-scaled-300x182.jpg", alt: "Confined space safety" },
-  { src: "/about/confined-space-training-big-scaled-300x186.jpg", alt: "Confined space training" },
-  { src: "/about/fire-fighting-training-big-300x189.jpg", alt: "Fire fighting training" },
-  { src: "/about/gitex-conference-big-1-scaled-300x225.jpg", alt: "GITEX conference" },
-  { src: "/about/iosh-event-big-scaled-300x225.jpg", alt: "IOSH event" },
+  { src: "/about/Arbirt-safety-2-300x225.webp", alt: "Arbrit Safety team at a training event" },
+  { src: "/about/Arbirt-safety-3-300x200.webp", alt: "Arbrit Safety trainers with course delegates" },
+  { src: "/about/Arbirt-safety-4-300x200.webp", alt: "Arbrit Safety team during a company gathering" },
+  { src: "/about/Arbirt-safety-5-300x200.webp", alt: "Arbrit Safety staff at a certification ceremony" },
+  { src: "/about/Arbirt-safety-6-300x200.webp", alt: "Arbrit Safety team on a training site visit" },
+  { src: "/about/blood-donation-2-big-300x225.webp", alt: "Blood donation drive" },
+  { src: "/about/blood-donation-3-big-300x225.webp", alt: "Blood donation drive" },
+  { src: "/about/blood-donation-award-big-300x225.webp", alt: "Blood donation award" },
+  { src: "/about/confined-space-big-scaled-300x182.webp", alt: "Confined space safety" },
+  { src: "/about/confined-space-training-big-scaled-300x186.webp", alt: "Confined space training" },
+  { src: "/about/fire-fighting-training-big-300x189.webp", alt: "Fire fighting training" },
+  { src: "/about/gitex-conference-big-1-scaled-300x225.webp", alt: "GITEX conference" },
+  { src: "/about/iosh-event-big-scaled-300x225.webp", alt: "IOSH event" },
   { src: "/about/Leea-big-300x225.png", alt: "LEEA event" },
-  { src: "/about/managing-safely-big-300x228.jpg", alt: "Managing Safely training" },
-  { src: "/about/women-luncheon-big-300x226.jpg", alt: "Women's luncheon" },
-  { src: "/about/women-luncheon-uae-big-300x225.jpg", alt: "Women's luncheon UAE" },
+  { src: "/about/managing-safely-big-300x228.webp", alt: "Managing Safely training" },
+  { src: "/about/women-luncheon-big-300x226.webp", alt: "Women's luncheon" },
+  { src: "/about/women-luncheon-uae-big-300x225.webp", alt: "Women's luncheon UAE" },
 ];
 
 export const courseDetails: CourseDetail[] = [
@@ -763,8 +840,8 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "leea-diploma",
     title: "LEEA Diploma",
-    image: "/international-course/LEEA-Courses-Dubai-UAE.webp",
-    accreditationLogo: "/international-course/LEEA-Logo.webp",
+    image: "/international/LEEA-Courses-Dubai-UAE.webp",
+    accreditationLogo: "/international/LEEA-Logo.webp",
     courseInfoParagraphs: [
       "The Lifting Equipment Engineers Association (LEEA) sets the benchmark for safe and compliant lifting operations across global industries. Achieving this standard requires more than basic training. It demands a clear understanding of lifting responsibilities, technical procedures, and risk control measures.",
       "As a LEEA Licensed Training Partner (LTP), Arbrit delivers approved LEEA training programmes for professionals involved in lifting operations, rigging, and supervision across the UAE and Saudi Arabia. These courses are designed to build practical competence, strengthen safety awareness, and ensure teams operate in line with internationally accepted standards.",
@@ -811,8 +888,8 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "highfield",
     title: "Highfield",
-    image: "/international-course/HIghfield.jpg",
-    accreditationLogo: "/international-course/HABCLogo.png",
+    image: "/international/HIghfield.webp",
+    accreditationLogo: "/international/HABCLogo.png",
     courseInfoParagraphs: [
       "Highfield is a global leader in compliance and work-based learning, apprenticeship qualifications and one of the UK’s most recognisable awarding organisations.",
       "The body is regulated by Ofqual, Qualifications Wales, SQA Accreditation, the Council for the Curriculum, Examinations and Assessment (CCEA), and the Security Industry Authority (SIA).",
@@ -830,8 +907,8 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "iosh",
     title: "IOSH",
-    image: "/international-course/IOSH.jpg",
-    accreditationLogo: "/international-course/iosh.png",
+    image: "/international/IOSH.webp",
+    accreditationLogo: "/international/iosh.png",
     courseInfoParagraphs: [
       "The Institution of Occupational Safety and Health (IOSH) is the world’s largest health and safety membership body. With 44,000 members in 99 countries, IOSH is committed to ensuring that global work practices are safe, healthy and sustainable.",
       "We Arbrit, is accredited from iosh since 2009 to deliver managing and working safely courses and also make sure these courses are delivered to the best of its practices.",
@@ -843,8 +920,8 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "sti",
     title: "Scaffolding Training Courses",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
-    accreditationLogo: "/international-course/STI-LOGO.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
+    accreditationLogo: "/international/STI-LOGO.webp",
     courseInfoParagraphs: [
       "The Scaffold Training Institute (Texas, USA) is a worldwide leader in providing scaffold training programs. Scaffold Training Institute programs have been used to train over 250,000 workers around the world since 1991, making it perhaps the number one source of scaffold training materials worldwide. STI provides both direct training by our instructors, and Train The Trainer programs to certify attendees to conduct training using STI materials.",
       "Scaffolding training courses provide individuals with the knowledge and skills to safely erect, use, and dismantle scaffolding structures. The Scaffold Training Institute is a reputable and recognized organization that provides comprehensive scaffold training programs to individuals and organizations delivered through approved centres globally. Scaffolding training is essential for anyone working in the construction industry or in jobs that require working at height.",
@@ -854,7 +931,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "forklift-operator",
     title: "Forklift Operator Courses",
-    image: "/general-safety-courses/Forklift-Operator.jpg",
+    image: "/general-safety/Forklift-Operator.webp",
     courseInfoParagraphs: [
       "Construction site workers are exposed to a variety of risks, including falls, electrocutions, and collisions with moving objects. RAKEZ-approved safety training courses offer instruction on safe work practices, hazard identification, and mitigation strategies to lessen these hazards. Personal protective equipment, scaffolding, excavation, and electrical safety are just a few of the topics covered in these seminars. Construction safety training not only safeguards employees but also ensures adherence to rules and regulations.",
       "RAKEZ-approved forklift operator training courses provide hands-on and theoretical training on operating forklifts safely and efficiently. These courses cover essential topics such as forklift operation and control, load handling, manoeuvring, and safety protocols. Forklift operator training courses can help reduce accidents, improve productivity, and ensure compliance with regulations. By obtaining a forklift operator certification, operators can demonstrate their competency and skill, enhancing their employability and opportunities for career growth in the material handling industry.",
@@ -863,7 +940,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "general-safety-awareness",
     title: "Safety Awareness Courses",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     courseTable: [
       { name: "General Safety Awareness", type: "Safety Awareness", starts: "Everyday" },
       { name: "Environmental Awareness", type: "Safety Awareness", starts: "Everyday" },
@@ -887,7 +964,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "fire-fighting",
     title: "Fire Fighting Training Courses",
-    image: "/general-safety-courses/FIRE-FIGHTING.jpg",
+    image: "/general-safety/FIRE-FIGHTING.webp",
     courseInfoParagraphs: [
       "Firefighting safety training is an important strategy for ensuring a safe workplace and preventing fires.",
       "We have designed firefighting courses to deliver in-depth knowledge and skills to learners through both theoretical and practical training. Our firefighting course briefly covers fire marshal, firefighting, fire safety, and fire warden level 1.",
@@ -898,13 +975,13 @@ export const courseDetails: CourseDetail[] = [
       "Please contact marketinguae@arbritonline.com training consultancy for more information!",
       "Firefighting training courses are typically regulated by recognized regulatory bodies and delivered through approved centres globally. Arbrit offers top-quality firefighting training courses that comply with Trakhees regulations. The curricula of these courses are designed to cover a wide range of topics such as firefighting techniques and emergency medical services and are taught by certified professionals using hands-on training and simulations. These courses provide practical knowledge and skills to effectively respond to fire emergencies. Arbrit’s commitment to safety and compliance with Trakhees regulations ensures that individuals and organizations receive the highest standard of firefighting training.",
     ],
-    accreditationLogo: "/general-safety-courses/trakhees.png",
+    accreditationLogo: "/general-safety/trakhees.webp",
     topics: ["Fire Warden Level 1", "Fire Fighting", "Fire Marshall", "Fire Safety"],
   },
   {
     slug: "rescue-training",
     title: "Rescue Training Courses",
-    image: "/general-safety-courses/Rescue-Training.jpg",
+    image: "/general-safety/Rescue-Training.webp",
     courseInfoParagraphs: [
       "With complete theoretical understanding and a set of hands-on exercises, this course provides with the knowledge and skills required to understand the possible risks of working in confined spaces.",
       "The courses are well designed specifically which includes tower crane rescue, tunnel rescue, and confined space evacuation and rescue, which will teach the basic knowledge and information needed for a rescue incident.",
@@ -919,7 +996,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "oil-and-gas",
     title: "Oil and Gas Safety Courses",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     courseInfoParagraphs: [
       "We offer top-notch services that comply to industry safety standards and laws. This course is a professional qualification that helps learners to develop a solid understanding of the operational safety standards in the oil and gas industry while also demonstrating to employers that they have formal training and certification in the field.",
       "Safety and health are prioritized in the oil and gas industry. There will always be risks involved because of the nature of the work, the harsh working environment, and the types of machinery utilized.",
@@ -934,7 +1011,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "construction-safety",
     title: "Construction Safety Courses",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     courseTable: [
       { name: "Tower Crane Rescue", type: "Construction Safety", starts: "Everyday" },
       { name: "Scaffolding Inspector - STI", type: "Construction Safety", starts: "Everyday" },
@@ -966,7 +1043,7 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "first-aid",
     title: "First Aid Training Courses",
-    image: "/general-safety-courses/first-aid.jpg",
+    image: "/general-safety/first-aid.webp",
     courseInfoParagraphs: [
       "The Department of Community Affairs and Social Services (DCAS) in Dubai regulates and certifies first-aid training programs. Arbrit is one such premier institute authorized by DCAS to conduct first-aid certification courses.",
       "As the leading emergency first aid trainer in Dubai and Abu Dhabi, we offer DCAS-approved courses with a high level of experience to equip more people with basic first-aid knowledge to create a safe workplace. By providing first aid training to your staff, you indicate that you care about their well-being.",
@@ -977,7 +1054,7 @@ export const courseDetails: CourseDetail[] = [
       "For more details about our advanced DCAS-certified emergency first aid training courses in Dubai, Abu Dhabi, please email marketinguae@arbritonline.com.",
       "Top-rated first-aid training course provider that is listed under RAKEZ’s registered list of certified training consultants. Partnered with Dubai Corporation for Ambulance Services, Arbrit delivers high-quality training programs that abide by Trakhees regulations. Taught by certified professionals using hands-on training and simulations, Arbrit is committed to providing accessible and reliable training to individuals and organizations to help them respond to medical emergencies effectively.",
     ],
-    accreditationLogos: ["/general-safety-courses/trakhees.png", "/general-safety-courses/Rakez-Logo.png"],
+    accreditationLogos: ["/general-safety/trakhees.webp", "/general-safety/Rakez-Logo.png"],
     topics: ["Basic First Aid CPR & AED", "Pedeatric First Aid"],
   },
   {
@@ -1003,337 +1080,337 @@ export const courseDetails: CourseDetail[] = [
   {
     slug: "sti-scaffold-inspector",
     title: "STI Scaffold Inspector",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to inspect scaffolding structures safely and competently, in line with UAE workplace safety standards.",
   },
   {
     slug: "sti-scaffold-erector",
     title: "STI Scaffold Erector",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to erect scaffolding structures safely and competently, in line with UAE workplace safety standards.",
   },
   {
     slug: "sti-scaffold-competent-person",
     title: "STI Scaffold Competent Person",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to act as a competent person on scaffolding operations, in line with UAE workplace safety standards.",
   },
   {
     slug: "pedeatric-first-aid",
     title: "Pedeatric First Aid",
-    image: "/general-safety-courses/first-aid.jpg",
+    image: "/general-safety/first-aid.webp",
     aim: "This course equips participants with the knowledge and practical skills required to provide effective first aid to infants and children in an emergency.",
   },
   {
     slug: "tower-crane-rescue",
     title: "Tower Crane Rescue",
-    image: "/general-safety-courses/Rescue-Training.jpg",
+    image: "/general-safety/Rescue-Training.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely plan and carry out rescue operations involving tower cranes.",
   },
   {
     slug: "confined-space-entry-rescue",
     title: "Confined Space Entry & Rescue",
-    image: "/general-safety-courses/Rescue-Training.jpg",
+    image: "/general-safety/Rescue-Training.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely enter confined spaces and carry out rescue operations when required.",
   },
   {
     slug: "confined-space-entry",
     title: "Confined Space Entry",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely enter and work within confined spaces, in line with UAE workplace safety standards.",
   },
   {
     slug: "scaffolding-competent-person-sti",
     title: "Scaffolding Competent Person – STI",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to act as a competent person on scaffolding operations, in line with UAE workplace safety standards.",
   },
   {
     slug: "scaffolding-erector-sti",
     title: "Scaffolding Erector – STI",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to erect scaffolding structures safely and competently, in line with UAE workplace safety standards.",
   },
   {
     slug: "scaffolding-inspector-sti",
     title: "Scaffolding Inspector – STI",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to inspect scaffolding structures safely and competently, in line with UAE workplace safety standards.",
   },
   {
     slug: "scaffolding-competent-person",
     title: "Scaffolding Competent Person",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to act as a competent person on scaffolding operations, in line with UAE workplace safety standards.",
   },
   {
     slug: "construction-hoist-operator",
     title: "Construction Hoist Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate construction hoists safely and competently on site.",
   },
   {
     slug: "concrete-gun-operator",
     title: "Concrete Gun Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate concrete guns safely and competently on site.",
   },
   {
     slug: "power-hand-tools-operator",
     title: "Power Hand Tools Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate power hand tools safely and competently on site.",
   },
   {
     slug: "block-cutting-machine-operator",
     title: "Block Cutting Machine Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate block cutting machines safely and competently on site.",
   },
   {
     slug: "scissor-lift-operator",
     title: "Scissor Lift Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate scissor lifts safely and competently on site.",
   },
   {
     slug: "roller-operator",
     title: "Roller Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate rollers safely and competently on site.",
   },
   {
     slug: "manlift-operator",
     title: "Manlift Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate manlifts safely and competently on site.",
   },
   {
     slug: "cradle-operator",
     title: "Cradle Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate suspended cradles safely and competently on site.",
   },
   {
     slug: "dumber-operator",
     title: "Dumber Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate dumpers safely and competently on site.",
   },
   {
     slug: "excavator-operator",
     title: "Excavator Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate excavators safely and competently on site.",
   },
   {
     slug: "shovel-operator",
     title: "Shovel Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate shovels safely and competently on site.",
   },
   {
     slug: "mobile-crane-operator",
     title: "Mobile Crane Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate mobile cranes safely and competently on site.",
   },
   {
     slug: "lift-operator",
     title: "Lift Operator",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to operate lifts safely and competently on site.",
   },
   {
     slug: "tunnel-rescue",
     title: "Tunnel Rescue",
-    image: "/general-safety-courses/Rescue-Training.jpg",
+    image: "/general-safety/Rescue-Training.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely plan and carry out rescue operations within tunnels.",
   },
   {
     slug: "flagman",
     title: "Flagman",
-    image: "/general-safety-courses/constructions.jpg",
+    image: "/general-safety/constructions.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely direct traffic and equipment movement on site as a flagman.",
   },
   {
     slug: "iosh-managing-safely",
     title: "IOSH Managing Safely",
-    image: "/international-course/IOSH.jpg",
+    image: "/international/IOSH.webp",
     aim: "This IOSH-aligned course equips managers and supervisors with the knowledge to manage health and safety risks effectively within their teams.",
   },
   {
     slug: "iosh-supervising-safely",
     title: "IOSH Supervising Safely",
-    image: "/international-course/IOSH.jpg",
+    image: "/international/IOSH.webp",
     aim: "This IOSH-aligned course equips supervisors with the knowledge to identify and manage health and safety risks within their area of responsibility.",
   },
   {
     slug: "iosh-working-safely",
     title: "IOSH Working Safely",
-    image: "/international-course/IOSH.jpg",
+    image: "/international/IOSH.webp",
     aim: "This IOSH-aligned course equips employees at all levels with a basic understanding of health and safety in the workplace.",
   },
   {
     slug: "train-the-trainer",
     title: "Train the Trainer",
-    image: "/international-course/HIghfield.jpg",
+    image: "/international/HIghfield.webp",
     aim: "This course equips participants with the delivery, planning, and presentation skills required to train others effectively in the workplace.",
   },
   {
     slug: "basic-first-aid",
     title: "Basic First Aid",
-    image: "/general-safety-courses/first-aid.jpg",
+    image: "/general-safety/first-aid.webp",
     aim: "This course equips participants with the knowledge and practical skills required to provide basic first aid in a workplace emergency.",
   },
   {
     slug: "risk-assesment",
     title: "Risk Assessment",
-    image: "/international-course/HIghfield.jpg",
+    image: "/international/HIghfield.webp",
     aim: "This course equips participants with the knowledge and practical skills required to identify workplace hazards and carry out effective risk assessments.",
   },
   {
     slug: "food-safety",
     title: "Food Safety",
-    image: "/international-course/HIghfield.jpg",
+    image: "/international/HIghfield.webp",
     aim: "This course equips participants with the knowledge and practical skills required to handle, prepare, and store food safely in line with industry standards.",
   },
   {
     slug: "coshh",
     title: "COSHH",
-    image: "/international-course/HIghfield.jpg",
+    image: "/international/HIghfield.webp",
     aim: "This course equips participants with the knowledge required to control substances hazardous to health in the workplace.",
   },
   {
     slug: "confined-space",
     title: "Confined Space",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge and practical skills required to identify confined space hazards and work within them safely.",
   },
   {
     slug: "defensive-driving",
     title: "Defensive Driving",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge and practical skills required to anticipate hazards and drive defensively in a work environment.",
   },
   {
     slug: "hazop",
     title: "HAZOP",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge required to systematically identify and evaluate process hazards using the HAZOP methodology.",
   },
   {
     slug: "h2s",
     title: "H2S",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge and practical skills required to recognise and respond to hydrogen sulphide (H2S) hazards safely.",
   },
   {
     slug: "ptw",
     title: "PTW",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge required to operate safely within a Permit to Work (PTW) system.",
   },
   {
     slug: "tra",
     title: "TRA",
-    image: "/general-safety-courses/Oil-and-gas.jpg",
+    image: "/general-safety/Oil-and-gas.webp",
     aim: "This course equips participants with the knowledge and practical skills required to carry out effective Task Risk Assessments (TRA).",
   },
   {
     slug: "confined-space-exit-rescue",
     title: "Confined Space Exit & Rescue",
-    image: "/general-safety-courses/Rescue-Training.jpg",
+    image: "/general-safety/Rescue-Training.webp",
     aim: "This course equips participants with the knowledge and practical skills required to safely exit confined spaces and carry out rescue operations when required.",
   },
   {
     slug: "electrical-safety",
     title: "Electrical Safety",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge required to identify electrical hazards and work safely around electrical equipment.",
   },
   {
     slug: "hand-tools",
     title: "Hand Tools",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge and practical skills required to use hand tools safely in the workplace.",
   },
   {
     slug: "basic-oil-spil",
     title: "Basic Oil Spill",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge and practical skills required to respond safely and effectively to a basic oil spill.",
   },
   {
     slug: "basic-lifeline",
     title: "Basic Lifeline",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge and practical skills required to use lifeline systems safely when working at height.",
   },
   {
     slug: "lifting-supervisor-refresher-training",
     title: "Lifting Supervisor Refresher Training",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This refresher course updates lifting supervisors on current legislation, best practice, and safe systems of work for lifting operations.",
   },
   {
     slug: "basic-electrical-safety-awareness",
     title: "Basic Electrical Safety Awareness",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with a basic awareness of electrical hazards and how to avoid them in the workplace.",
   },
   {
     slug: "gas-analyst-training-certification",
     title: "Gas Analyst Training & Certification",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge and practical skills required to carry out gas testing and analysis safely and accurately.",
   },
   {
     slug: "basic-scaffolding-erection-dismantling",
     title: "Basic Scaffolding Erection & Dismantling",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to erect and dismantle basic scaffolding structures safely.",
   },
   {
     slug: "basic-scaffolding-inspection",
     title: "Basic Scaffolding Inspection",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to carry out basic scaffolding inspections safely and competently.",
   },
   {
     slug: "scaffolding-supervisor-training",
     title: "Scaffolding Supervisor Training",
-    image: "/international-course/STI-Scaffold-Training-Institute.jpg",
+    image: "/international/STI-Scaffold-Training-Institute.webp",
     aim: "This course equips participants with the knowledge and practical skills required to supervise scaffolding operations safely and competently.",
   },
   {
     slug: "fire-warden-level-1",
     title: "Fire Warden Level 1",
-    image: "/general-safety-courses/FIRE-FIGHTING.jpg",
+    image: "/general-safety/FIRE-FIGHTING.webp",
     aim: "This course equips participants with the knowledge and practical skills required to act as a fire warden and respond effectively to a fire emergency.",
   },
   {
     slug: "fire-marshall",
     title: "Fire Marshall",
-    image: "/general-safety-courses/FIRE-FIGHTING.jpg",
+    image: "/general-safety/FIRE-FIGHTING.webp",
     aim: "This course equips participants with the knowledge and practical skills required to act as a fire marshall and coordinate an effective emergency evacuation.",
   },
   {
     slug: "fire-safety",
     title: "Fire Safety",
-    image: "/general-safety-courses/FIRE-FIGHTING.jpg",
+    image: "/general-safety/FIRE-FIGHTING.webp",
     aim: "This course equips participants with the knowledge required to identify fire hazards and follow fire safety procedures in the workplace.",
   },
   {
     slug: "environmental-awareness",
     title: "Environmental Awareness",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with a basic awareness of environmental hazards and responsibilities in the workplace.",
   },
   {
     slug: "dangerous-goods-safety-awareness",
     title: "Dangerous Goods Safety Awareness",
-    image: "/general-safety-courses/safety-awareness.jpg",
+    image: "/general-safety/safety-awareness.webp",
     aim: "This course equips participants with the knowledge required to handle, store, and transport dangerous goods safely.",
   },
 ];
@@ -1343,7 +1420,7 @@ export const trainers: Trainer[] = [
     slug: "brijith-shaji",
     name: "Brijith Shaji",
     credentials: "B.Tech (Fire & Safety), GradIOSH",
-    image: "/trainer/Brijith-shaji.jpg",
+    image: "/trainer/Brijith-shaji.webp",
     shortBio:
       "Brijith Shaji is an Internationally and Dubai Municipality certified Trainer authorized to conduct the NEBOSH, IOSH, HighField, Medic First aid and Scaffold Training Institute courses.",
     quote: "Push yourself to your limits. Thats how you truly grow.",
@@ -1357,7 +1434,7 @@ export const trainers: Trainer[] = [
     slug: "ishtiaq-hasham-khan",
     name: "Engr. Ishtiaq Hasham Khan",
     credentials: "Grad IOSH, STI",
-    image: "/trainer/Ishtiaq-Hasham.jpg",
+    image: "/trainer/Ishtiaq-Hasham.webp",
     shortBio:
       "A self-motivated and hard working qualified Health and Safety Trainer / Consultant with over 8 years experience in all aspects of Health and Safety over a diverse range of industries.",
     quote: "The aim of education is to advance knowledge and share truth",
@@ -1371,7 +1448,7 @@ export const trainers: Trainer[] = [
     slug: "anshadh-rahim",
     name: "Anshadh Rahim",
     credentials: "HSE Trainer",
-    image: "/trainer/anshadh-rahim.jpeg",
+    image: "/trainer/anshadh-rahim.webp",
     shortBio:
       "HSE Trainer with shown skill in content development, creating learning programmes and initiatives.",
     quote: "The aim of education is to advance knowledge and share truth",

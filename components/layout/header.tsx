@@ -67,7 +67,7 @@ export function Header() {
         <Link href="/" className="flex items-center">
           <Image
             src="/header-logo.svg"
-            alt="Arbrit Safety"
+            alt="Arbrit Safety Training & Consultancy logo"
             width={180}
             height={60}
             preload
@@ -174,7 +174,7 @@ export function Header() {
             <SheetTitle className="sr-only">Menu</SheetTitle>
             <Image
               src="/header-logo.svg"
-              alt="Arbrit Safety"
+              alt="Arbrit Safety Training & Consultancy logo"
               width={140}
               height={46}
               className="mt-2 ml-4"

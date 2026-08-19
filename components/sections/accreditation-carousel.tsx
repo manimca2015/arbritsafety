@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/ui/section-heading";
 
 const logos = [
   { src: "/accreditation/adnoc.png", alt: "ADNOC" },
+  { src: "/accreditation/HABCLogo.jpg", alt: "HABC" },
   { src: "/accreditation/ICV.webp", alt: "ICV" },
   { src: "/accreditation/iemalogo.jpg", alt: "IEMA" },
   { src: "/accreditation/iosh.png", alt: "IOSH" },
@@ -13,8 +14,10 @@ const logos = [
   { src: "/accreditation/medic-first-aid.jpg", alt: "Medic First Aid" },
   { src: "/accreditation/permit.png", alt: "Permit" },
   { src: "/accreditation/PSMA.webp", alt: "PSMA" },
+  { src: "/accreditation/Rakez-Logo.jpg", alt: "RAKEZ" },
   { src: "/accreditation/STI-LOGO.jpg", alt: "STI" },
   { src: "/accreditation/taqa.webp", alt: "TAQA" },
+  { src: "/accreditation/trakhees.jpg", alt: "Trakhees" },
   { src: "/accreditation/tsi-logo.webp", alt: "TSI" },
 ];
 
@@ -22,7 +25,13 @@ function LogoCard({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border border-navy/10 bg-white p-4 shadow-sm">
       <div className="relative h-full w-full">
-        <Image src={src} alt={alt} fill sizes="160px" className="object-contain" />
+        <Image
+          src={src}
+          alt={`${alt} accredited training partner logo`}
+          fill
+          sizes="160px"
+          className="object-contain"
+        />
       </div>
     </div>
   );

@@ -2,10 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { BookOpen, Mail, MapPin, MessageSquare, Phone, Send, Tag, User } from "lucide-react";
+import { BookOpen, Mail, MapPin, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -144,37 +143,6 @@ export function ContactForm() {
               ))}
             </SelectContent>
           </Select>
-        </div>
-      </div>
-      <div className="group space-y-1.5">
-        <Label htmlFor="contact-subject">Subject</Label>
-        <div className="relative">
-          <Tag
-            className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40 transition-colors group-focus-within:text-orange"
-            aria-hidden="true"
-          />
-          <Input
-            id="contact-subject"
-            name="subject"
-            placeholder="Subject"
-            className="h-12 rounded-xl border-navy/15 bg-white pl-10 shadow-sm"
-          />
-        </div>
-      </div>
-      <div className="group space-y-1.5">
-        <Label htmlFor="contact-message">Message</Label>
-        <div className="relative">
-          <MessageSquare
-            className="pointer-events-none absolute left-3 top-3 h-4 w-4 text-navy/40 transition-colors group-focus-within:text-orange"
-            aria-hidden="true"
-          />
-          <Textarea
-            id="contact-message"
-            name="message"
-            placeholder="Message"
-            rows={4}
-            className="rounded-xl border-navy/15 bg-white pl-10 shadow-sm"
-          />
         </div>
       </div>
       <Button

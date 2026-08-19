@@ -34,7 +34,13 @@ export function LeeaEnrollForm() {
 
       <div className="flex justify-center">
         <div className="relative h-12 w-40">
-          <Image src="/logo.png" alt="Arbrit Safety" fill sizes="160px" className="object-contain" />
+          <Image
+            src="/arbritsafety-logo.png"
+            alt="Arbrit Safety Training & Consultancy logo"
+            fill
+            sizes="160px"
+            className="object-contain"
+          />
         </div>
       </div>
 

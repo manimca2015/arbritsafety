@@ -3,6 +3,7 @@
 import { Award, BookOpenCheck, Clock, Users, type LucideIcon } from "lucide-react";
 import { stats } from "@/lib/data";
 import { useCountUp } from "@/hooks/use-count-up";
+import { Reveal } from "@/components/ui/reveal";
 
 const statIcons: Record<string, LucideIcon> = {
   "Years of Experience": Clock,
@@ -42,8 +43,10 @@ export function WhyChooseUs() {
           </h2>
         </div>
         <div className="mt-14 grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <StatCard key={stat.label} value={stat.value} suffix={stat.suffix} label={stat.label} />
+          {stats.map((stat, i) => (
+            <Reveal key={stat.label} delay={i * 0.08}>
+              <StatCard value={stat.value} suffix={stat.suffix} label={stat.label} />
+            </Reveal>
           ))}
         </div>
       </div>

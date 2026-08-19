@@ -6,6 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Faq() {
   return (
@@ -14,8 +15,8 @@ export function Faq() {
         <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" />
         <Accordion type="single" collapsible className="mt-12 space-y-4">
           {faqs.map((faq, i) => (
+            <Reveal key={faq.question} delay={Math.min(i, 5) * 0.07}>
             <AccordionItem
-              key={faq.question}
               value={`item-${i}`}
               className="rounded-2xl border border-navy/10 bg-muted px-6 not-last:border-b-0"
             >
@@ -26,6 +27,7 @@ export function Faq() {
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>
+            </Reveal>
           ))}
         </Accordion>
       </div>
