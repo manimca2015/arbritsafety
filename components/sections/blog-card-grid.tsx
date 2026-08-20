@@ -20,8 +20,9 @@ export function BlogCardGrid({ excludeHref }: { excludeHref?: string }) {
               src={post.image}
               alt={`Cover image for the article “${post.title}”`}
               fill
-              quality={95}
+              quality={90}
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+              className="object-cover"
             />
           </div>
           <div className="flex flex-1 flex-col p-6">

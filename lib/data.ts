@@ -108,6 +108,7 @@ export type BlogPost = {
   category: string;
   href: string;
   image: string;
+  imageWide: string;
   content?: BlogSection[];
 };
 
@@ -450,7 +451,8 @@ export const blogPosts: BlogPost[] = [
       "UAE organisations cannot build a strong safety culture by depending only on one-time external training. Site teams change. Risks change.",
     category: "Compliance",
     href: "/blog/train-the-trainer-oshad-compliance",
-    image: "/blog/train-the-trainer-course-300x300.webp",
+    image: "/blog/train-the-trainer-oshad-compliance-thumb.webp",
+    imageWide: "/blog/train-the-trainer-oshad-compliance-hero.webp",
     content: [
       {
         paragraphs: [
@@ -525,7 +527,8 @@ export const blogPosts: BlogPost[] = [
       "Lifting supervision is not a role where old knowledge can sit untouched forever. Equipment changes. Site procedures change. Client requirements",
     category: "LEEA",
     href: "/blog/renew-leea-lifting-supervisor-certification",
-    image: "/blog/LEEA-Lifting-Supervisor-Certification-300x300.webp",
+    image: "/blog/leea-lifting-supervisor-renewal-thumb.webp",
+    imageWide: "/blog/leea-lifting-supervisor-renewal-hero.webp",
     content: [
       {
         paragraphs: [
@@ -601,7 +604,8 @@ export const blogPosts: BlogPost[] = [
       "Why LEEA Training Courses in Dubai are important for professionals involved in lifting operations. The training helps learners understand how",
     category: "LEEA",
     href: "/blog/leea-training-courses-dubai",
-    image: "/blog/LEEA-Training-Courses-300x276.webp",
+    image: "/blog/leea-training-courses-dubai-thumb.webp",
+    imageWide: "/blog/leea-training-courses-dubai-hero.webp",
     content: [
       {
         paragraphs: [

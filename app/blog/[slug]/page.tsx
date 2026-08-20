@@ -54,8 +54,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 {post.category}
               </span>
 
-              <div className="relative mt-4 h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
-                <Image src={post.image} alt={`Cover image for the article “${post.title}”`} fill sizes="(min-width: 1024px) 70vw, 100vw" className="object-cover" />
+              <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-lg">
+                <Image src={post.imageWide} alt={`Cover image for the article “${post.title}”`} fill priority quality={90} sizes="(min-width: 1024px) 70vw, 100vw" className="object-cover" />
               </div>
 
               <div className="mt-10 space-y-8">
