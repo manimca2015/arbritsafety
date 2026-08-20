@@ -15,7 +15,7 @@ export function BlogCardGrid({ excludeHref }: { excludeHref?: string }) {
         <article
           className="flex flex-1 flex-col rounded-2xl border border-navy/10 bg-white shadow-sm transition hover:shadow-lg"
         >
-          <div className="relative aspect-square w-full overflow-hidden rounded-t-2xl bg-muted">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-t-2xl bg-muted">
             <Image
               src={post.image}
               alt={`Cover image for the article “${post.title}”`}
