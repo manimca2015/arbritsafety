@@ -29,7 +29,7 @@ const locations: Location[] = [
     label: "KSA",
     country: "Kingdom of Saudi Arabia",
     icon: "/Saudi-blue.png",
-    theme: "from-[#046a38] to-[#02472a]",
+    theme: "from-[#0066b2] to-[#00477d]",
   },
 ];
 

@@ -28,12 +28,12 @@ export function QuickEnquiry() {
     <section className="bg-[#0066b2] py-14 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-12">
-            <div>
+          <div className="mx-auto max-w-3xl">
+            <div className="text-center">
               <p className="text-sm font-semibold uppercase tracking-wide text-white/70">
                 Quick Enquiry
               </p>
-              <h2 className="mt-2 font-heading text-2xl font-bold text-white sm:text-3xl">
+              <h2 className="mt-2 font-heading text-4xl font-bold text-white">
                 Not sure which course fits?
               </h2>
               <p className="mt-3 text-base text-white/80">
@@ -41,7 +41,7 @@ export function QuickEnquiry() {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="w-full">
+            <form onSubmit={handleSubmit} className="mt-8 w-full">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="group space-y-1.5">
                   <Label htmlFor="enquiry-name" className="text-white/80">

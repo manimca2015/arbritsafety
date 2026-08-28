@@ -29,7 +29,7 @@ export function CorporateTraining() {
           </p>
           <h2 className="font-heading text-3xl font-bold text-[#0066b2] sm:text-4xl">
             These courses will raise the profile of health and safety in your organization, which
-            will help:
+            will help
           </h2>
           <ul className="mt-6 space-y-3">
             {corporateBenefits.map((benefit) => (
