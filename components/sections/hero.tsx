@@ -6,6 +6,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { Award, ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { HeroContactForm } from "@/components/sections/hero-contact-form";
 import { stats } from "@/lib/data";
 
 type Achievement = { icon: LucideIcon; label: string };
@@ -24,7 +25,7 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-navy-deep">
       <Image
         src="/slide-1-construction-safety.webp"
-        alt=""
+        alt="Construction site workers in safety helmets and high-visibility gear"
         aria-hidden="true"
         fill
         priority
@@ -36,7 +37,8 @@ export function Hero() {
         className="absolute inset-0 bg-gradient-to-br from-navy-deep/95 via-navy-deep/80 to-navy/50 md:from-navy-deep/95 md:via-navy-deep/70 md:to-transparent"
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16">
+      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-16 md:pb-40 lg:grid lg:grid-cols-[minmax(0,1fr)_380px] lg:items-center lg:gap-10 lg:pb-16">
+        <div>
         <motion.div
           initial={{ opacity: 0, y: shouldReduceMotion ? 0 : 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -99,7 +101,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="mt-10 flex justify-start md:absolute md:bottom-10 md:right-6 md:mt-0"
+          className="mt-10 flex justify-start md:absolute md:bottom-10 md:right-6 md:mt-0 lg:static lg:mt-8"
           initial={shouldReduceMotion ? false : { opacity: 0, scale: 0.9, y: 16 }}
           whileInView={{ opacity: 1, scale: 1, y: 0 }}
           viewport={{ once: true }}
@@ -114,6 +116,17 @@ export function Hero() {
               {yearsStat.label}
             </p>
           </div>
+        </motion.div>
+        </div>
+
+        <motion.div
+          className="mt-10 w-full lg:mt-0"
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+        >
+          <HeroContactForm />
         </motion.div>
       </div>
     </section>

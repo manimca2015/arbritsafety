@@ -42,6 +42,8 @@ export type CourseCategory = {
   icon: LucideIcon;
   image: string;
   href: string;
+  /** One-line summary of what the course covers, shown on the course card. */
+  description?: string;
   duration?: string;
   location?: string;
   certification?: string;
@@ -269,13 +271,13 @@ export const coursesMegaMenu: MegaMenuGroup[] = [
 
 export const courseCategories: CourseCategory[] = [
   { slug: "leea-foundation", title: "LEEA – Foundation Course (FOUG)", icon: BadgeCheck, image: "/international/LEEA-Courses-Dubai-UAE.webp", href: "/course/leea-foundation-certificate", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
-  { slug: "leea-course", title: "LEEA – Appointed Person for Lifting Operations (APLO)", icon: Forklift, image: "/international/LEEA.webp", href: "/courses/leea-course-dubai", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
-  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, image: "/international/Lead-Auditor.webp", href: "/courses/irca-lead-auditor", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IRCA Certified" },
-  { slug: "rope-access", title: "Rope Access", icon: Anchor, image: "/international/rope-access.webp", href: "/courses/rope-access", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Internationally Accredited" },
-  { slug: "sti", title: "STI", icon: Layers, image: "/international/STI-Scaffold-Training-Institute.webp", href: "/courses/sti", duration: "2-5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "STI Certified" },
-  { slug: "highfield", title: "Highfield", icon: GraduationCap, image: "/international/HIghfield.webp", href: "/courses/highfield", duration: "1-3 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Highfield Accredited" },
-  { slug: "iosh", title: "IOSH", icon: ShieldCheck, image: "/international/IOSH.webp", href: "/courses/iosh", duration: "3-4 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IOSH Certified" },
-  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, image: "/international/LEEA-diploma.webp", href: "/courses/leea-diploma", duration: "Modular", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
+  { slug: "leea-course", title: "LEEA – Appointed Person for Lifting Operations (APLO)", icon: Forklift, image: "/international/LEEA.webp", href: "/courses/leea-course-dubai", description: "Plan and supervise lifting operations, from risk assessments to method statements.", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
+  { slug: "lead-auditor", title: "Lead Auditor", icon: ClipboardCheck, image: "/international/Lead-Auditor.webp", href: "/courses/irca-lead-auditor", description: "Audit ISO 9001, 45001, 14001 and 27001 management systems to ISO 19011.", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IRCA Certified" },
+  { slug: "rope-access", title: "Rope Access", icon: Anchor, image: "/international/rope-access.webp", href: "/courses/rope-access", description: "Work safely at height using ropes to reach difficult-access positions.", duration: "5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Internationally Accredited" },
+  { slug: "sti", title: "STI", icon: Layers, image: "/international/STI-Scaffold-Training-Institute.webp", href: "/courses/sti", description: "Erect, inspect and dismantle scaffolding to Scaffold Training Institute standards.", duration: "2-5 Days", location: "Dubai · Abu Dhabi · KSA", certification: "STI Certified" },
+  { slug: "highfield", title: "Highfield", icon: GraduationCap, image: "/international/HIghfield.webp", href: "/courses/highfield", description: "Ofqual-regulated qualifications in compliance and work-based workplace skills.", duration: "1-3 Days", location: "Dubai · Abu Dhabi · KSA", certification: "Highfield Accredited" },
+  { slug: "iosh", title: "IOSH", icon: ShieldCheck, image: "/international/IOSH.webp", href: "/courses/iosh", description: "Managing Safely and Working Safely — risk assessment and day-to-day safety management.", duration: "3-4 Days", location: "Dubai · Abu Dhabi · KSA", certification: "IOSH Certified" },
+  { slug: "leea-diploma", title: "LEEA Diploma", icon: Award, image: "/international/LEEA-diploma.webp", href: "/courses/leea-diploma", description: "Modular LEEA qualification covering lifting equipment inspection, rigging and supervision.", duration: "Modular", location: "Dubai · Abu Dhabi · KSA", certification: "LEEA Certified" },
 ];
 
 export const featuredCourses: Course[] = [
@@ -791,18 +793,18 @@ export const historyGallery = [
   { src: "/about/Arbirt-safety-4-300x200.webp", alt: "Arbrit Safety team during a company gathering" },
   { src: "/about/Arbirt-safety-5-300x200.webp", alt: "Arbrit Safety staff at a certification ceremony" },
   { src: "/about/Arbirt-safety-6-300x200.webp", alt: "Arbrit Safety team on a training site visit" },
-  { src: "/about/blood-donation-2-big-300x225.webp", alt: "Blood donation drive" },
-  { src: "/about/blood-donation-3-big-300x225.webp", alt: "Blood donation drive" },
-  { src: "/about/blood-donation-award-big-300x225.webp", alt: "Blood donation award" },
-  { src: "/about/confined-space-big-scaled-300x182.webp", alt: "Confined space safety" },
-  { src: "/about/confined-space-training-big-scaled-300x186.webp", alt: "Confined space training" },
-  { src: "/about/fire-fighting-training-big-300x189.webp", alt: "Fire fighting training" },
-  { src: "/about/gitex-conference-big-1-scaled-300x225.webp", alt: "GITEX conference" },
-  { src: "/about/iosh-event-big-scaled-300x225.webp", alt: "IOSH event" },
-  { src: "/about/Leea-big-300x225.png", alt: "LEEA event" },
-  { src: "/about/managing-safely-big-300x228.webp", alt: "Managing Safely training" },
-  { src: "/about/women-luncheon-big-300x226.webp", alt: "Women's luncheon" },
-  { src: "/about/women-luncheon-uae-big-300x225.webp", alt: "Women's luncheon UAE" },
+  { src: "/about/blood-donation-2-big-300x225.webp", alt: "Arbrit Safety staff donating blood at a community drive" },
+  { src: "/about/blood-donation-3-big-300x225.webp", alt: "Arbrit Safety team volunteers at the blood donation camp" },
+  { src: "/about/blood-donation-award-big-300x225.webp", alt: "Arbrit Safety receiving a blood donation appreciation award" },
+  { src: "/about/confined-space-big-scaled-300x182.webp", alt: "Trainee entering a confined space under supervision" },
+  { src: "/about/confined-space-training-big-scaled-300x186.webp", alt: "Confined space entry and rescue training session" },
+  { src: "/about/fire-fighting-training-big-300x189.webp", alt: "Delegates using fire extinguishers in live fire fighting training" },
+  { src: "/about/gitex-conference-big-1-scaled-300x225.webp", alt: "Arbrit Safety team at the GITEX conference in Dubai" },
+  { src: "/about/iosh-event-big-scaled-300x225.webp", alt: "Arbrit Safety delegates at an IOSH networking event" },
+  { src: "/about/Leea-big-300x225.png", alt: "Arbrit Safety at a LEEA lifting industry event" },
+  { src: "/about/managing-safely-big-300x228.webp", alt: "IOSH Managing Safely classroom training in progress" },
+  { src: "/about/women-luncheon-big-300x226.webp", alt: "Women in safety luncheon hosted by Arbrit Safety" },
+  { src: "/about/women-luncheon-uae-big-300x225.webp", alt: "Women in safety luncheon attendees in the UAE" },
 ];
 
 export const courseDetails: CourseDetail[] = [

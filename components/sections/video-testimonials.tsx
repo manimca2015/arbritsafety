@@ -32,7 +32,13 @@ function Avatar({ item, size }: { item: VideoTestimonial; size: "sm" | "md" }) {
 
   return (
     <span className={`relative ${box} shrink-0 overflow-hidden rounded-full bg-muted`}>
-      <Image src={item.photo} alt="" fill sizes="44px" className="object-cover" />
+      <Image
+        src={item.photo}
+        alt={`${item.name}, ${item.role} at Arbrit Safety Training`}
+        fill
+        sizes="44px"
+        className="object-cover"
+      />
     </span>
   );
 }
@@ -94,7 +100,7 @@ export function VideoTestimonials() {
                 {item.thumbnail ? (
                   <Image
                     src={item.thumbnail}
-                    alt=""
+                    alt={`Video testimonial from ${item.name}, ${item.role}`}
                     fill
                     sizes="(min-width: 1024px) 380px, (min-width: 640px) 50vw, 100vw"
                     className="transform-gpu object-cover transition-transform duration-500 [backface-visibility:hidden] group-hover:scale-105"

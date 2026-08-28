@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { BookOpen, Mail, MapPin, Phone, Send, User } from "lucide-react";
+import { BookOpen, Mail, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
@@ -21,7 +22,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { FormTrustSignals } from "@/components/ui/form-trust-signals";
-import { careerCourseOptions, careerLocationOptions } from "@/lib/data";
+import { careerCourseOptions } from "@/lib/data";
 
 export function JoinCourseDialog({
   courseTitle,
@@ -63,13 +64,13 @@ export function JoinCourseDialog({
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
-              <Label htmlFor="join-name">Name</Label>
+              <Label htmlFor="join-name">Full Name</Label>
               <div className="relative">
                 <User
                   className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
                   aria-hidden="true"
                 />
-                <Input id="join-name" name="name" placeholder="Name" required className="h-11 pl-10" />
+                <Input id="join-name" name="name" placeholder="Full Name" required className="h-11 pl-10" />
               </div>
             </div>
             <div className="space-y-1.5">
@@ -92,7 +93,7 @@ export function JoinCourseDialog({
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="space-y-1.5">
-              <Label htmlFor="join-phone">Phone</Label>
+              <Label htmlFor="join-phone">Phone / WhatsApp</Label>
               <div className="relative">
                 <Phone
                   className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
@@ -102,14 +103,14 @@ export function JoinCourseDialog({
                   id="join-phone"
                   type="tel"
                   name="phone"
-                  placeholder="Phone"
+                  placeholder="Phone / WhatsApp"
                   required
                   className="h-11 pl-10"
                 />
               </div>
             </div>
             <div className="space-y-1.5">
-              <Label htmlFor="join-course">Select Course</Label>
+              <Label htmlFor="join-course">Course of Interest</Label>
               <div className="relative">
                 <BookOpen
                   className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
@@ -131,25 +132,16 @@ export function JoinCourseDialog({
             </div>
           </div>
           <div className="space-y-1.5">
-            <Label htmlFor="join-location">Select Location</Label>
-            <div className="relative">
-              <MapPin
-                className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
-                aria-hidden="true"
-              />
-              <Select name="location">
-                <SelectTrigger id="join-location" className="h-11 w-full pl-10">
-                  <SelectValue placeholder="Select Location" />
-                </SelectTrigger>
-                <SelectContent>
-                  {careerLocationOptions.map((location) => (
-                    <SelectItem key={location} value={location}>
-                      {location}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+            <Label htmlFor="join-message">
+              Message <span className="font-normal text-navy/50">(optional)</span>
+            </Label>
+            <Textarea
+              id="join-message"
+              name="message"
+              rows={3}
+              placeholder="Tell us briefly what you need"
+              className="min-h-[80px] px-3.5 py-2.5"
+            />
           </div>
           <Button type="submit" size="lg" className="w-full bg-orange text-white hover:bg-orange/90">
             Enquire Now <Send className="ml-2 h-4 w-4" aria-hidden="true" />

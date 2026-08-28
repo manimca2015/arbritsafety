@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight, Home, MapPin } from "lucide-react";
@@ -17,21 +18,33 @@ export function PageHeader({
   title,
   breadcrumbs,
   image = "/slide-1-construction-safety.webp",
+  imageAlt,
   eyebrow,
   description,
+  children,
 }: {
   title: string;
   breadcrumbs: Crumb[];
   image?: string;
+  imageAlt?: string;
   eyebrow?: string;
   description?: string;
+  /** Optional content rendered below the breadcrumbs, e.g. a search box. */
+  children?: ReactNode;
 }) {
   return (
     <section
       className="relative overflow-hidden bg-navy"
       style={{ marginTop: "calc(-1 * var(--site-header-height, 80px))" }}
     >
-      <Image src={image} alt="" fill priority sizes="100vw" className="object-cover" />
+      <Image
+        src={image}
+        alt={imageAlt ?? `${title} — Arbrit Safety Training & Consultancy`}
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
       <div
         className="absolute inset-0 bg-gradient-to-r from-[#0066b2] via-[#0066b2]/90 to-[#0066b2]/20"
         aria-hidden="true"
@@ -95,6 +108,8 @@ export function PageHeader({
               </span>
             ))}
           </nav>
+
+          {children}
         </Reveal>
       </div>
     </section>

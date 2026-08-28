@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, useReducedMotion } from "framer-motion";
-import { BookOpen, Mail, MapPin, Phone, Send, User } from "lucide-react";
+import { BookOpen, Mail, Phone, Send, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -13,8 +13,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import { FormTrustSignals } from "@/components/ui/form-trust-signals";
-import { courseSelectOptions, locationSelectOptions } from "@/lib/data";
+import { courseSelectOptions } from "@/lib/data";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
@@ -80,7 +81,7 @@ export function ContactForm() {
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="group space-y-1.5">
-          <Label htmlFor="contact-phone">Phone</Label>
+          <Label htmlFor="contact-phone">Phone / WhatsApp</Label>
           <div className="relative">
             <Phone
               className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40 transition-colors group-focus-within:text-orange"
@@ -90,14 +91,14 @@ export function ContactForm() {
               id="contact-phone"
               type="tel"
               name="phone"
-              placeholder="Phone"
+              placeholder="Phone / WhatsApp"
               required
               className="h-12 rounded-xl border-navy/15 bg-white pl-10 shadow-sm"
             />
           </div>
         </div>
         <div className="group space-y-1.5">
-          <Label htmlFor="contact-course">Course</Label>
+          <Label htmlFor="contact-course">Course of Interest</Label>
           <div className="relative">
             <BookOpen
               className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40 transition-colors group-focus-within:text-orange"
@@ -122,28 +123,16 @@ export function ContactForm() {
         </div>
       </div>
       <div className="group space-y-1.5">
-        <Label htmlFor="contact-location">Location</Label>
-        <div className="relative">
-          <MapPin
-            className="pointer-events-none absolute left-3 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40 transition-colors group-focus-within:text-orange"
-            aria-hidden="true"
-          />
-          <Select name="location">
-            <SelectTrigger
-              id="contact-location"
-              className="h-12 w-full rounded-xl border-navy/15 bg-white pl-10 shadow-sm"
-            >
-              <SelectValue placeholder="Select Location" />
-            </SelectTrigger>
-            <SelectContent>
-              {locationSelectOptions.map((location) => (
-                <SelectItem key={location} value={location}>
-                  {location}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+        <Label htmlFor="contact-message">
+          Message <span className="font-normal text-navy/50">(optional)</span>
+        </Label>
+        <Textarea
+          id="contact-message"
+          name="message"
+          rows={3}
+          placeholder="Tell us briefly what you need"
+          className="min-h-[88px] rounded-xl border-navy/15 bg-white px-3.5 py-2.5 shadow-sm"
+        />
       </div>
       <Button
         type="submit"

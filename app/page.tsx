@@ -4,6 +4,7 @@ import { LocationsStrip } from "@/components/sections/locations-strip";
 import { AboutUs } from "@/components/sections/about-us";
 import { AccreditationCarousel } from "@/components/sections/accreditation-carousel";
 import { CourseCategories } from "@/components/sections/course-categories";
+import { QuickEnquiry } from "@/components/sections/quick-enquiry";
 import { FeaturedCourses } from "@/components/sections/featured-courses";
 import { WhyChooseUs } from "@/components/sections/why-choose-us";
 import { Certifications } from "@/components/sections/certifications";
@@ -49,6 +50,7 @@ export default function Home() {
       <AboutUs />
       <AccreditationCarousel />
       <CourseCategories />
+      <QuickEnquiry />
       <FeaturedCourses />
       <WhyChooseUs />
       <Certifications />

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck, ChevronDown, Clock, MapPin } from "lucide-react";
+import { ArrowRight, BadgeCheck, ChevronDown, Clock, MapPin } from "lucide-react";
 import { courseCategories } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
@@ -12,7 +12,12 @@ import { Reveal } from "@/components/ui/reveal";
 
 const MOBILE_VISIBLE = 4;
 
-export function CourseCategories() {
+export function CourseCategories({
+  showDescriptions = false,
+}: {
+  /** Shows the one-line course summary on each card. */
+  showDescriptions?: boolean;
+} = {}) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -28,7 +33,8 @@ export function CourseCategories() {
               <Link
                 href={category.href}
                 className={cn(
-                  "group relative flex h-72 flex-col items-start justify-end overflow-hidden rounded-2xl p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
+                  "group relative flex flex-col items-start justify-end overflow-hidden rounded-2xl p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
+                  showDescriptions ? "h-80" : "h-72",
                   hiddenOnMobile && "hidden sm:flex"
                 )}
               >
@@ -45,6 +51,11 @@ export function CourseCategories() {
                     <Icon className="mt-0.5 h-5 w-5 shrink-0 text-white" aria-hidden="true" />
                     <span className="text-base font-semibold text-white">{category.title}</span>
                   </span>
+                  {showDescriptions && category.description && (
+                    <p className="mt-2 line-clamp-2 text-xs leading-snug text-white/80">
+                      {category.description}
+                    </p>
+                  )}
                   <ul className="mt-3 space-y-1 border-t border-white/25 pt-2.5 text-xs font-medium text-white/90">
                     {category.duration && (
                       <li className="flex items-center gap-1.5">
@@ -65,6 +76,9 @@ export function CourseCategories() {
                       </li>
                     )}
                   </ul>
+                  <span className="mt-4 flex w-full items-center justify-center rounded-md bg-white px-4 py-2 text-sm font-semibold text-[#0066b2] shadow-sm transition-colors duration-300 group-hover:bg-white/90">
+                    View Course <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden="true" />
+                  </span>
                 </div>
               </Link>
               </Reveal>
