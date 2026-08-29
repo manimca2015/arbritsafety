@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Clock, Search, SlidersHorizontal, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -36,6 +36,7 @@ const searchableCourses = [
 export function CourseSearch() {
   const [query, setQuery] = useState("");
   const [filter, setFilter] = useState<Filter>("All");
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const trimmed = query.trim().toLowerCase();
   const isSearching = trimmed.length > 0 || filter !== "All";
@@ -49,40 +50,12 @@ export function CourseSearch() {
   }, [trimmed, filter]);
 
   return (
-    <div className="mt-8 max-w-xl">
-      <Label htmlFor="course-search" className="sr-only">
-        Search courses
-      </Label>
-      <div className="relative">
-        <Search
-          className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-navy/40"
-          aria-hidden="true"
-        />
-        <Input
-          id="course-search"
-          type="search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search courses, e.g. IOSH, First Aid"
-          className="h-12 rounded-full border-white/20 bg-white pl-11 pr-11 shadow-lg [&::-webkit-search-cancel-button]:appearance-none"
-        />
-        {query && (
-          <button
-            type="button"
-            onClick={() => setQuery("")}
-            aria-label="Clear search"
-            className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-navy/50 transition hover:bg-navy/5 hover:text-navy"
-          >
-            <X className="h-4 w-4" aria-hidden="true" />
-          </button>
-        )}
-      </div>
-
-      <div className="mt-3">
-        <Label htmlFor="course-filter" className="sr-only">
-          Filter by category
-        </Label>
-        <div className="relative">
+    <div className="mt-8 max-w-3xl">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="relative sm:w-56 sm:shrink-0">
+          <Label htmlFor="course-filter" className="sr-only">
+            Filter by category
+          </Label>
           <SlidersHorizontal
             className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
             aria-hidden="true"
@@ -90,7 +63,7 @@ export function CourseSearch() {
           <Select value={filter} onValueChange={(value) => setFilter(value as Filter)}>
             <SelectTrigger
               id="course-filter"
-              className="h-12 w-full rounded-full border-white/20 bg-white pl-11 shadow-lg sm:w-64"
+              className="h-12 w-full rounded-full border-white/20 bg-white pl-11 shadow-lg"
             >
               <SelectValue placeholder="Filter by Category" />
             </SelectTrigger>
@@ -103,6 +76,42 @@ export function CourseSearch() {
             </SelectContent>
           </Select>
         </div>
+
+        <div className="relative flex-1">
+          <Label htmlFor="course-search" className="sr-only">
+            Search courses
+          </Label>
+          <Input
+            ref={inputRef}
+            id="course-search"
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search courses, e.g. IOSH, First Aid"
+            className="h-12 rounded-full border-white/20 bg-white pl-5 pr-11 shadow-lg [&::-webkit-search-cancel-button]:appearance-none"
+          />
+          {query && (
+            <button
+              type="button"
+              onClick={() => setQuery("")}
+              aria-label="Clear search"
+              className="absolute right-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-full text-navy/50 transition hover:bg-navy/5 hover:text-navy"
+            >
+              <X className="h-4 w-4" aria-hidden="true" />
+            </button>
+          )}
+        </div>
+
+        {/* Results filter as you type, so this focuses the field rather than
+            submitting — it's an affordance, not a second search trigger. */}
+        <button
+          type="button"
+          onClick={() => inputRef.current?.focus()}
+          aria-label="Search courses"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white text-[#0066b2] shadow-lg transition hover:bg-white/90 hover:text-[#0066b2]/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+        >
+          <Search className="h-5 w-5" aria-hidden="true" />
+        </button>
       </div>
 
       {isSearching && (
