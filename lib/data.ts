@@ -152,6 +152,8 @@ export type Trainer = {
   shortBio: string;
   quote: string;
   bio: string[];
+  /** Full LinkedIn profile URL. Omit when the trainer has no public profile. */
+  linkedin?: string;
 };
 
 export type PhoneNumber = {
@@ -169,6 +171,13 @@ export type Office = {
   label: string;
   phones: string[];
   address: string;
+  /**
+   * Google Maps embed URL pinned to the verified business listing. Omit when we
+   * have no confirmed listing for the office — consumers then fall back to an
+   * address search, which is approximate. Replace the fallbacks with verified
+   * embed URLs (Google Maps → Share → Embed a map) once the listings exist.
+   */
+  mapEmbed?: string;
 };
 
 export const navLinks: NavLink[] = [
@@ -181,90 +190,90 @@ export const navLinks: NavLink[] = [
 
 export const coursesMegaMenu: MegaMenuGroup[] = [
   {
-    title: "",
+    title: "Lifting & Auditing Courses",
     links: [
-      { label: "LEEA – Foundation Course (FOUG)", href: "#" },
-      { label: "LEEA – Appointed Person for Lifting Operations (APLO)", href: "#" },
-      { label: "Lead Auditor", href: "#" },
-      { label: "Rope Access Training", href: "#" },
-      { label: "STI – Scaffold Inspector", href: "#" },
-      { label: "STI – Scaffold Erector", href: "#" },
-      { label: "STI – Scaffold Competent Person", href: "#" },
-      { label: "Basic First Aid CPR & AED", href: "#" },
-      { label: "Pedeatric First Aid", href: "#" },
-      { label: "Tower Crane Rescue", href: "#" },
-      { label: "Confined Space Entry & Rescue", href: "#" },
-      { label: "Confined Space Entry", href: "#" },
-      { label: "Scaffolding Competent Person – STI", href: "#" },
-      { label: "Scaffolding Erector – STI", href: "#" },
-      { label: "Scaffolding Inspector – STI", href: "#" },
-      { label: "Scaffolding Competent Person", href: "#" },
-      { label: "Construction Hoist Operator", href: "#" },
+      { label: "LEEA – Foundation Course (FOUG)", href: "/course/leea-foundation-certificate" },
+      { label: "LEEA – Appointed Person for Lifting Operations (APLO)", href: "/courses/leea-course-dubai" },
+      { label: "Lead Auditor", href: "/courses/irca-lead-auditor" },
+      { label: "Rope Access Training", href: "/courses/rope-access" },
+      { label: "STI – Scaffold Inspector", href: "/courses/sti-scaffold-inspector" },
+      { label: "STI – Scaffold Erector", href: "/courses/sti-scaffold-erector" },
+      { label: "STI – Scaffold Competent Person", href: "/courses/sti-scaffold-competent-person" },
+      { label: "Basic First Aid CPR & AED", href: "/courses/basic-first-aid" },
+      { label: "Pedeatric First Aid", href: "/courses/pedeatric-first-aid" },
+      { label: "Tower Crane Rescue", href: "/courses/tower-crane-rescue" },
+      { label: "Confined Space Entry & Rescue", href: "/courses/confined-space-entry-rescue" },
+      { label: "Confined Space Entry", href: "/courses/confined-space-entry" },
+      { label: "Scaffolding Competent Person – STI", href: "/courses/scaffolding-competent-person-sti" },
+      { label: "Scaffolding Erector – STI", href: "/courses/scaffolding-erector-sti" },
+      { label: "Scaffolding Inspector – STI", href: "/courses/scaffolding-inspector-sti" },
+      { label: "Scaffolding Competent Person", href: "/courses/scaffolding-competent-person" },
+      { label: "Construction Hoist Operator", href: "/courses/construction-hoist-operator" },
     ],
   },
   {
-    title: "",
+    title: "Equipment Operator Courses",
     links: [
-      { label: "Concrete Gun Operator", href: "#" },
-      { label: "Power Hand Tools Operator", href: "#" },
-      { label: "Block Cutting Machine Operator", href: "#" },
-      { label: "Scissor Lift Operator", href: "#" },
-      { label: "Roller Operator", href: "#" },
-      { label: "Manlift Operator", href: "#" },
-      { label: "Cradle Operator", href: "#" },
-      { label: "Dumber Operator", href: "#" },
-      { label: "Excavator Operator", href: "#" },
-      { label: "Shovel Operator", href: "#" },
-      { label: "Forklift Operator", href: "#" },
-      { label: "Mobile Crane Operator", href: "#" },
-      { label: "Lift Operator", href: "#" },
-      { label: "Tunnel Rescue", href: "#" },
-      { label: "Flagman", href: "#" },
-      { label: "IOSH Managing Safely", href: "#" },
-      { label: "IOSH Supervising Safely", href: "#" },
-      { label: "IOSH Working Safely", href: "#" },
+      { label: "Concrete Gun Operator", href: "/courses/concrete-gun-operator" },
+      { label: "Power Hand Tools Operator", href: "/courses/power-hand-tools-operator" },
+      { label: "Block Cutting Machine Operator", href: "/courses/block-cutting-machine-operator" },
+      { label: "Scissor Lift Operator", href: "/courses/scissor-lift-operator" },
+      { label: "Roller Operator", href: "/courses/roller-operator" },
+      { label: "Manlift Operator", href: "/courses/manlift-operator" },
+      { label: "Cradle Operator", href: "/courses/cradle-operator" },
+      { label: "Dumber Operator", href: "/courses/dumber-operator" },
+      { label: "Excavator Operator", href: "/courses/excavator-operator" },
+      { label: "Shovel Operator", href: "/courses/shovel-operator" },
+      { label: "Forklift Operator", href: "/courses/forklift-operator" },
+      { label: "Mobile Crane Operator", href: "/courses/mobile-crane-operator" },
+      { label: "Lift Operator", href: "/courses/lift-operator" },
+      { label: "Tunnel Rescue", href: "/courses/tunnel-rescue" },
+      { label: "Flagman", href: "/courses/flagman" },
+      { label: "IOSH Managing Safely", href: "/courses/iosh-managing-safely" },
+      { label: "IOSH Supervising Safely", href: "/courses/iosh-supervising-safely" },
+      { label: "IOSH Working Safely", href: "/courses/iosh-working-safely" },
     ],
   },
   {
-    title: "",
+    title: "Safety Management Courses",
     links: [
-      { label: "IOSH Managing Safely", href: "#" },
-      { label: "Train the Trainer", href: "#" },
-      { label: "Basic First Aid", href: "#" },
-      { label: "Risk Assesment", href: "#" },
-      { label: "Food Safety", href: "#" },
-      { label: "COSHH", href: "#" },
-      { label: "Confined Space", href: "#" },
-      { label: "Defensive Driving", href: "#" },
-      { label: "HAZOP", href: "#" },
-      { label: "H2S", href: "#" },
-      { label: "PTW", href: "#" },
-      { label: "TRA", href: "#" },
-      { label: "Tunnel Rescue", href: "#" },
-      { label: "Confined Space Exit & Rescue", href: "#" },
-      { label: "Electrical Safety", href: "#" },
-      { label: "Confined Space", href: "#" },
-      { label: "Hand Tools", href: "#" },
-      { label: "Basic Oil Spil", href: "#" },
+      { label: "IOSH Managing Safely", href: "/courses/iosh-managing-safely" },
+      { label: "Train the Trainer", href: "/courses/train-the-trainer" },
+      { label: "Basic First Aid", href: "/courses/basic-first-aid" },
+      { label: "Risk Assesment", href: "/courses/risk-assesment" },
+      { label: "Food Safety", href: "/courses/food-safety" },
+      { label: "COSHH", href: "/courses/coshh" },
+      { label: "Confined Space", href: "/courses/confined-space" },
+      { label: "Defensive Driving", href: "/courses/defensive-driving" },
+      { label: "HAZOP", href: "/courses/hazop" },
+      { label: "H2S", href: "/courses/h2s" },
+      { label: "PTW", href: "/courses/ptw" },
+      { label: "TRA", href: "/courses/tra" },
+      { label: "Tunnel Rescue", href: "/courses/tunnel-rescue" },
+      { label: "Confined Space Exit & Rescue", href: "/courses/confined-space-exit-rescue" },
+      { label: "Electrical Safety", href: "/courses/electrical-safety" },
+      { label: "Confined Space", href: "/courses/confined-space" },
+      { label: "Hand Tools", href: "/courses/hand-tools" },
+      { label: "Basic Oil Spil", href: "/courses/basic-oil-spil" },
     ],
   },
   {
-    title: "",
+    title: "Fire & Scaffolding Courses",
     links: [
-      { label: "Basic Lifeline", href: "#" },
-      { label: "Lifting Supervisor Refresher Training", href: "#" },
-      { label: "Basic Electrical Safety Awareness", href: "#" },
-      { label: "Gas Analyst Training & Certification", href: "#" },
-      { label: "Basic Scaffolding Erection & Dismantling", href: "#" },
-      { label: "Basic Scaffolding Inspection", href: "#" },
-      { label: "Scaffolding Supervisor Training", href: "#" },
-      { label: "Fire Warden Level 1", href: "#" },
-      { label: "Fire Fighting", href: "#" },
-      { label: "Fire Marshall", href: "#" },
-      { label: "Fire Safety", href: "#" },
-      { label: "General Safety Awareness", href: "#" },
-      { label: "Environmental Awareness", href: "#" },
-      { label: "Dangerous Goods Safety Awareness", href: "#" },
+      { label: "Basic Lifeline", href: "/courses/basic-lifeline" },
+      { label: "Lifting Supervisor Refresher Training", href: "/courses/lifting-supervisor-refresher-training" },
+      { label: "Basic Electrical Safety Awareness", href: "/courses/basic-electrical-safety-awareness" },
+      { label: "Gas Analyst Training & Certification", href: "/courses/gas-analyst-training-certification" },
+      { label: "Basic Scaffolding Erection & Dismantling", href: "/courses/basic-scaffolding-erection-dismantling" },
+      { label: "Basic Scaffolding Inspection", href: "/courses/basic-scaffolding-inspection" },
+      { label: "Scaffolding Supervisor Training", href: "/courses/scaffolding-supervisor-training" },
+      { label: "Fire Warden Level 1", href: "/courses/fire-warden-level-1" },
+      { label: "Fire Fighting", href: "/courses/fire-fighting" },
+      { label: "Fire Marshall", href: "/courses/fire-marshall" },
+      { label: "Fire Safety", href: "/courses/fire-safety" },
+      { label: "General Safety Awareness", href: "/courses/general-safety-awareness" },
+      { label: "Environmental Awareness", href: "/courses/environmental-awareness" },
+      { label: "Dangerous Goods Safety Awareness", href: "/courses/dangerous-goods-safety-awareness" },
     ],
   },
 ];
@@ -723,6 +732,8 @@ export const offices: Office[] = [
     label: "Dubai",
     phones: ["+971 4 881 8742", "+971 58 669 5300"],
     address: "F-12, 1st Floor, Union Coop Al Twar, Al Nahda St, Dubai",
+    mapEmbed:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.005021211739!2d55.369079374853165!3d25.27041652873225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f4359aaf3fcb3%3A0xd79a9fbb46a30a3d!2sArbrit%20Safety%20Training%20and%20Consultancy!5e0!3m2!1sen!2sin!4v1785752871035!5m2!1sen!2sin",
   },
   {
     label: "Abu Dhabi",
@@ -1428,7 +1439,8 @@ export const trainers: Trainer[] = [
     credentials: "B.Tech (Fire & Safety), GradIOSH",
     image: "/trainer/Brijith-shaji.webp",
     shortBio:
-      "Brijith Shaji is an Internationally and Dubai Municipality certified Trainer authorized to conduct the NEBOSH, IOSH, HighField, Medic First aid and Scaffold Training Institute courses.",
+      "Brijith Shaji is an internationally and Dubai Municipality certified trainer for NEBOSH, IOSH, Highfield and Scaffold Training Institute courses. He brings almost 14 years of safety experience into the classroom.",
+    linkedin: "#",
     quote: "Push yourself to your limits. Thats how you truly grow.",
     bio: [
       "Brijith Shaji is an Internationally and Dubai Municipality certified Trainer authorized to conduct the NEBOSH, IOSH, HighField, Medic First aid and Scaffold Training Institute courses. Students and managers have described Brijith as both personable and dynamic who captivates participants using a combination of approaches—group exercises, short videos, accident case studies, images of hazards, and group discussion.",
@@ -1442,7 +1454,8 @@ export const trainers: Trainer[] = [
     credentials: "Grad IOSH, STI",
     image: "/trainer/Ishtiaq-Hasham.webp",
     shortBio:
-      "A self-motivated and hard working qualified Health and Safety Trainer / Consultant with over 8 years experience in all aspects of Health and Safety over a diverse range of industries.",
+      "Engr. Ishtiaq Hasham Khan is an accredited IOSH and Scaffold Training Institute trainer with over eight years of health and safety experience. He keeps learners engaged with varied resources.",
+    linkedin: "#",
     quote: "The aim of education is to advance knowledge and share truth",
     bio: [
       "A self-motivated and hard working qualified Health and Safety Trainer / Consultant with over 8 years experience in all aspects of Health and Safety over a diverse range of industries. Accredited trainer to deliver IOSH and STI training courses.",
@@ -1456,7 +1469,8 @@ export const trainers: Trainer[] = [
     credentials: "HSE Trainer",
     image: "/trainer/anshadh-rahim.webp",
     shortBio:
-      "HSE Trainer with shown skill in content development, creating learning programmes and initiatives.",
+      "Anshadh Rahim is an HSE trainer skilled in content development and building learning programmes, holding the core safety accreditations to deliver training to best practice. He runs engaging, professional sessions.",
+    linkedin: "#",
     quote: "The aim of education is to advance knowledge and share truth",
     bio: [
       "HSE Trainer with shown skill in content development, creating learning programmes and initiatives. Trainer has proven his ability to make the sessions engaging and delivering professionally, Having all the basic safety accreditations to deliver the services to the best of its practice",

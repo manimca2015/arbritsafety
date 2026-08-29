@@ -24,17 +24,17 @@ export function CourseCategories({
     <section className="bg-muted py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Course" title="International Course" />
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {courseCategories.map((category, i) => {
             const Icon = category.icon;
             const hiddenOnMobile = !expanded && i >= MOBILE_VISIBLE;
             return (
-              <Reveal key={category.slug} delay={(i % 4) * 0.08}>
+              <Reveal key={category.slug} delay={(i % 4) * 0.08} className="h-full">
               <Link
                 href={category.href}
                 className={cn(
-                  "group relative flex flex-col items-start justify-end overflow-hidden rounded-2xl p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange",
-                  showDescriptions ? "h-80" : "h-72",
+                  "group relative flex h-full flex-col items-start justify-end overflow-hidden rounded-2xl p-5 text-left shadow-sm transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange sm:p-6",
+                  showDescriptions ? "min-h-80" : "min-h-72",
                   hiddenOnMobile && "hidden sm:flex"
                 )}
               >
@@ -42,7 +42,7 @@ export function CourseCategories({
                   src={category.image}
                   alt={`${category.title} accredited training course`}
                   fill
-                  sizes="(min-width: 640px) 25vw, 50vw"
+                  sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-[#0066b2] via-[#0066b2]/70 to-[#0066b2]/10 transition group-hover:via-[#0066b2]/55" />

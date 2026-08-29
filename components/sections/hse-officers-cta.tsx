@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, HardHat } from "lucide-react";
+import { Building2, HardHat, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function HseOfficersCta() {
@@ -20,20 +20,40 @@ export function HseOfficersCta() {
               </p>
             </div>
           </div>
-          <div className="flex shrink-0 flex-wrap justify-center gap-3">
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white/60 bg-transparent text-white hover:bg-white/10 hover:text-white"
-            >
-              <Link href="/contact">Contact Us</Link>
-            </Button>
-            <Button asChild size="lg" className="bg-white text-[#000] hover:bg-white/90">
-              <Link href="/contact">
-                Apply Now <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Link>
-            </Button>
+          <div className="flex shrink-0 flex-col items-stretch gap-3 sm:flex-row sm:items-center">
+            <div className="flex flex-col items-center gap-1.5 sm:items-start">
+              <Button
+                asChild
+                size="lg"
+                className="w-full bg-white font-semibold text-[#0066b2] shadow-md transition hover:bg-white/90 sm:w-auto"
+              >
+                <Link href="/contact">
+                  <Building2 className="mr-2 h-4 w-4" aria-hidden="true" />
+                  Contact Us
+                </Link>
+              </Button>
+              <span className="text-xs text-white/60">Hire an HSE officer</span>
+            </div>
+
+            <span
+              aria-hidden="true"
+              className="hidden h-12 w-px shrink-0 bg-white/25 sm:block"
+            />
+
+            <div className="flex flex-col items-center gap-1.5 sm:items-start">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="w-full border-2 border-white/70 bg-white/10 font-semibold text-white transition hover:border-white hover:bg-white/20 hover:text-white sm:w-auto"
+              >
+                <Link href="/career">
+                  <UserPlus className="mr-2 h-4 w-4" aria-hidden="true" />
+                  Apply Now
+                </Link>
+              </Button>
+              <span className="text-xs text-white/60">Join our HSE talent pool</span>
+            </div>
           </div>
         </div>
       </div>

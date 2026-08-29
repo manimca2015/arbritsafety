@@ -2,11 +2,17 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, Clock, Search, X } from "lucide-react";
+import { ArrowRight, Clock, Search, SlidersHorizontal, X } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { courseCategories, featuredCourses } from "@/lib/data";
-import { cn } from "@/lib/utils";
 
 type Filter = "All" | "International" | "General Safety";
 
@@ -72,23 +78,31 @@ export function CourseSearch() {
         )}
       </div>
 
-      <div className="mt-3 flex flex-wrap gap-2">
-        {filters.map((option) => (
-          <button
-            key={option}
-            type="button"
-            onClick={() => setFilter(option)}
-            aria-pressed={filter === option}
-            className={cn(
-              "rounded-full border px-4 py-1.5 text-sm font-semibold transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white",
-              filter === option
-                ? "border-white bg-white text-[#0066b2]"
-                : "border-white/40 bg-white/10 text-white hover:bg-white/20"
-            )}
-          >
-            {option}
-          </button>
-        ))}
+      <div className="mt-3">
+        <Label htmlFor="course-filter" className="sr-only">
+          Filter by category
+        </Label>
+        <div className="relative">
+          <SlidersHorizontal
+            className="pointer-events-none absolute left-4 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-navy/40"
+            aria-hidden="true"
+          />
+          <Select value={filter} onValueChange={(value) => setFilter(value as Filter)}>
+            <SelectTrigger
+              id="course-filter"
+              className="h-12 w-full rounded-full border-white/20 bg-white pl-11 shadow-lg sm:w-64"
+            >
+              <SelectValue placeholder="Filter by Category" />
+            </SelectTrigger>
+            <SelectContent>
+              {filters.map((option) => (
+                <SelectItem key={option} value={option}>
+                  {option === "All" ? "All Categories" : option}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </div>
       </div>
 
       {isSearching && (

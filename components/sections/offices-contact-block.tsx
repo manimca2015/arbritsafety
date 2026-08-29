@@ -1,10 +1,29 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { Building2, Mail, MapPin, Phone } from "lucide-react";
+import { Building2, ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import { offices, contactInfo, socialLinks } from "@/lib/data";
 
-export function OfficesContactBlock() {
+/**
+ * Address-search embed, used for offices with no verified listing on file.
+ * Google resolves the address string, so the pin is approximate — see the
+ * `mapEmbed` note on the Office type.
+ */
+function searchEmbed(address: string) {
+  return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+}
+
+function directionsHref(address: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+}
+
+export function OfficesContactBlock({
+  /** Render a map at the top of each office card. Off by default so pages that
+   *  already show their own map (e.g. Contact) aren't given a second one. */
+  showMaps = false,
+}: {
+  showMaps?: boolean;
+} = {}) {
   const shouldReduceMotion = useReducedMotion();
 
   return (
@@ -17,32 +36,57 @@ export function OfficesContactBlock() {
             whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
-            className="group relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-[#0066b2]/30 hover:shadow-xl hover:shadow-[#0066b2]/10"
+            className="group relative flex flex-col overflow-hidden rounded-3xl border border-navy/10 bg-white shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-[#0066b2]/30 hover:shadow-xl hover:shadow-[#0066b2]/10"
           >
-            <span
-              aria-hidden="true"
-              className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-[#0066b2] transition-transform duration-300 group-hover:scale-x-100"
-            />
-            <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0066b2]/10 text-[#0066b2] transition duration-300 group-hover:bg-[#0066b2] group-hover:text-white">
-              <Building2 className="h-5 w-5" aria-hidden="true" />
-            </span>
-            <h3 className="mt-4 font-heading text-lg font-bold text-[#0066b2]">{office.label}</h3>
-            <div className="mt-3 space-y-1.5">
-              {office.phones.map((phone) => (
+            {showMaps && (
+              <div className="h-44 w-full shrink-0 bg-muted">
+                <iframe
+                  src={office.mapEmbed ?? searchEmbed(office.address)}
+                  title={`Map showing the Arbrit Safety office in ${office.label}`}
+                  className="h-full w-full border-0"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                />
+              </div>
+            )}
+
+            <div className="relative flex flex-1 flex-col p-6">
+              <span
+                aria-hidden="true"
+                className="absolute inset-x-0 top-0 h-1 scale-x-0 bg-[#0066b2] transition-transform duration-300 group-hover:scale-x-100"
+              />
+              <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0066b2]/10 text-[#0066b2] transition duration-300 group-hover:bg-[#0066b2] group-hover:text-white">
+                <Building2 className="h-5 w-5" aria-hidden="true" />
+              </span>
+              <h3 className="mt-4 font-heading text-lg font-bold text-[#0066b2]">{office.label}</h3>
+              <div className="mt-3 space-y-1.5">
+                {office.phones.map((phone) => (
+                  <a
+                    key={phone}
+                    href={`tel:${phone.replace(/\s+/g, "")}`}
+                    className="flex items-center gap-2 text-sm text-[#000] transition hover:text-orange"
+                  >
+                    <Phone className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
+                    {phone}
+                  </a>
+                ))}
+              </div>
+              <p className="mt-3 flex items-start gap-2 text-sm text-navy">
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
+                {office.address}
+              </p>
+              {showMaps && (
                 <a
-                  key={phone}
-                  href={`tel:${phone.replace(/\s+/g, "")}`}
-                  className="flex items-center gap-2 text-sm text-[#000] transition hover:text-orange"
+                  href={directionsHref(office.address)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-[#0066b2] hover:underline"
                 >
-                  <Phone className="h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
-                  {phone}
+                  Get directions
+                  <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                 </a>
-              ))}
+              )}
             </div>
-            <p className="mt-3 flex items-start gap-2 text-sm text-navy">
-              <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-orange" aria-hidden="true" />
-              {office.address}
-            </p>
           </motion.div>
         ))}
       </div>

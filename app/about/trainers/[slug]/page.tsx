@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { LinkedinIcon } from "@/components/icons/social-icons";
 import { PageHeader } from "@/components/layout/page-header";
 import { trainers } from "@/lib/data";
 
@@ -54,6 +55,17 @@ export default async function TrainerPage({ params }: { params: Promise<{ slug: 
             <p className="mt-1 text-sm font-semibold uppercase tracking-wide text-orange">
               {trainer.credentials}
             </p>
+            {trainer.linkedin ? (
+              <a
+                href={trainer.linkedin}
+                target={trainer.linkedin.startsWith("http") ? "_blank" : undefined}
+                rel={trainer.linkedin.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={`${trainer.name} on LinkedIn`}
+                className="mt-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[#0066b2]/10 text-[#0066b2] transition-colors hover:bg-[#0066b2]/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0066b2]"
+              >
+                <LinkedinIcon className="h-5 w-5" aria-hidden="true" />
+              </a>
+            ) : null}
             <p className="mt-4 max-w-xl font-heading text-lg italic text-[#000]">
               &ldquo;{trainer.quote}&rdquo;
             </p>

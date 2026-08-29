@@ -25,7 +25,7 @@ export function QuickEnquiry() {
   };
 
   return (
-    <section className="bg-[#0066b2] py-14 md:py-16">
+    <section id="quick-enquiry" className="scroll-mt-24 bg-[#0066b2] py-14 md:py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal>
           <div className="mx-auto max-w-3xl">

@@ -13,7 +13,12 @@ import { Reveal } from "@/components/ui/reveal";
 
 const MOBILE_VISIBLE = 4;
 
-export function FeaturedCourses() {
+export function FeaturedCourses({
+  showViewAll = false,
+}: {
+  /** Shows a "View All Courses" button linking to the full course directory. */
+  showViewAll?: boolean;
+} = {}) {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -111,6 +116,24 @@ export function FeaturedCourses() {
             >
               View More Courses
               <ChevronDown className="ml-1.5 h-4 w-4" aria-hidden="true" />
+            </Button>
+          </div>
+        )}
+
+        {showViewAll && (
+          <div className="mt-10 flex justify-center">
+            <Button
+              asChild
+              size="lg"
+              className="group bg-[#0066b2] text-white shadow-md shadow-[#0066b2]/20 transition hover:bg-[#0066b2]/90"
+            >
+              <Link href="#all-courses">
+                View All Courses
+                <ArrowRight
+                  className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                  aria-hidden="true"
+                />
+              </Link>
             </Button>
           </div>
         )}
