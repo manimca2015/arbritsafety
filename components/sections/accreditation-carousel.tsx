@@ -23,13 +23,13 @@ const logos = [
 
 function LogoCard({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex h-24 w-40 shrink-0 items-center justify-center rounded-2xl border border-navy/10 bg-white p-4 shadow-sm">
+    <div className="flex h-20 w-32 shrink-0 items-center justify-center rounded-xl border border-navy/10 bg-white p-3 shadow-sm sm:h-24 sm:w-40 sm:rounded-2xl sm:p-4">
       <div className="relative h-full w-full">
         <Image
           src={src}
           alt={`${alt} accredited training partner logo`}
           fill
-          sizes="160px"
+          sizes="(min-width: 640px) 160px, 128px"
           className="object-contain"
         />
       </div>
@@ -41,21 +41,21 @@ export function AccreditationCarousel() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
-    <section className="overflow-hidden bg-white py-16 md:py-20">
+    <section className="overflow-hidden bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading title="Accreditation" />
       </div>
 
       {shouldReduceMotion ? (
-        <div className="mx-auto mt-10 flex max-w-7xl flex-wrap justify-center gap-6 px-6">
+        <div className="mx-auto mt-8 flex max-w-7xl flex-wrap justify-center gap-3 px-6 sm:mt-10 sm:gap-6">
           {logos.map((logo) => (
             <LogoCard key={logo.src} src={logo.src} alt={logo.alt} />
           ))}
         </div>
       ) : (
-        <div className="relative mx-auto mt-10 max-w-7xl overflow-hidden px-6">
+        <div className="relative mx-auto mt-8 max-w-7xl overflow-hidden px-6 sm:mt-10">
           <motion.div
-            className="flex w-max gap-6"
+            className="flex w-max gap-3 sm:gap-6"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
           >

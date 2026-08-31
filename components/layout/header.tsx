@@ -54,19 +54,22 @@ export function Header() {
     return () => window.removeEventListener("resize", setHeaderHeight);
   }, []);
 
-  const linkColor = "text-[#000]";
+  // Home page has a full-bleed hero, so the header floats over it until scrolled.
+  const overlay = pathname === "/";
+  const transparent = overlay && !scrolled;
+  const linkColor = transparent ? "text-white" : "text-[#000]";
 
   return (
     <header
       ref={headerRef}
-      className={`sticky top-0 z-50 w-full bg-surface/95 backdrop-blur transition-shadow duration-300 ${
-        scrolled ? "shadow-sm" : ""
-      }`}
+      className={`${overlay ? "fixed" : "sticky"} top-0 z-50 w-full transition-all duration-300 ${
+        transparent ? "bg-transparent" : "bg-surface/95 backdrop-blur"
+      } ${scrolled ? "shadow-sm" : ""}`}
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-4">
         <Link href="/" className="flex items-center">
           <Image
-            src="/header-logo.svg"
+            src={transparent ? "/footer-logo.svg" : "/header-logo.svg"}
             alt="Arbrit Safety Training & Consultancy logo"
             width={180}
             height={60}
@@ -96,7 +99,11 @@ export function Header() {
                 onClick={() => router.push("/courses")}
                 aria-current={isCoursesActive ? "page" : undefined}
                 className={`rounded-full text-sm font-medium transition-colors ${
-                  isCoursesActive ? "bg-white text-[#000] hover:bg-white" : `bg-transparent ${linkColor}`
+                  isCoursesActive
+                    ? "bg-white text-[#000] hover:bg-white"
+                    : transparent
+                      ? "bg-transparent text-white hover:bg-white/15 hover:text-white focus:bg-white/15 data-open:bg-white/15 data-open:hover:bg-white/15 data-popup-open:bg-white/15 data-popup-open:hover:bg-white/15"
+                      : `bg-transparent ${linkColor}`
                 }`}
               >
                 Courses
@@ -112,7 +119,7 @@ export function Header() {
                         <li key={linkIndex} className="break-inside-avoid">
                           <NavigationMenuLink asChild>
                             <Link
-                              href={link.href}
+                              href="#"
                               className="block p-0.5 text-sm leading-tight text-[#000] hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                             >
                               {link.label}
@@ -141,7 +148,15 @@ export function Header() {
 
             {contactLink && (
               <NavigationMenuItem>
-                <Button asChild variant="outline" className="border-navy/30 text-[#000] hover:bg-navy/5">
+                <Button
+                  asChild
+                  variant="outline"
+                  className={
+                    transparent
+                      ? "border-white/50 bg-transparent text-white hover:bg-white/10 hover:text-white"
+                      : "border-navy/30 text-[#000] hover:bg-navy/5"
+                  }
+                >
                   <Link href={contactLink.href} aria-current={isActive(contactLink.href) ? "page" : undefined}>
                     {contactLink.label}
                   </Link>
@@ -164,7 +179,7 @@ export function Header() {
             <Button
               variant="ghost"
               size="icon"
-              className="lg:hidden"
+              className={`lg:hidden ${transparent ? "text-white hover:bg-white/10 hover:text-white" : ""}`}
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
@@ -236,7 +251,7 @@ export function Header() {
                           {group.links.map((link, linkIndex) => (
                             <Link
                               key={`${groupIndex}-${linkIndex}`}
-                              href={link.href}
+                              href="#"
                               onClick={() => setMobileMenuOpen(false)}
                               className="text-sm text-[#000] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange"
                             >

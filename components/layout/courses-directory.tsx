@@ -148,7 +148,7 @@ export function CoursesDirectory() {
                     {group.links.map((link, linkIndex) => (
                       <li key={`${groupIndex}-${linkIndex}`}>
                         <Link
-                          href={link.href}
+                          href="#"
                           className="group flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm text-[#000] transition-colors hover:bg-orange/5 hover:text-orange"
                         >
                           <ChevronRight
