@@ -3,17 +3,18 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Award, BadgeCheck, ShieldCheck, Sparkles } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HeroContactForm } from "@/components/sections/hero-contact-form";
 
-type Achievement = { value: string; caption: string };
+type Achievement = { icon: LucideIcon; value: string; caption?: string };
 
 const achievements: Achievement[] = [
-  { value: "20+", caption: "Years Legacy" },
-  { value: "LEEA", caption: "Accredited" },
-  { value: "IOSH", caption: "Accredited" },
-  { value: "OSHAD", caption: "Accredited" },
+  { icon: Sparkles, value: "20+", caption: "Years Legacy" },
+  { icon: Award, value: "LEEA" },
+  { icon: ShieldCheck, value: "IOSH" },
+  { icon: BadgeCheck, value: "OSHAD" },
 ];
 
 export function Hero() {
@@ -81,18 +82,24 @@ export function Hero() {
             </Button>
           </div>
 
-          {/* One credential bar, not four floating chips: glass strip over the hero photo,
-              cells split by hairlines (2x2 on mobile, single row from sm up). Uniform
-              value-over-caption so the stat and the accreditations read in one register. */}
-          <ul className="mt-8 grid max-w-xl grid-cols-2 overflow-hidden rounded-2xl border border-white/15 bg-white/[0.07] backdrop-blur-md sm:grid-cols-4 [&>li]:border-white/12 [&>li:nth-child(2)]:border-l [&>li:nth-child(4)]:border-l [&>li:nth-child(n+3)]:border-t sm:[&>li:nth-child(n+2)]:border-l sm:[&>li:nth-child(n+3)]:border-t-0">
-            {achievements.map(({ value, caption }) => (
-              <li key={value} className="px-4 py-3.5 sm:py-4">
-                <p className="font-heading text-lg font-bold leading-none text-white sm:text-xl">
-                  {value}
-                </p>
-                <p className="mt-1.5 text-[10px] font-medium uppercase leading-none tracking-[0.14em] text-white/55 sm:text-[11px]">
-                  {caption}
-                </p>
+          {/* Separate cards, each sized to its own label, wrapping on narrow screens. */}
+          <ul className="mt-7 flex flex-wrap gap-2 sm:gap-3">
+            {achievements.map(({ icon: Icon, value, caption }) => (
+              <li
+                key={value}
+                className="flex items-center gap-2 whitespace-nowrap rounded-xl bg-white px-3.5 py-2.5 shadow-[0_16px_40px_-20px_rgba(3,17,41,0.75)] sm:px-4 sm:py-3"
+              >
+                <Icon className="h-4 w-4 shrink-0 text-[#0066b2]" aria-hidden="true" />
+                <span className="flex items-baseline gap-1.5">
+                  <span className="font-heading text-sm font-bold leading-none tracking-tight text-navy-deep sm:text-[15px]">
+                    {value}
+                  </span>
+                  {caption && (
+                    <span className="text-[11px] font-semibold leading-none tracking-[0.01em] text-navy-deep/75 sm:text-xs">
+                      {caption}
+                    </span>
+                  )}
+                </span>
               </li>
             ))}
           </ul>
