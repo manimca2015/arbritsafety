@@ -55,7 +55,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </span>
 
               <div className="relative mt-4 aspect-[16/9] w-full overflow-hidden rounded-2xl shadow-lg">
-                <Image src={post.imageWide} alt={`Cover image for the article “${post.title}”`} fill priority quality={90} sizes="(min-width: 1024px) 70vw, 100vw" className="object-cover" />
+                <Image src={post.imageWide} alt={post.imageAlt ?? `Cover image for the Arbrit Safety article “${post.title}”`} fill preload sizes="(min-width: 1024px) 70vw, 100vw" className="object-cover" />
               </div>
 
               <div className="mt-10 space-y-8">
@@ -131,7 +131,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                       className="group flex items-center gap-4 rounded-2xl border border-navy/10 bg-white p-3 shadow-sm transition hover:shadow-lg hover:border-orange/40"
                     >
                       <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
-                        <Image src={p.image} alt={`Cover image for the article “${p.title}”`} fill sizes="64px" className="object-cover" />
+                        <Image src={p.image} alt={p.imageAlt ?? `Cover image for the Arbrit Safety article “${p.title}”`} fill sizes="64px" className="object-cover" />
                       </div>
                       <div className="min-w-0">
                         <span className="text-xs font-semibold uppercase tracking-wide text-orange">

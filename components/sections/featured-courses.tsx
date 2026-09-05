@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, ChevronDown, Clock, MapPin } from "lucide-react";
-import { featuredCourses } from "@/lib/data";
+import { courseImageAlt, featuredCourses } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
@@ -60,7 +60,7 @@ export function FeaturedCourses({
                   <span className="relative block aspect-[4/3] w-full">
                     <Image
                       src={course.image}
-                      alt={`${course.title} safety training course`}
+                      alt={courseImageAlt(course)}
                       fill
                       sizes="50vw"
                       className="object-cover"
@@ -110,7 +110,7 @@ export function FeaturedCourses({
                   <div className="relative h-48 w-full">
                     <Image
                       src={course.image}
-                      alt={`${course.title} safety training course`}
+                      alt={courseImageAlt(course)}
                       fill
                       sizes="(min-width: 1024px) 25vw, 50vw"
                       className="object-cover"

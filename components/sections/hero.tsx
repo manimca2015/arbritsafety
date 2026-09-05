@@ -24,10 +24,10 @@ export function Hero() {
     <section className="relative isolate overflow-hidden bg-navy-deep">
       <Image
         src="/slider-img.webp"
-        alt="Arbrit safety training banner"
-        aria-hidden="true"
+        alt="Delegates in full PPE during an Arbrit Safety health and safety training session in Dubai, UAE"
         fill
-        priority
+        preload
+        quality={65}
         sizes="100vw"
         className="object-cover object-center"
       />

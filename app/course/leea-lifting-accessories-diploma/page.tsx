@@ -39,7 +39,7 @@ export default function LeeaLiftingAccessoriesDiplomaPage() {
               Authorised LEEA Training Provider
             </span>
 
-            <h1 className="mt-6 font-heading text-4xl font-bold leading-tight text-[#0066b2] sm:text-5xl">
+            <h1 className="mt-6 font-heading text-[2rem] font-bold leading-tight text-[#0066b2] sm:text-5xl">
               LEEA Lifting Accessories Diploma (LAC) Training in UAE
             </h1>
 

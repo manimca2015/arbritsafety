@@ -52,7 +52,7 @@ export function ConsultancySectors() {
                 <div className="relative h-44 overflow-hidden">
                   <Image
                     src={sector.image}
-                    alt={`${sector.name} HSE consultancy by Arbrit Safety`}
+                    alt={`${sector.name} HSE consultancy by Arbrit Safety in Dubai, Abu Dhabi and Saudi Arabia`}
                     fill
                     sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
                     className="object-cover transition duration-500 group-hover:scale-105"

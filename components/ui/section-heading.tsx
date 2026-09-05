@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
 import { Reveal } from "@/components/ui/reveal";
 
 type SectionHeadingProps = {
   eyebrow?: string;
-  title: string;
+  /** ReactNode so sections can swap copy per breakpoint inside a single heading. */
+  title: ReactNode;
   description?: string;
   align?: "left" | "center";
 };

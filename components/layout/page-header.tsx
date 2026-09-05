@@ -39,9 +39,13 @@ export function PageHeader({
     >
       <Image
         src={image}
-        alt={imageAlt ?? `${title} — Arbrit Safety Training & Consultancy`}
+        alt={
+          imageAlt ??
+          "Construction site safety supervision by Arbrit Safety Training & Consultancy in Dubai, UAE"
+        }
         fill
-        priority
+        preload
+        quality={65}
         sizes="100vw"
         className="object-cover"
       />
@@ -83,7 +87,7 @@ export function PageHeader({
             </p>
           )}
           <h1
-            className={`break-words font-heading text-4xl font-bold text-white sm:text-5xl md:text-6xl ${eyebrow ? "mt-3" : ""}`}
+            className={`break-words font-heading text-[2rem] leading-[1.2] font-bold text-white sm:text-5xl sm:leading-none md:text-6xl ${eyebrow ? "mt-3" : ""}`}
           >
             {title}
           </h1>

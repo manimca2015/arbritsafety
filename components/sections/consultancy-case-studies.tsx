@@ -57,7 +57,7 @@ export function ConsultancyCaseStudies() {
                 <div className="relative h-48">
                   <Image
                     src={study.image}
-                    alt={`${study.sector} HSE consultancy engagement delivered by Arbrit Safety`}
+                    alt={`${study.sector} HSE consultancy engagement delivered by Arbrit Safety in the UAE`}
                     fill
                     sizes="(min-width: 1024px) 30vw, 100vw"
                     className="object-cover"

@@ -7,6 +7,7 @@ import { CoursesDirectorySlot } from "@/components/layout/courses-directory-slot
 import { HseOfficersCtaSlot } from "@/components/sections/hse-officers-cta-slot";
 import { BackToTop } from "@/components/ui/back-to-top";
 import { WhatsappFloatButton } from "@/components/ui/whatsapp-float-button";
+import { MobileCtaBar } from "@/components/ui/mobile-cta-bar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -45,7 +46,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${plusJakarta.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col overflow-x-hidden bg-surface text-[#000] font-sans">
+      <body className="flex min-h-full flex-col overflow-x-hidden bg-surface pb-[calc(4rem+env(safe-area-inset-bottom))] text-[#000] font-sans md:pb-0">
         <a
           href="#main"
           className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:rounded-md focus:bg-orange focus:px-4 focus:py-2 focus:text-white"
@@ -61,6 +62,7 @@ export default function RootLayout({
         <Footer />
         <BackToTop />
         <WhatsappFloatButton />
+        <MobileCtaBar />
       </body>
     </html>
   );

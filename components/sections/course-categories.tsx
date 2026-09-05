@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, ChevronDown, Clock, MapPin } from "lucide-react";
-import { courseCategories } from "@/lib/data";
+import { courseCategories, courseImageAlt } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -64,7 +64,7 @@ export function CourseCategories({
                     <span className="relative h-[62px] w-[88px] shrink-0 overflow-hidden rounded-lg">
                       <Image
                         src={category.image}
-                        alt={`${category.title} accredited training course`}
+                        alt={courseImageAlt(category)}
                         fill
                         sizes="88px"
                         className="object-cover"
@@ -110,7 +110,7 @@ export function CourseCategories({
                 >
                   <Image
                     src={category.image}
-                    alt={`${category.title} accredited training course`}
+                    alt={courseImageAlt(category)}
                     fill
                     sizes="(min-width: 1024px) 25vw, 50vw"
                     className="object-cover transition duration-300 group-hover:scale-105"

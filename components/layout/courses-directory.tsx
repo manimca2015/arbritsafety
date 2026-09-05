@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ChevronDown, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, ChevronDown, ChevronRight, Search, SlidersHorizontal, X } from "lucide-react";
 import { coursesMegaMenu } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,21 @@ import {
 import { cn } from "@/lib/utils";
 
 const ALL = "All Categories";
+
+/**
+ * Shortlist shown on phones in place of the full 67-course directory, which makes
+ * the bottom of every page far too long on a small screen. Hrefs stay as "#", the
+ * same as the rest of the directory, until the real course URLs are confirmed.
+ */
+const POPULAR_COURSES = [
+  "IOSH",
+  "LEEA",
+  "Scaffold Training",
+  "First Aid",
+  "Fire Safety",
+  "Forklift",
+  "Confined Space",
+];
 
 export function CoursesDirectory() {
   const [query, setQuery] = useState("");
@@ -42,10 +57,45 @@ export function CoursesDirectory() {
   const total = groups.reduce((count, group) => count + group.links.length, 0);
 
   return (
-    <section id="all-courses" className="scroll-mt-28 bg-white py-16 md:py-20">
+    <section id="all-courses" className="scroll-mt-28 bg-white py-12 sm:py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading title="Courses" align="left" />
+        <SectionHeading
+          title={
+            <>
+              <span className="sm:hidden">Popular Courses</span>
+              <span className="hidden sm:inline">Courses</span>
+            </>
+          }
+          align="left"
+        />
 
+        {/* Phones get a short curated list plus a way through to the full listing. */}
+        <div className="mt-6 sm:hidden">
+          <ul className="divide-y divide-navy/10 overflow-hidden rounded-2xl border border-navy/10 bg-white shadow-sm">
+            {POPULAR_COURSES.map((label) => (
+              <li key={label}>
+                <Link
+                  href="#"
+                  className="flex items-center justify-between gap-3 px-4 py-3 text-sm font-medium text-[#000] transition-colors hover:bg-orange/5 hover:text-orange focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066b2]"
+                >
+                  {label}
+                  <ChevronRight className="h-4 w-4 shrink-0 text-orange/60" aria-hidden="true" />
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            href="/courses"
+            className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#0066b2] underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0066b2]"
+          >
+            View All Courses
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        </div>
+
+        {/* Tablet and up keep the searchable, category-grouped directory. */}
+        <div className="hidden sm:block">
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
           <div className="group relative w-full sm:max-w-sm">
             <Label htmlFor="directory-search" className="sr-only">
@@ -169,6 +219,7 @@ export function CoursesDirectory() {
             No courses match your search. Try a different keyword or category.
           </p>
         )}
+        </div>
       </div>
     </section>
   );

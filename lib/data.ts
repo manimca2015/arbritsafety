@@ -111,6 +111,8 @@ export type BlogPost = {
   href: string;
   image: string;
   imageWide: string;
+  /** Describes what the cover photo actually shows, rather than repeating the headline. */
+  imageAlt?: string;
   content?: BlogSection[];
 };
 
@@ -464,6 +466,8 @@ export const blogPosts: BlogPost[] = [
     href: "/blog/train-the-trainer-oshad-compliance",
     image: "/blog/train-the-trainer-oshad-compliance-thumb.webp",
     imageWide: "/blog/train-the-trainer-oshad-compliance-hero.webp",
+    imageAlt:
+      "Train the Trainer course delegates practising a safety briefing during an OSHAD compliance session in Abu Dhabi",
     content: [
       {
         paragraphs: [
@@ -540,6 +544,8 @@ export const blogPosts: BlogPost[] = [
     href: "/blog/renew-leea-lifting-supervisor-certification",
     image: "/blog/leea-lifting-supervisor-renewal-thumb.webp",
     imageWide: "/blog/leea-lifting-supervisor-renewal-hero.webp",
+    imageAlt:
+      "LEEA lifting supervisor inspecting chain slings and shackles during a certification renewal assessment in the UAE",
     content: [
       {
         paragraphs: [
@@ -617,6 +623,8 @@ export const blogPosts: BlogPost[] = [
     href: "/blog/leea-training-courses-dubai",
     image: "/blog/leea-training-courses-dubai-thumb.webp",
     imageWide: "/blog/leea-training-courses-dubai-hero.webp",
+    imageAlt:
+      "LEEA lifting operations training course in Dubai, with delegates planning a crane lift and reviewing method statements",
     content: [
       {
         paragraphs: [
@@ -1478,3 +1486,20 @@ export const trainers: Trainer[] = [
     ],
   },
 ];
+
+/**
+ * Builds descriptive alt text for a course image from the course's own data, so
+ * every card names the subject and where the course actually runs — "IOSH safety
+ * training course by Arbrit Safety in Dubai, Abu Dhabi, Saudi Arabia" rather than
+ * a bare filename or a repeated heading.
+ */
+export function courseImageAlt(course: { title: string; location?: string }) {
+  const where = (course.location ?? "Dubai · Abu Dhabi · KSA")
+    .replace(/\s*·\s*/g, ", ")
+    .replace(/\bKSA\b/g, "Saudi Arabia");
+  // Titles like "Construction Safety" already carry the word, so do not double it up.
+  const subject = /safety/i.test(course.title)
+    ? `${course.title} training course`
+    : `${course.title} safety training course`;
+  return `${subject} by Arbrit Safety in ${where}`;
+}

@@ -87,7 +87,7 @@ export function ConsultancyProcess() {
             <div className="relative h-48 overflow-hidden rounded-3xl shadow-2xl sm:h-56">
               <Image
                 src="/hero/slide-3-lifting-operations.jpg"
-                alt="Lifting operations being assessed during an Arbrit safety audit"
+                alt="Crane lifting operations being assessed during an Arbrit Safety site audit in the UAE"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"

@@ -6,7 +6,7 @@ import { CheckCircle2, Clock, ExternalLink } from "lucide-react";
 import { PageHeader } from "@/components/layout/page-header";
 import { JoinCourseDialog } from "@/components/sections/join-course-dialog";
 import { CourseClientsCarousel } from "@/components/sections/course-clients-carousel";
-import { courseDetails, featuredCourses } from "@/lib/data";
+import { courseDetails, courseImageAlt, featuredCourses } from "@/lib/data";
 
 export function generateStaticParams() {
   return courseDetails.map((course) => ({ slug: course.slug }));
@@ -77,7 +77,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           <div className="grid gap-12 lg:grid-cols-[7fr_3fr]">
             <div>
               <div className="relative h-72 w-full overflow-hidden rounded-2xl shadow-lg sm:h-96">
-                <Image src={course.image} alt={`${course.title} safety training course`} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+                <Image src={course.image} alt={courseImageAlt(course)} fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
               </div>
               {course.duration && (
                 <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-orange">
@@ -108,7 +108,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 <div className="relative mt-10 h-24 w-full overflow-hidden rounded-2xl bg-muted sm:h-32">
                   <Image
                     src={course.accreditationLogo}
-                    alt={`${course.title} accreditation logo`}
+                    alt={`${course.title} accrediting body logo — Arbrit Safety accredited training provider`}
                     fill
                     sizes="(min-width: 1024px) 60vw, 100vw"
                     className="object-contain p-4"
@@ -122,7 +122,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                     <div key={i} className="relative h-24 w-full max-w-xs overflow-hidden rounded-2xl bg-muted sm:h-32">
                       <Image
                         src={logo}
-                        alt={`${course.title} accreditation logo ${i + 1}`}
+                        alt={`${course.title} accrediting body logo ${i + 1} — Arbrit Safety accredited training provider`}
                         fill
                         sizes="(min-width: 1024px) 30vw, 100vw"
                         className="object-contain p-4"
@@ -271,7 +271,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                         className="group flex items-center gap-4 rounded-2xl border border-navy/10 bg-white p-3 shadow-sm transition hover:shadow-lg hover:border-orange/40"
                       >
                         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-xl">
-                          <Image src={c.image} alt={`${c.title} safety training course`} fill sizes="64px" className="object-cover" />
+                          <Image src={c.image} alt={courseImageAlt(c)} fill sizes="64px" className="object-cover" />
                         </div>
                         <div className="min-w-0">
                           <span className="text-xs font-semibold uppercase tracking-wide text-orange">

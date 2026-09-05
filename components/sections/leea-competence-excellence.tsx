@@ -30,7 +30,7 @@ export function LeeaCompetenceExcellence() {
           >
             <Image
               src="/course/LEEA-Appointed-Lifting-Person.jpg"
-              alt="LEEA lifting operations training in progress"
+              alt="LEEA lifting equipment training in progress, with delegates inspecting slings and shackles in Dubai, UAE"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

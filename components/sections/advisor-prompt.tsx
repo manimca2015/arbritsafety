@@ -79,7 +79,7 @@ export function AdvisorPrompt({
       role="complementary"
       aria-label="Course guidance"
       aria-hidden={!visible}
-      className={`fixed bottom-24 left-4 right-4 z-40 transition-all duration-500 sm:left-auto sm:right-6 sm:w-[21rem] ${
+      className={`fixed bottom-[9.5rem] left-4 right-4 z-40 md:bottom-24 transition-all duration-500 sm:left-auto sm:right-6 sm:w-[21rem] ${
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >
