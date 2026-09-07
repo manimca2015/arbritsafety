@@ -2,16 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { footerQuickLinks, contactInfo, socialLinks } from "@/lib/data";
 
 export function Footer() {
   return (
     <footer className="bg-[#0066b2] text-white">
       <div className="mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.3fr_1.1fr_0.7fr_1.1fr]">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-[1.5fr_1.2fr_0.8fr]">
           <div>
             <Image
               src="/footer-logo.svg"
@@ -78,25 +76,6 @@ export function Footer() {
                 </Link>
               ))}
             </nav>
-          </div>
-
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-white/60">Newsletter</p>
-            <p className="mt-4 text-sm text-white/70">
-              Subscribe our newsletter to get our latest update &amp; news
-            </p>
-            <form className="mt-4 flex gap-2" onSubmit={(e) => e.preventDefault()}>
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="border-white/20 bg-white/5 text-white placeholder:text-white/50"
-                aria-label="Email address"
-                required
-              />
-              <Button type="submit" className="bg-white text-[#000] hover:bg-white/90">
-                Join <Send className="ml-2 h-4 w-4" aria-hidden="true" />
-              </Button>
-            </form>
           </div>
         </div>
 
