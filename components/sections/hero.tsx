@@ -38,7 +38,7 @@ export function Hero() {
               preload
               quality={65}
               sizes="100vw"
-              className="object-cover object-center"
+              className="object-cover object-right lg:object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/75 via-navy-deep/45 to-navy-deep/75 lg:bg-gradient-to-br lg:from-navy-deep/95 lg:via-navy-deep/70 lg:to-transparent" />
           </div>
