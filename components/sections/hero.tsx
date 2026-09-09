@@ -27,8 +27,8 @@ export function Hero() {
         `relative` on small screens so the background layer below is clipped to
         it, and `static` from lg up so the very same layer spans the section.
       */}
-      <div className="mx-auto max-w-7xl lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,430px)] lg:items-center lg:gap-10 lg:px-6 lg:pb-24 lg:pt-[calc(var(--site-header-height,80px)+3.5rem)]">
-        <div className="relative overflow-hidden px-5 pb-8 pt-[calc(var(--site-header-height,80px)+1.25rem)] sm:px-6 sm:pb-10 sm:pt-[calc(var(--site-header-height,80px)+2rem)] lg:static lg:overflow-visible lg:p-0">
+      <div className="mx-auto flex max-w-7xl flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,430px)] lg:items-center lg:gap-10 lg:px-6 lg:pb-24 lg:pt-[calc(var(--site-header-height,80px)+3.5rem)]">
+        <div className="relative overflow-hidden px-5 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 lg:static lg:overflow-visible lg:p-0 lg:pt-[calc(var(--site-header-height,80px)+1.25rem)]">
           <div aria-hidden="true" className="absolute inset-0 -z-10">
             <Image
               src="/slider-img.webp"
@@ -111,7 +111,7 @@ export function Hero() {
         </div>
 
         {/* Blue gradient band behind the proof panel (small screens only). */}
-        <div className="bg-gradient-to-b from-navy via-navy to-navy-deep px-5 pb-12 pt-10 sm:px-6 sm:pb-14 sm:pt-12 lg:bg-none lg:p-0">
+        <div className="order-first bg-gradient-to-b from-navy via-navy to-navy-deep px-5 pb-12 pt-[calc(var(--site-header-height,80px)+2rem)] sm:px-6 sm:pb-14 sm:pt-[calc(var(--site-header-height,80px)+2.5rem)] lg:order-none lg:bg-none lg:p-0">
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -147,7 +147,7 @@ export function Hero() {
                 className="absolute inset-0 bg-gradient-to-t from-navy-deep/90 via-navy-deep/10 to-transparent"
               />
 
-              <p className="absolute inset-x-4 bottom-4 max-w-[19ch] font-heading text-[13px] font-semibold leading-snug text-white sm:inset-x-5 sm:bottom-5 sm:text-[15px]">
+              <p className="absolute bottom-7 left-6 right-4 max-w-[19ch] font-heading text-[13px] font-semibold leading-snug text-white sm:bottom-9 sm:left-8 sm:right-5 sm:text-[15px]">
                 Accredited training, delivered on your site or ours.
               </p>
             </div>
