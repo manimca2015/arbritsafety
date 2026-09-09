@@ -153,7 +153,7 @@ export function Hero() {
             </div>
 
             {/* Drifting proof — a licence tag, cut to match the sheets. */}
-            <div className="animate-float absolute -left-[6%] top-[16%] z-10 w-[142px] rounded-[10px_26px_10px_26px] bg-white p-2.5 shadow-[0_18px_45px_rgba(3,17,41,0.35)] sm:w-[190px] sm:p-3.5">
+            <div className="animate-float absolute -left-[6%] top-[13%] lg:top-[16%] z-10 w-[142px] rounded-[10px_26px_10px_26px] bg-white p-2.5 shadow-[0_18px_45px_rgba(3,17,41,0.35)] sm:w-[190px] sm:p-3.5">
               <div className="flex items-center gap-2 sm:gap-2.5">
                 <span
                   aria-hidden="true"
@@ -168,7 +168,7 @@ export function Hero() {
             </div>
 
             <div
-              className="animate-float absolute -right-[6%] top-[54%] z-10 w-[142px] rounded-[10px_26px_10px_26px] bg-white p-2.5 shadow-[0_18px_45px_rgba(3,17,41,0.35)] sm:w-[190px] sm:p-3.5"
+              className="animate-float absolute -right-[6%] top-[45%] z-10 w-[142px] rounded-[10px_26px_10px_26px] bg-white p-2.5 shadow-[0_18px_45px_rgba(3,17,41,0.35)] sm:w-[190px] sm:p-3.5"
               style={{ animationDelay: "1.5s" }}
             >
               <div className="flex items-center gap-2 sm:gap-2.5">
