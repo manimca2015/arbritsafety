@@ -28,7 +28,7 @@ export function Hero() {
         it, and `static` from lg up so the very same layer spans the section.
       */}
       <div className="mx-auto flex max-w-7xl flex-col lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,430px)] lg:items-center lg:gap-10 lg:px-6 lg:pb-24 lg:pt-[calc(var(--site-header-height,80px)+3.5rem)]">
-        <div className="relative overflow-hidden px-5 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 lg:static lg:overflow-visible lg:p-0 lg:pt-[calc(var(--site-header-height,80px)+1.25rem)]">
+        <div className="relative overflow-hidden px-5 pb-8 pt-8 sm:px-6 sm:pb-10 sm:pt-10 lg:static lg:overflow-visible lg:p-0">
           <div aria-hidden="true" className="absolute inset-0 -z-10">
             <Image
               src="/slider-img.webp"
